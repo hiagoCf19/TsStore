@@ -5,7 +5,7 @@ export const Cadastre = () => {
   return (
     <section className="mx-8 sm:mx-[100px]">
       <div className="flex flex-col  gap-6 border border-solid p-5">
-        <p className="text-center">
+        <p className="text-center font-normal text-base text-[#212121d5]">
           Quer receber nossas novidades, promoções exclusivas e 10% OFF na
           primeira compra? Cadastre-se
         </p>

@@ -5,6 +5,7 @@ import { Bombando } from "./components/Bombando/Bombando";
 import { Cadastre } from "./components/Cadastre/Cadastre";
 import { Category } from "./components/Category/Categorias";
 import { Facilidades } from "./components/Facilidades/Facilidades";
+import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import "./global.css";
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Bombando />
         <Facilidades />
         <Cadastre />
+        <Footer />
       </div>
     </>
   );
