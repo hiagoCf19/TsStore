@@ -35,7 +35,7 @@ export const Category: React.FC = () => {
     <>
       <section className="flex mx-8">
         <div className="flex flex-col gap-5 w-full">
-          <h1 className="font-medium text-[1.225rem] flex justify-center ">
+          <h1 className=" font-medium text-[1.75rem] text-center flex justify-center ">
             Busque por categoria:
           </h1>
           <div className="flex flex-wrap gap-6">
