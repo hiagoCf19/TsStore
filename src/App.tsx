@@ -2,6 +2,7 @@ import { GlobalStyles } from "./Styles/LightTheme";
 import { ResetCSS } from "./Styles/Reset";
 import { Banner } from "./components/Banner/Banner";
 import { Bombando } from "./components/Bombando/Bombando";
+import { Cadastre } from "./components/Cadastre/Cadastre";
 import { Category } from "./components/Category/Categorias";
 import { Facilidades } from "./components/Facilidades/Facilidades";
 import { Header } from "./components/Header/Header";
@@ -17,6 +18,7 @@ function App() {
         <Category />
         <Bombando />
         <Facilidades />
+        <Cadastre />
       </div>
     </>
   );
