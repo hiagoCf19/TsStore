@@ -3,6 +3,7 @@ import { ResetCSS } from "./Styles/Reset";
 import { Banner } from "./components/Banner/Banner";
 import { Bombando } from "./components/Bombando/Bombando";
 import { Category } from "./components/Category/Categorias";
+import { Facilidades } from "./components/Facilidades/Facilidades";
 import { Header } from "./components/Header/Header";
 import "./global.css";
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Banner />
         <Category />
         <Bombando />
+        <Facilidades />
       </div>
     </>
   );

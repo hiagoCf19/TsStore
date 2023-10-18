@@ -33,8 +33,8 @@ const roupas: Roupas[] = [
 export const Category: React.FC = () => {
   return (
     <>
-      <section className="flex mx-8">
-        <div className="flex flex-col gap-5 w-full">
+      <section className="flex mx-8 sm:mx-[100px]">
+        <div className="flex flex-col gap-5 w-full sm:justify-center sm:items-center">
           <h1 className=" font-medium text-[1.75rem] text-center flex justify-center ">
             Busque por categoria:
           </h1>
