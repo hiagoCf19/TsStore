@@ -5,7 +5,7 @@ export const Banner = () => {
     <>
       <div className="bg-image sm:bg-imageDesk h-[23.438rem] sm:h-[25.938rem]  bg-center bg-no-repeat bg-cover">
         <div className="relative h-full flex flex-col justify-center items-center">
-          <div className=" flex justify-center gap-[240px] sm:gap-0 items-center sm:flex sm:justify-between sm:w-full sm:px-8 ">
+          <div className=" flex justify-center gap-[15rem] sm:gap-0 items-center sm:flex sm:justify-between sm:w-full sm:px-8 ">
             <ChevronLeft
               className="w-[2.188rem] h-[2.188rem]  sm:w-[3.75rem] sm:h-[3.75rem]"
               color="#FFF"
