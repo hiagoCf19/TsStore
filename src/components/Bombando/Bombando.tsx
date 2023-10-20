@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Bombando: React.FC = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   return (
-    <section className="mx-8 sm:mx-[6.25rem]">
+    <section className="mx-8 sm:mx-[6.25rem]" id="produtos-do-momento">
       <div className="flex flex-col  gap-8">
         <h1 className=" font-medium text-[1.75rem] text-center flex justify-center">
           Produtos que estão bombando!

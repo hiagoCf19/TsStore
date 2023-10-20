@@ -28,7 +28,7 @@ const RadioStyled = styled.div`
     transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
       transform 1.25s cubic-bezier(0.8, 0, 1, 1);
 
-    background-position: -24px 0; /* Ajuste para a esquerda */
+    background-position: 30px 0; /* Ajuste para a esquerda */
   }
 
   &:checked input {
@@ -48,7 +48,7 @@ const RadioStyled = styled.div`
 
   input,
   &:active input {
-    background-position: 20px 0;
+    background-position: -20px 0;
   }
 
   .input:checked {

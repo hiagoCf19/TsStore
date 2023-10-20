@@ -9,8 +9,29 @@ import {
 import { MenuIcon } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+interface Topico {
+  topico: string;
+  ancora: string;
+}
 export const Header = () => {
-  const navMenu: string[] = ["Home", "Nossa loja", "Novidades", "Promoções"];
+  const navMenu: Topico[] = [
+    {
+      topico: "Home",
+      ancora: "#",
+    },
+    {
+      topico: "Nossa loja",
+      ancora: "",
+    },
+    {
+      topico: "Novidades",
+      ancora: "#produtos-do-momento",
+    },
+    {
+      topico: "Promoções",
+      ancora: "",
+    },
+  ];
   return (
     <header className="flex flex-col sm:flex-row sm:bg-primary sm:items-center sm:justify-between ">
       <div className="flex justify-between sm:justify-normal items-center bg-primary h-[3.625rem] px-4 sm:px-28 ">
@@ -27,9 +48,14 @@ export const Header = () => {
                 </SheetTitle>
 
                 <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
-                  {navMenu.map((topico) => (
-                    <a className="hover:text-white" id={topico} key={topico}>
-                      {topico}
+                  {navMenu.map((topico: Topico) => (
+                    <a
+                      className="hover:text-white"
+                      id={topico.topico}
+                      key={topico.topico}
+                      href={topico.ancora}
+                    >
+                      {topico.topico}
                     </a>
                   ))}
                 </SheetDescription>
@@ -39,13 +65,14 @@ export const Header = () => {
         </div>
       </div>
       <nav className="text-[#FFFFFF] gap-[6.25rem] flex text-[1.125rem] font-medium">
-        {navMenu.map((topico) => (
+        {navMenu.map((topico: Topico) => (
           <a
             className="hover:text-[#DAFF01] hidden sm:block cursor-pointer"
-            id={topico}
-            key={topico}
+            id={topico.topico}
+            key={topico.topico}
+            href={topico.ancora}
           >
-            {topico}
+            {topico.topico}
           </a>
         ))}
       </nav>
