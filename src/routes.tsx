@@ -15,6 +15,7 @@ const RoutesApp = () => {
 
         {produtos.map((item: ProdutosInterface, i: number) => (
           <React.Fragment key={i}>
+            {/* /\s+/ => encontra espaços e ' ', /, - etc. => G global, para que seja feito em toda string  */}
             <Route
               path={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
               element={

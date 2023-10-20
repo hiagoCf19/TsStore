@@ -54,6 +54,20 @@ export function ProdutoProvider({ children }: Children) {
       price: 120,
       image: "Assets/Mobile/Imagens cards/bolsa.png",
     },
+    {
+      nome: "Bolsa Coringa",
+      descricao:
+        "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
+      price: 120,
+      image: "Assets/Mobile/Imagens cards/bolsa.png",
+    },
+    {
+      nome: "Bolsa Coringa",
+      descricao:
+        "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
+      price: 120,
+      image: "Assets/Mobile/Imagens cards/bolsa.png",
+    },
   ];
 
   return <ProdutoCtx.Provider value={produto}>{children}</ProdutoCtx.Provider>;
