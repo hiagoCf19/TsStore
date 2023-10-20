@@ -1,53 +1,8 @@
-interface Produtos {
-  nome: string;
-  descricao: string;
-  price: number;
-  image: string;
-}
-const produtos: Produtos[] = [
-  {
-    nome: "Camiseta Conforto",
-    descricao:
-      "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
-    price: 70,
-    image: "Assets/Mobile/Imagens cards/Cconforto.png",
-  },
-  {
-    nome: "Calça Alfaiataria",
-    descricao: "Modelo Wide Leg alfaiataria em linho. Uma peça pra a vida toda",
-    price: 180,
-    image: "Assets/Mobile/Imagens cards/Card calça.png",
-  },
-  {
-    nome: "Tênis Chunky",
-    descricao:
-      "Snicker casual com solado mais alto e modelagem robusta. Modelo unissex",
-    price: 250,
-    image: "Assets/Mobile/Imagens cards/Card tenis.png",
-  },
-  {
-    nome: "Jaqueta Jeans",
-    descricao:
-      "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
-    price: 150,
-    image: "Assets/Mobile/Imagens cards/jaqueta.png",
-  },
-  {
-    nome: "Óculos Redondo",
-    descricao: "Armação metálica em grafite com lentes arredondadas. Sem erro!",
-    price: 120,
-    image: "Assets/Mobile/Imagens cards/oculos.png",
-  },
-  {
-    nome: "Bolsa Coringa",
-    descricao:
-      "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
-    price: 120,
-    image: "Assets/Mobile/Imagens cards/bolsa.png",
-  },
-];
+import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
+import { useContext } from "react";
 
 export const Bombando: React.FC = () => {
+  const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   return (
     <section className="mx-8 sm:mx-[6.25rem]">
       <div className="flex flex-col  gap-8">
@@ -55,7 +10,7 @@ export const Bombando: React.FC = () => {
           Produtos que estão bombando!
         </h1>
         <div className=" flex flex-col sm:flex-row w-full sm:flex-wrap sm:justify-center gap-8">
-          {produtos.map((produto: Produtos, i: number) => (
+          {produtos.map((produto: ProdutosInterface, i: number) => (
             <div
               className=" flex flex-col gap-5 border-b-[1px] border-x-[1px] border-dotted border-[#a7a7a7] sm:w-[21.875rem] "
               key={i}
