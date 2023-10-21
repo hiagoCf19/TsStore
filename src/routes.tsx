@@ -5,10 +5,10 @@ import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import { ProdutoExibido } from "./components/Novidades/Produto";
 import React, { useContext } from "react";
 import MudaCorCtx from "./Context/StateColorContext";
-import ColorContext from "./Context/ColorContext";
+
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-  const cor = useContext(ColorContext);
+
   const { mudaCor }: any = useContext(MudaCorCtx);
 
   return (
@@ -26,12 +26,15 @@ const RoutesApp = () => {
                   nome={item.nome}
                   descricao={item.descricao}
                   price={item.price}
+                  primeiraCor={item.primeiraCor}
+                  segundaCor={item.segundaCor}
+                  terceiraCor={item.terceiraCor}
                   image={`${
-                    mudaCor === cor[0]
+                    mudaCor === item.primeiraCor
                       ? item.image
-                      : mudaCor === cor[1]
+                      : mudaCor === item.segundaCor
                       ? item.imageTwo
-                      : mudaCor === cor[2]
+                      : mudaCor === item.terceiraCor
                       ? item.imageThree
                       : null
                   }`}

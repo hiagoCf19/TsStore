@@ -1,11 +1,9 @@
-import ColorContext from "@/Context/ColorContext";
 import MudaCorCtx from "@/Context/StateColorContext";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 export const Bombando: React.FC = () => {
-  const cor = useContext(ColorContext);
   const { setMudaCor }: any = useContext(MudaCorCtx);
 
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
@@ -37,7 +35,7 @@ export const Bombando: React.FC = () => {
               </div>
               <Link
                 to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
-                onClick={() => setMudaCor(cor[0])}
+                onClick={() => setMudaCor(item.primeiraCor)}
                 className="w-[6.375rem] h-[2.25rem] mx-5 bg-[#9353FF] hover:bg-[#6b3bbc] text-white font-semibold text-base flex items-center justify-center mb-4"
               >
                 Ver mais

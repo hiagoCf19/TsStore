@@ -10,6 +10,9 @@ export interface ProdutosInterface {
   imageTwo?: string;
   imageThree?: string;
   mudaCor?: string;
+  primeiraCor: string;
+  segundaCor: string;
+  terceiraCor: string;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 
@@ -21,6 +24,9 @@ export function ProdutoProvider({ children }: Children) {
         "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
       price: 70,
       image: "Assets/Mobile/Imagens cards/Cconforto.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Calça Alfaiataria",
@@ -28,6 +34,9 @@ export function ProdutoProvider({ children }: Children) {
         "Modelo Wide Leg alfaiataria em linho. Uma peça pra a vida toda",
       price: 180,
       image: "Assets/Mobile/Imagens cards/Card calça.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Tênis Chunky",
@@ -35,6 +44,9 @@ export function ProdutoProvider({ children }: Children) {
         "Snicker casual com solado mais alto e modelagem robusta. Modelo unissex",
       price: 250,
       image: "Assets/Mobile/Imagens cards/Card tenis.png",
+      primeiraCor: "brancoooo",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Jaqueta Jeans",
@@ -42,6 +54,9 @@ export function ProdutoProvider({ children }: Children) {
         "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
       price: 150,
       image: "Assets/Mobile/Imagens cards/jaqueta.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Óculos Redondo",
@@ -49,6 +64,9 @@ export function ProdutoProvider({ children }: Children) {
         "Armação metálica em grafite com lentes arredondadas. Sem erro!",
       price: 120,
       image: "Assets/Mobile/Imagens cards/oculos.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Moletom Manfinity",
@@ -57,6 +75,9 @@ export function ProdutoProvider({ children }: Children) {
       image: "Assets/Mobile/Imagens cards/MoletomBlue.png",
       imageTwo: "Assets/Mobile/Imagens cards/moletomOffwhite.png",
       imageThree: "Assets/Mobile/Imagens cards/moletomBlack.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Bolsa Coringa",
@@ -64,6 +85,9 @@ export function ProdutoProvider({ children }: Children) {
         "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
       price: 120,
       image: "Assets/Mobile/Imagens cards/bolsa.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
     {
       nome: "Bolsa Coringa",
@@ -71,6 +95,9 @@ export function ProdutoProvider({ children }: Children) {
         "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
       price: 120,
       image: "Assets/Mobile/Imagens cards/bolsa.png",
+      primeiraCor: "branco",
+      segundaCor: "roxo",
+      terceiraCor: "Rosa",
     },
   ];
 

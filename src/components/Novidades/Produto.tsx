@@ -10,6 +10,9 @@ export const ProdutoExibido = ({
   price,
   descricao,
   image,
+  primeiraCor,
+  segundaCor,
+  terceiraCor,
 }: ProdutosInterface) => {
   return (
     <React.Fragment>
@@ -37,7 +40,11 @@ export const ProdutoExibido = ({
           {/* CORES */}
           <div className=" flex flex-col gap-4">
             <p className=" font-bold sm:text-xl"> Cores:</p>
-            <Colors />
+            <Colors
+              primeiraCor={primeiraCor}
+              segundaCor={segundaCor}
+              terceiraCor={terceiraCor}
+            />
           </div>
           {/* TAMANHOS */}
           <Fragment>
