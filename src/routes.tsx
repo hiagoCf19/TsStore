@@ -9,7 +9,8 @@ import ColorContext from "./Context/ColorContext";
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const cor = useContext(ColorContext);
-  const { mudaCor, setMudaCor }: any = useContext(MudaCorCtx);
+  const { mudaCor }: any = useContext(MudaCorCtx);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,7 +33,7 @@ const RoutesApp = () => {
                       ? item.imageTwo
                       : mudaCor === cor[2]
                       ? item.imageThree
-                      : setMudaCor(cor[0])
+                      : null
                   }`}
                 />
               }
