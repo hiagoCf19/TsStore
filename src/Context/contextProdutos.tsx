@@ -7,6 +7,9 @@ export interface ProdutosInterface {
   descricao: string;
   price: number;
   image: string;
+  imageTwo?: string;
+  imageThree?: string;
+  mudaCor?: string;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 
@@ -48,11 +51,12 @@ export function ProdutoProvider({ children }: Children) {
       image: "Assets/Mobile/Imagens cards/oculos.png",
     },
     {
-      nome: "Bolsa Coringa",
-      descricao:
-        "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
-      price: 120,
-      image: "Assets/Mobile/Imagens cards/bolsa.png",
+      nome: "Moletom Manfinity",
+      descricao: "Conjunto com moletom & short para o inverno",
+      price: 149,
+      image: "Assets/Mobile/Imagens cards/MoletomBlue.png",
+      imageTwo: "Assets/Mobile/Imagens cards/moletomOffwhite.png",
+      imageThree: "Assets/Mobile/Imagens cards/moletomBlack.png",
     },
     {
       nome: "Bolsa Coringa",

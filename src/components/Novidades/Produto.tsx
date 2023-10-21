@@ -1,12 +1,9 @@
 import { ProdutosInterface } from "@/Context/contextProdutos";
-
 import React, { Fragment } from "react";
-
 import { HeaderProduto } from "./HeaderProduto";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { InputRadio } from "./InputRadio";
 import { Button } from "../ui/button";
+import { Colors } from "./Color";
 
 export const ProdutoExibido = ({
   nome,
@@ -30,6 +27,7 @@ export const ProdutoExibido = ({
           <p className="text-xl font-medium sm:text-2xl">
             R$ {price.toFixed(2)}
           </p>
+          {/* Vendido e entregue */}
           <div className="flex flex-col gap-3">
             <span className="text-[#a7a7a7] text-[14px]">
               Vendido e entregue por TsSore
@@ -39,32 +37,7 @@ export const ProdutoExibido = ({
           {/* CORES */}
           <div className=" flex flex-col gap-4">
             <p className=" font-bold sm:text-xl"> Cores:</p>
-            <RadioGroup defaultValue="option-one" className="flex gap-3">
-              <div className="flex items-center gap-2">
-                <RadioGroupItem
-                  value="option-one"
-                  id="option-one"
-                  className=" bg-[#C2D9FF]"
-                />
-                <Label htmlFor="option-one">Azul claro</Label>
-              </div>
-              <div className="flex items-center gap-2">
-                <RadioGroupItem
-                  value="option-two"
-                  id="option-two"
-                  className="bg-[#e2decf]"
-                />
-                <Label htmlFor="option-two">Offwhite</Label>
-              </div>
-              <div className="flex items-center gap-2">
-                <RadioGroupItem
-                  value="option-three"
-                  id="option-three"
-                  className="bg-[#1f1f1fcb]"
-                />
-                <Label htmlFor="option-three">Preto</Label>
-              </div>
-            </RadioGroup>
+            <Colors />
           </div>
           {/* TAMANHOS */}
           <Fragment>
@@ -76,7 +49,6 @@ export const ProdutoExibido = ({
             {" "}
             Adicionar a sacola
           </Button>
-          <Fragment></Fragment>
         </div>
       </div>
     </React.Fragment>

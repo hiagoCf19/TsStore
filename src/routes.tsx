@@ -2,12 +2,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import Erro404 from "./components/ERROR/Error404";
 import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
-import React, { useContext } from "react";
 import { ProdutoExibido } from "./components/Novidades/Produto";
-
+import React, { useContext } from "react";
+import MudaCorCtx from "./Context/StateColorContext";
+import ColorContext from "./Context/ColorContext";
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-
+  const cor = useContext(ColorContext);
+  const { mudaCor, setMudaCor } = useContext(MudaCorCtx);
   return (
     <BrowserRouter>
       <Routes>
@@ -23,7 +25,15 @@ const RoutesApp = () => {
                   nome={item.nome}
                   descricao={item.descricao}
                   price={item.price}
-                  image={item.image}
+                  image={`${
+                    mudaCor === cor[0]
+                      ? item.image
+                      : mudaCor === cor[1]
+                      ? item.imageTwo
+                      : mudaCor === cor[2]
+                      ? item.imageThree
+                      : setMudaCor(cor[0])
+                  }`}
                 />
               }
             />

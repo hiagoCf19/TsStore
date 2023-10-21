@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Label } from "../ui/label";
 import { Fragment, useState } from "react";
-const RadioStyled = styled.div`
+export const RadioStyled = styled.div`
   display: flex;
 
   input {
@@ -66,6 +66,7 @@ export const InputRadio = () => {
   const handleTamanhoChange = (tamanho: string) => {
     setSelectedTamanho(tamanho);
   };
+
   return (
     <Fragment>
       <div className="flex">
