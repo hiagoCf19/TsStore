@@ -3,7 +3,7 @@ import App from "./App";
 import Erro404 from "./components/ERROR/Error404";
 import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import React, { useContext } from "react";
-import { ProdutoExibido } from "./components/Bombando/Produto";
+import { ProdutoExibido } from "./components/Novidades/Produto";
 
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);

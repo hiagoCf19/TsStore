@@ -1,7 +1,7 @@
 import { GlobalStyles } from "./Styles/LightTheme";
 import { ResetCSS } from "./Styles/Reset";
 import { Banner } from "./components/Banner/Banner";
-import { Bombando } from "./components/Bombando/Bombando";
+import { Bombando } from "./components/Novidades/Bombando";
 import { Cadastre } from "./components/Cadastre/Cadastre";
 import { Categorias } from "./components/Categorias/Categorias";
 import { Facilidades } from "./components/Facilidades/Facilidades";
