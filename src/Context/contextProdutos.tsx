@@ -75,7 +75,7 @@ export function ProdutoProvider({ children }: Children) {
       image: "Assets/Mobile/Imagens cards/MoletomBlue.png",
       imageTwo: "Assets/Mobile/Imagens cards/moletomOffwhite.png",
       imageThree: "Assets/Mobile/Imagens cards/moletomBlack.png",
-      primeiraCor: "branco",
+      primeiraCor: "Azul",
       segundaCor: "roxo",
       terceiraCor: "Rosa",
     },
