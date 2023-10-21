@@ -1,24 +1,53 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 export const Banner = () => {
+  const [bannerAtual, setBannerAtual] = useState(1);
+  setTimeout(() => {
+    bannerAtual < 3 ? setBannerAtual(bannerAtual + 1) : setBannerAtual(1);
+  }, 4000);
+
   return (
     <>
-      <div className="bg-image sm:bg-imageDesk h-[23.438rem] sm:h-[25.938rem]  bg-center bg-no-repeat bg-cover">
+      <div
+        className={` 
+        ${
+          bannerAtual === 1
+            ? "bg-BannerRoxoMobile sm:bg-BannerRoxoDesktop"
+            : null
+        }
+        ${
+          bannerAtual === 2
+            ? " bg-BannerLaranjaMobile sm:bg-BannerRosaDesktop"
+            : null
+        }
+        ${
+          bannerAtual === 3
+            ? "bg-BannerRosaMobile sm:bg-BannerLaranjaDesktop"
+            : null
+        }
+        h-[23.438rem] sm:h-[25.938rem]  bg-center bg-no-repeat bg-cover`}
+      >
         <div className="relative h-full flex flex-col justify-center items-center">
-          <div className=" flex justify-center gap-[15rem] sm:gap-0 items-center sm:flex sm:justify-between sm:w-full sm:px-8 ">
-            <ChevronLeft
-              className="w-[2.188rem] h-[2.188rem]  sm:w-[3.75rem] sm:h-[3.75rem]"
-              color="#FFF"
-            />
-            <ChevronRight
-              className="w-[2.188rem] h-[2.188rem]  sm:w-[3.75rem] sm:h-[3.75rem]"
-              color="#FFF"
-            />
-          </div>
+          <div className=" flex justify-center gap-[15rem] sm:gap-0 items-center sm:flex sm:justify-between sm:w-full sm:px-8 "></div>
           <div className=" absolute flex bottom-5 gap-2">
-            <div className="w-7 h-[3px] bg-[#FFFFFF]"></div>
-            <div className="w-7 h-[3px] bg-[#ffffff7e]"></div>
-            <div className="w-7 h-[3px] bg-[#FFFFFF7e]"></div>
+            <div
+              className={`w-7 h-[3px]  ${
+                bannerAtual === 1 ? "bg-[#DAFF01]" : "bg-[#ffffff7e]"
+              }
+        `}
+            ></div>
+            <div
+              className={`w-7 h-[3px]  ${
+                bannerAtual === 2 ? "bg-[#DAFF01]" : "bg-[#ffffff7e]"
+              }
+        `}
+            ></div>
+            <div
+              className={`w-7 h-[3px]  ${
+                bannerAtual === 3 ? "bg-[#DAFF01]" : "bg-[#ffffff7e]"
+              }
+        `}
+            ></div>
           </div>
         </div>
       </div>
