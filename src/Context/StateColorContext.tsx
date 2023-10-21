@@ -2,10 +2,11 @@ import { ReactNode, createContext, useState } from "react";
 interface Children {
   children: ReactNode;
 }
+
 const MudaCorCtx = createContext({});
 
 export function MudaCorProvider({ children }: Children) {
-  const [mudaCor, setMudaCor] = useState({});
+  const [mudaCor, setMudaCor] = useState({ cor: "" });
 
   return (
     <MudaCorCtx.Provider value={{ mudaCor, setMudaCor }}>

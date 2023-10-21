@@ -9,7 +9,7 @@ import ColorContext from "./Context/ColorContext";
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const cor = useContext(ColorContext);
-  const { mudaCor, setMudaCor } = useContext(MudaCorCtx);
+  const { mudaCor, setMudaCor }: any = useContext(MudaCorCtx);
   return (
     <BrowserRouter>
       <Routes>

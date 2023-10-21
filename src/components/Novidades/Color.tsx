@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { RadioStyled } from "./InputRadio";
 import { Label } from "@radix-ui/react-label";
 import ColorContext, { Cor } from "@/Context/ColorContext";
@@ -7,7 +7,7 @@ import MudaCorCtx from "@/Context/StateColorContext";
 export const Colors = () => {
   const cores = useContext(ColorContext);
 
-  const { mudaCor, setMudaCor } = useContext(MudaCorCtx);
+  const { mudaCor, setMudaCor }: any = useContext(MudaCorCtx);
 
   const handlecorChange = (cor: Cor) => {
     setMudaCor(cor);
