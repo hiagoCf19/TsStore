@@ -3,6 +3,7 @@ interface Children {
   children: ReactNode;
 }
 export interface ProdutosInterface {
+  category: string;
   nome: string;
   descricao: string;
   price: number;
@@ -19,85 +20,81 @@ const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 export function ProdutoProvider({ children }: Children) {
   const produto: ProdutosInterface[] = [
     {
-      nome: "Camiseta Conforto",
+      category: "Camisa",
+      nome: "Camiseta Paris",
       descricao:
         "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
-      price: 70,
-      image: "Assets/Mobile/Imagens cards/Cconforto.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
+      price: 45,
+      image: "Assets/Produtos/casualWear/casualWearCaramelo.png",
+      imageTwo: "Assets/Produtos/casualWear/ParisBranca.png",
+      imageThree: "Assets/Produtos/casualWear/ParisVerde.png",
+      primeiraCor: "Caramelo",
+      segundaCor: "Preto",
+      terceiraCor: "Verde",
     },
     {
-      nome: "Calça Alfaiataria",
+      category: "Conjunto",
+      nome: "Manfinity Homme",
       descricao:
-        "Modelo Wide Leg alfaiataria em linho. Uma peça pra a vida toda",
-      price: 180,
-      image: "Assets/Mobile/Imagens cards/Card calça.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
+        "Manfinity Homme Homens Gráfica Letra Moletom & Cintura Com Cordão Calças De Treino",
+      price: 240,
+      image: "Assets/Produtos/kit outfit/kitLilas.png",
+      imageTwo: "Assets/Produtos/kit outfit/kitBlack.png",
+      imageThree: "Assets/Produtos/kit outfit/kitRed.png",
+      primeiraCor: "Roxo",
+      segundaCor: "Preto",
+      terceiraCor: "Vermelho",
     },
     {
+      category: "tenis",
       nome: "Tênis Chunky",
       descricao:
-        "Snicker casual com solado mais alto e modelagem robusta. Modelo unissex",
-      price: 250,
-      image: "Assets/Mobile/Imagens cards/Card tenis.png",
-      primeiraCor: "brancoooo",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
+        "Tenis indicado para Corrida, Academia e Caminhada. Leve, Macio, Confortável e Respirável. Moda Academia Modelo unissex",
+      price: 160,
+      image: "Assets/Produtos/TenisCorrida/tenisWhite.png",
+      imageTwo: "Assets/Produtos/TenisCorrida/tenisblack.png",
+      imageThree: "Assets/Produtos/TenisCorrida/tenisBlue.png",
+      primeiraCor: "Branco",
+      segundaCor: "Preto",
+      terceiraCor: "Azul",
     },
     {
-      nome: "Jaqueta Jeans",
+      category: "conjunto",
+      nome: "Essence Split",
       descricao:
         "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
       price: 150,
-      image: "Assets/Mobile/Imagens cards/jaqueta.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
+      image: "Assets/Produtos/conjuntoFeminino/CjtPink.png",
+      imageTwo: "Assets/Produtos/conjuntoFeminino/CjtYellow.png",
+      imageThree: "Assets/Produtos/conjuntoFeminino/CjtBlack.png",
+      primeiraCor: "Rosa",
+      segundaCor: "Amarelo",
+      terceiraCor: "Preto",
     },
     {
+      category: "oculos",
       nome: "Óculos Redondo",
       descricao:
         "Armação metálica em grafite com lentes arredondadas. Sem erro!",
       price: 120,
-      image: "Assets/Mobile/Imagens cards/oculos.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
+      image: "Assets/Produtos/Oculos/oculosTransparent.png",
+      imageTwo: "Assets/Produtos/Oculos/oculosBeje.png",
+      imageThree: "Assets/Produtos/Oculos/oculosPink.png",
+      primeiraCor: "Transparente",
+      segundaCor: "Marrom",
       terceiraCor: "Rosa",
     },
     {
-      nome: "Moletom Manfinity",
+      category: "conjunto",
+      nome: "Conjunto Manfinity",
       descricao: "Conjunto com moletom & short para o inverno",
       price: 149,
-      image: "Assets/Mobile/Imagens cards/MoletomBlue.png",
-      imageTwo: "Assets/Mobile/Imagens cards/moletomOffwhite.png",
-      imageThree: "Assets/Mobile/Imagens cards/moletomBlack.png",
+      image: "Assets/Produtos/conjuntoManfinity/moletomBlue.png",
+      imageTwo: "Assets/Produtos/conjuntoManfinity/moletomMarfim.png",
+      imageThree: "Assets/Produtos/conjuntoManfinity/moletomBlack.png",
       primeiraCor: "Azul",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
-    },
-    {
-      nome: "Bolsa Coringa",
-      descricao:
-        "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
-      price: 120,
-      image: "Assets/Mobile/Imagens cards/bolsa.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
-    },
-    {
-      nome: "Bolsa Coringa",
-      descricao:
-        "Bolsa camel em couro sintético de alta duração. Ideal para acompanhar você por uma vida!",
-      price: 120,
-      image: "Assets/Mobile/Imagens cards/bolsa.png",
-      primeiraCor: "branco",
-      segundaCor: "roxo",
-      terceiraCor: "Rosa",
+      segundaCor: "Marfim",
+      terceiraCor: "Preto",
     },
   ];
 

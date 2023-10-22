@@ -48,7 +48,7 @@ export const RadioStyled = styled.div`
 
   input,
   &:active input {
-    background-position: -20px 0;
+    background-position: 40px 0;
   }
 
   .input:checked {

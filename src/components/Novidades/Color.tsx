@@ -13,7 +13,8 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
   const handlecorChange = (cor: string) => {
     setMudaCor(cor);
   };
-
+  mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
+  console.log(mudaCor);
   return (
     <RadioStyled>
       <React.Fragment>
@@ -22,7 +23,9 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
             type="radio"
             className="input"
             checked={mudaCor === primeiraCor}
-            onChange={() => handlecorChange(primeiraCor)}
+            onChange={() => {
+              handlecorChange(primeiraCor);
+            }}
           />
           <Label>{primeiraCor}</Label>
         </div>

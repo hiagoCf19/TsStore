@@ -49,4 +49,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+body{
+	background-color: #212121;
+	color: #FFF;
+}
 `;

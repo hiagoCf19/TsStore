@@ -7,7 +7,7 @@ export const HeaderProduto = () => {
     <React.Fragment>
       <header className="fixed bg-primary h-[65px] w-full flex justify-aroud sm:justify-between  px-4 text-[20px] text-white font-semibold gap-6 sm:px-20">
         <div className="flex items-center gap-4">
-          <VerifiedIcon size={60} color="#DAFF01" />
+          <VerifiedIcon size={45} color="#5CD2E6" />
           <h1 className=""> Confira os detalhes sobre o produto</h1>
         </div>
         <div className="flex items-center">

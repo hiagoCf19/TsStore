@@ -16,13 +16,13 @@ export const Bombando: React.FC = () => {
         <div className=" flex flex-col sm:flex-row w-full sm:flex-wrap sm:justify-center gap-8">
           {produtos.map((item: ProdutosInterface, i: number) => (
             <div
-              className=" flex flex-col gap-5 border-b-[1px] border-x-[1px] border-dotted border-[#a7a7a7] sm:w-[21.875rem] "
+              className=" flex flex-col gap-5 border-b-[1px] shadow-lg shadow-[#5cd2e6] sm:w-[21.875rem] rounded-[6px] "
               key={i}
             >
               <img
                 src={item.image}
                 alt="card"
-                className="w-full h-[25rem] rounded-md"
+                className="w-full h-[25rem] rounded-[6px]"
               />
               <div className="flex flex-col gap-4 px-3 ">
                 <p className=" text-xl font-bold">{item.nome}</p>

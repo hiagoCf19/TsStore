@@ -36,7 +36,7 @@ const RoutesApp = () => {
                       ? item.imageTwo
                       : mudaCor === item.terceiraCor
                       ? item.imageThree
-                      : null
+                      : ""
                   }`}
                 />
               }

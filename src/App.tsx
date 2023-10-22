@@ -1,4 +1,3 @@
-import { GlobalStyles } from "./Styles/LightTheme";
 import { ResetCSS } from "./Styles/Reset";
 import { Banner } from "./components/Banner/Banner";
 import { Bombando } from "./components/Novidades/Bombando";
@@ -13,7 +12,6 @@ function App() {
   return (
     <>
       <ResetCSS />
-      <GlobalStyles />
 
       <Header />
       <Banner />

@@ -6,7 +6,7 @@ interface Children {
 const MudaCorCtx = createContext({});
 
 export function MudaCorProvider({ children }: Children) {
-  const [mudaCor, setMudaCor] = useState({ cor: "" });
+  const [mudaCor, setMudaCor] = useState("Not");
 
   return (
     <MudaCorCtx.Provider value={{ mudaCor, setMudaCor }}>
