@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const BtNeon = styled.button`
   --green: #5cd2e6;
-  width: min-content;
+  width: max-content;
   font-size: 15px;
   padding: 0.7em 2.7em;
   letter-spacing: 0.06em;
@@ -51,6 +51,9 @@ const BtNeon = styled.button`
     transform: translateX(15em);
   }
 `;
-export const BotaoStyled = () => {
-  return <BtNeon>Adicionar</BtNeon>;
+interface ContentProps {
+  content: string;
+}
+export const BotaoStyled = ({ content }: ContentProps) => {
+  return <BtNeon>{content}</BtNeon>;
 };

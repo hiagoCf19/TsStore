@@ -29,6 +29,7 @@ const RoutesApp = () => {
                   primeiraCor={item.primeiraCor}
                   segundaCor={item.segundaCor}
                   terceiraCor={item.terceiraCor}
+                  category={item.category}
                   image={`${
                     mudaCor === item.primeiraCor
                       ? item.image

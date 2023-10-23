@@ -6,7 +6,7 @@ import { InputRadio } from "./InputRadio";
 import { Colors } from "./Color";
 import { ResetCSS } from "@/Styles/Reset";
 import styled from "styled-components";
-import { BotaoStyled } from "./BotaoStyled";
+import { BotaoStyled } from "../UiVerse/BotaoStyled";
 const Linha = styled.div`
   width: max;
   height: 1px;
@@ -64,7 +64,8 @@ export const ProdutoExibido = ({
               <InputRadio />
             </Fragment>
             {/* Botão */}
-            <BotaoStyled />
+
+            <BotaoStyled content="Adicionar" />
           </div>
         </div>
       </div>

@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <ResetCSS />
-
       <Header />
       <Banner />
       <div className="flex flex-col gap-10">

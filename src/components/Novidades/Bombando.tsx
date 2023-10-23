@@ -2,6 +2,7 @@ import MudaCorCtx from "@/Context/StateColorContext";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BotaoStyled } from "../UiVerse/BotaoStyled";
 
 export const Bombando: React.FC = () => {
   const { setMudaCor }: any = useContext(MudaCorCtx);
@@ -16,7 +17,7 @@ export const Bombando: React.FC = () => {
         <div className=" flex flex-col sm:flex-row w-full sm:flex-wrap sm:justify-center gap-8">
           {produtos.map((item: ProdutosInterface, i: number) => (
             <div
-              className=" flex flex-col gap-5 border-b-[1px] shadow-lg shadow-[#5cd2e6] sm:w-[21.875rem] rounded-[6px] "
+              className=" flex flex-col gap-5 border-b-[1px] shadow-lg shadow-[#5cd2e6] sm:w-[21.875rem] rounded-[6px] pb-4 pt-1 "
               key={i}
             >
               <img
@@ -26,7 +27,7 @@ export const Bombando: React.FC = () => {
               />
               <div className="flex flex-col gap-4 px-3 ">
                 <p className=" text-xl font-bold">{item.nome}</p>
-                <span className=" font-normal text-base leading-6 text-[#404040] ">
+                <span className=" font-normal text-base leading-6 text-[#404040] h-[80px] ">
                   {item.descricao}
                 </span>
                 <p className="text-xl font-bold">{`R$ ${item.price.toFixed(
@@ -36,9 +37,9 @@ export const Bombando: React.FC = () => {
               <Link
                 to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
                 onClick={() => setMudaCor(item.primeiraCor)}
-                className="w-[6.375rem] h-[2.25rem] mx-5 bg-[#9353FF] hover:bg-[#6b3bbc] text-white font-semibold text-base flex items-center justify-center mb-4"
+                className="flex items-center px-4"
               >
-                Ver mais
+                <BotaoStyled content="Ver mais " />
               </Link>
             </div>
           ))}

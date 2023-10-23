@@ -7,8 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { SearchStyled } from "../UiVerse/SearchStyled";
 interface Topico {
   topico: string;
   ancora: string;
@@ -33,7 +32,7 @@ export const Header = () => {
     },
   ];
   return (
-    <header className="flex flex-col sm:flex-row sm:bg-primary sm:items-center sm:justify-between ">
+    <header className="fixed flex flex-col sm:flex-row sm:bg-primary sm:items-center sm:justify-between w-full border-b border-solid border-[#5cd2e6]">
       <div className="flex justify-between sm:justify-normal items-center bg-primary h-[3.625rem] px-4 sm:px-28 ">
         <img src="Assets/tsStore.svg" alt="logo" className="w-[140px]" />
         <div className="sm:hidden">
@@ -76,15 +75,8 @@ export const Header = () => {
           </a>
         ))}
       </nav>
-      <div className="p-4 flex justify-center gap-3 sm:mr-28">
-        <Input
-          type="search"
-          placeholder="Busque por um produto"
-          className="w-[15.625rem] border border-solid border-[#a7a7a7] sm:bg-white"
-        />
-        <Button className="sm:border sm:border-solid border-[#CCCCC] ">
-          Search
-        </Button>
+      <div className="p-4 flex justify-center  sm:mr-28">
+        <SearchStyled />
       </div>
     </header>
   );
