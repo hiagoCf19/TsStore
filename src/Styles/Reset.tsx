@@ -49,9 +49,22 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #5cd1e644;
+	border-radius: 100px;
+}
+
+
 body{
-	background-color: #212121;
+	background-color: #1b1b1b;
 	color: #FFF;
 	font-family: 'Inter', sans-serif;
 }	
+
 `;

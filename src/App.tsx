@@ -13,8 +13,9 @@ function App() {
     <>
       <ResetCSS />
       <Header />
-      <Banner />
-      <div className="flex flex-col gap-10">
+
+      <div className="flex flex-col gap-20">
+        <Banner />
         <Categorias />
         <Ofertas />
         <Bombando />

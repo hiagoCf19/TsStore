@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BtNeon = styled.button`
-  --green: #5cd2e6;
+  --green: #875cff;
   width: max-content;
   font-size: 15px;
   padding: 0.7em 2.7em;
@@ -12,22 +12,22 @@ const BtNeon = styled.button`
   overflow: hidden;
   transition: all 0.3s;
   line-height: 1.4em;
-  border: 2px solid var(--green);
+  border: 1px solid var(--green);
   background: linear-gradient(
     to right,
-    rgba(92, 210, 230, 0.1) 1%,
+    rgba(135, 11, 184, 0.1) 1%,
     transparent 40%,
     transparent 60%,
-    rgba(92, 210, 230, 0.1) 100%
+    rgba(135, 11, 184 0.1) 100%
   );
-  color: var(--green);
-  box-shadow: inset 0 0 10px rgba(92, 210, 230, 0.4),
-    0 0 9px 3px rgba(27, 253, 156, 0.1);
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(135, 92, 255, 0.4),
+    0 0 9px 3px rgba(135, 92, 255, 0.1);
 
   &:hover {
-    color: #82ffc9;
-    box-shadow: inset 0 0 10px rgba(92, 210, 230, 0.6),
-      0 0 9px 3px rgba(27, 253, 156, 0.2);
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(135, 92, 255, 0.6),
+      0 0 9px 3px rgba(135, 92, 255, 0.2);
   }
 
   &::before {
@@ -41,8 +41,8 @@ const BtNeon = styled.button`
     background: linear-gradient(
       to right,
       transparent 1%,
-      rgba(92, 210, 230, 0.1) 40%,
-      rgba(92, 210, 230, 0.1) 60%,
+      rgba(135, 11, 184, 0.1) 40%,
+      rgba(135, 11, 184, 0.1) 60%,
       transparent 100%
     );
   }

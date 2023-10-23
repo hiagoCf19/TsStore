@@ -4,7 +4,7 @@ const StyledSearch = styled.div`
   --input-line: #cccccc;
   --input-text-color: #808080;
   --input-text-hover-color: transparent;
-  --input-border-color: #5cd2e6;
+  --input-border-color: rgb(186, 66, 255);
   --input-border-hover-color: #999999;
   --input-bg-color: #333333;
   --search-max-width: 250px;
@@ -20,7 +20,7 @@ const StyledSearch = styled.div`
     border-radius: var(--border-radius);
     padding: 5px 15px;
     background: var(--input-bg-color);
-    box-shadow: 0 0 14px rgba(92, 210, 230, 0.4);
+    box-shadow: 0 0 14px rgba(135, 92, 255, 0.4);
     transition: var(--transition-cubic-bezier);
   }
 
