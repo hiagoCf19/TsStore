@@ -1,7 +1,8 @@
 export const Categorias = () => {
   return (
-    <div>
-      <p>categorias</p>
-    </div>
+    <section className="mx-5 flex gap-4 flex-col">
+      <h1 className=" uppercase -tracking-tighter font-semibold">Ofertas</h1>
+      <div></div>
+    </section>
   );
 };

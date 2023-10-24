@@ -12,8 +12,8 @@ export interface ProdutosInterface {
   imageThree?: string;
   mudaCor?: string;
   primeiraCor: string;
-  segundaCor: string;
-  terceiraCor: string;
+  segundaCor?: string | undefined;
+  terceiraCor?: string;
   PorcentagemDeDesconto?: number;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
@@ -46,20 +46,7 @@ export function ProdutoProvider({ children }: Children) {
       segundaCor: "Preto",
       terceiraCor: "Vermelho",
     },
-    {
-      category: "tenis",
-      nome: "Tênis Chunky",
-      descricao:
-        "Tenis indicado para Corrida, Academia e Caminhada. Leve, Macio, Confortável e Respirável. Moda Academia Modelo unissex",
-      price: 160,
-      image: "Assets/Produtos/TenisCorrida/tenisWhite.png",
-      imageTwo: "Assets/Produtos/TenisCorrida/tenisblack.png",
-      imageThree: "Assets/Produtos/TenisCorrida/tenisBlue.png",
-      primeiraCor: "Branco",
-      segundaCor: "Preto",
-      terceiraCor: "Azul",
-      PorcentagemDeDesconto: 15,
-    },
+
     {
       category: "conjunto",
       nome: "Essence Split",
@@ -86,7 +73,6 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Transparente",
       segundaCor: "Marrom",
       terceiraCor: "Rosa",
-      PorcentagemDeDesconto: 50,
     },
     {
       category: "conjunto",
@@ -99,6 +85,29 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Azul",
       segundaCor: "Marfim",
       terceiraCor: "Preto",
+    },
+    {
+      category: "tenis",
+      nome: "Tênis Chunky",
+      descricao:
+        "Tenis indicado para Corrida, Academia e Caminhada. Leve, Macio, Confortável e Respirável. Moda Academia Modelo unissex",
+      price: 160,
+      image: "Assets/Produtos/TenisCorrida/tenisWhite.png",
+      imageTwo: "Assets/Produtos/TenisCorrida/tenisblack.png",
+      imageThree: "Assets/Produtos/TenisCorrida/tenisBlue.png",
+      primeiraCor: "Branco",
+      segundaCor: "Preto",
+      terceiraCor: "Azul",
+      PorcentagemDeDesconto: 15,
+    },
+    {
+      category: "tenis",
+      nome: "Nike Quest 4",
+      descricao: "O Nike favorito dos corredores",
+      price: 230,
+      image: "Assets/Produtos/TenisNike/nikeTenis.svg",
+      primeiraCor: "Branco",
+      PorcentagemDeDesconto: 10,
     },
   ];
 

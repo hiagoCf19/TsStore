@@ -5,8 +5,8 @@ import MudaCorCtx from "@/Context/StateColorContext";
 
 export interface Props {
   primeiraCor: string;
-  segundaCor: string;
-  terceiraCor: string;
+  segundaCor?: string;
+  terceiraCor?: string;
 }
 export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
   const { mudaCor, setMudaCor }: any = useContext(MudaCorCtx);
@@ -14,7 +14,8 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
     setMudaCor(cor);
   };
   mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
-  console.log(mudaCor);
+
+  console.log(segundaCor);
   return (
     <RadioStyled>
       <React.Fragment>
@@ -29,21 +30,33 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
           />
           <Label>{primeiraCor}</Label>
         </div>
-        <div className="flex items-center">
+        <div
+          className={`flex items-center ${
+            segundaCor === undefined ? "hidden" : null
+          }`}
+        >
           <input
             type="radio"
             className="input"
             checked={mudaCor === segundaCor}
-            onChange={() => handlecorChange(segundaCor)}
+            onChange={() =>
+              handlecorChange(segundaCor !== undefined ? segundaCor : "")
+            }
           />
           <Label>{segundaCor}</Label>
         </div>
-        <div className="flex items-center">
+        <div
+          className={`flex items-center ${
+            segundaCor === undefined ? "hidden" : null
+          }`}
+        >
           <input
             type="radio"
             className="input"
             checked={mudaCor === terceiraCor}
-            onChange={() => handlecorChange(terceiraCor)}
+            onChange={() =>
+              handlecorChange(terceiraCor !== undefined ? terceiraCor : "")
+            }
           />
           <Label>{terceiraCor}</Label>
         </div>

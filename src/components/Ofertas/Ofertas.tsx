@@ -20,15 +20,14 @@ export const Ofertas = () => {
 
   return (
     <section className="mx-5 flex gap-4 flex-col">
-      <div className="">
-        <h1 className=" uppercase -tracking-tighter font-semibold">Ofertas</h1>
-      </div>
+      <h1 className=" uppercase -tracking-tighter font-semibold">Ofertas</h1>
+
       <div className="flex gap-4 overflow-hidden overflow-x-auto">
         {produtosComDesconto.map((produto: ProdutosInterface, i: number) => (
           <div className="flex flex-col gap-2 " key={i}>
             <div className="bg-cor25 w-[150px] h-[150px] rounded-md overflow-hidden relative">
               <div>
-                <div className="absolute ml-4 my-2 p-1 px-2 bg-roxo rounded-full">
+                <div className="absolute ml-2 my-2 p-1 px-2 bg-roxo rounded-full">
                   <span className="flex font-semibold">
                     <ArrowDown size={18} />
                     {produto.PorcentagemDeDesconto}%
@@ -39,7 +38,7 @@ export const Ofertas = () => {
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="text-lg text-[#FFF]">{produto.nome}</h3>
-              <div className="flex gap-1 items-center">
+              <div className="flex gap-1 items-center w-max ">
                 <p className="text-[17px] font-semibold">
                   R$ {precoFinal[i]?.toFixed(2).replace(".", ",")}{" "}
                 </p>

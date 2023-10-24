@@ -7,6 +7,7 @@ import { Colors } from "./Color";
 import { ResetCSS } from "@/Styles/Reset";
 import styled from "styled-components";
 import { BotaoStyled } from "../UiVerse/BotaoStyled";
+
 const Linha = styled.div`
   width: max;
   height: 1px;
@@ -52,11 +53,15 @@ export const ProdutoExibido = ({
             {/* CORES */}
             <div className=" flex flex-col gap-4">
               <p className=" font-bold sm:text-xl"> Cores:</p>
-              <Colors
-                primeiraCor={primeiraCor}
-                segundaCor={segundaCor}
-                terceiraCor={terceiraCor}
-              />
+              {segundaCor && terceiraCor !== undefined ? (
+                <Colors
+                  primeiraCor={primeiraCor}
+                  segundaCor={segundaCor}
+                  terceiraCor={terceiraCor}
+                />
+              ) : (
+                <Colors primeiraCor={primeiraCor} />
+              )}
             </div>
             {/* TAMANHOS */}
             <Fragment>
