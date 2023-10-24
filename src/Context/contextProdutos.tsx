@@ -14,7 +14,7 @@ export interface ProdutosInterface {
   primeiraCor: string;
   segundaCor: string;
   terceiraCor: string;
-  precoComDesconto?: number;
+  PorcentagemDeDesconto?: number;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 
@@ -58,7 +58,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Branco",
       segundaCor: "Preto",
       terceiraCor: "Azul",
-      precoComDesconto: 100,
+      PorcentagemDeDesconto: 15,
     },
     {
       category: "conjunto",
@@ -72,19 +72,21 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Rosa",
       segundaCor: "Amarelo",
       terceiraCor: "Preto",
+      PorcentagemDeDesconto: 20,
     },
     {
       category: "oculos",
       nome: "Óculos Redondo",
       descricao:
         "Armação metálica em grafite com lentes arredondadas. Sem erro!",
-      price: 120,
+      price: 100,
       image: "Assets/Produtos/Oculos/oculosTransparent.png",
       imageTwo: "Assets/Produtos/Oculos/oculosBeje.png",
       imageThree: "Assets/Produtos/Oculos/oculosPink.png",
       primeiraCor: "Transparente",
       segundaCor: "Marrom",
       terceiraCor: "Rosa",
+      PorcentagemDeDesconto: 50,
     },
     {
       category: "conjunto",
