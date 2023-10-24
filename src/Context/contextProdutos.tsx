@@ -14,6 +14,7 @@ export interface ProdutosInterface {
   primeiraCor: string;
   segundaCor: string;
   terceiraCor: string;
+  precoComDesconto?: number;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 
@@ -57,6 +58,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Branco",
       segundaCor: "Preto",
       terceiraCor: "Azul",
+      precoComDesconto: 100,
     },
     {
       category: "conjunto",

@@ -49,6 +49,16 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+	::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  
+	border-radius: 100px;
+}
+@media (min-width: 640px) { 
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -56,9 +66,11 @@ table {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #5cd1e644;
+  background-color: #66219f71;
 	border-radius: 100px;
 }
+ }
+
 
 
 body{

@@ -11,9 +11,6 @@ export const Bombando: React.FC = () => {
   return (
     <section className="mx-8 sm:mx-[6.25rem]" id="produtos-do-momento">
       <div className="flex flex-col  gap-8">
-        <h1 className=" font-medium text-[1.75rem] text-center flex justify-center">
-          Conheça os novos produtos
-        </h1>
         <div className=" flex flex-col sm:flex-row w-full sm:flex-wrap sm:justify-center gap-8">
           {produtos.map((item: ProdutosInterface, i: number) => (
             <div
