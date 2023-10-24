@@ -9,29 +9,9 @@ import {
 import { MenuIcon } from "lucide-react";
 import { SearchStyled } from "../UiVerse/SearchStyled";
 import React from "react";
-interface Topico {
-  topico: string;
-  ancora: string;
-}
+import { Link } from "react-router-dom";
+import { navRoutes } from "@/routes";
 export const Header = () => {
-  const navMenu: Topico[] = [
-    {
-      topico: "Home",
-      ancora: "#",
-    },
-    {
-      topico: "Nossa loja",
-      ancora: "",
-    },
-    {
-      topico: "Novidades",
-      ancora: "#produtos-do-momento",
-    },
-    {
-      topico: "Promoções",
-      ancora: "",
-    },
-  ];
   return (
     <React.Fragment>
       <header className=" sm:absolute fixed sm:bg-transparent flex flex-col sm:flex-row  sm:items-center sm:justify-between w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none">
@@ -41,7 +21,7 @@ export const Header = () => {
             alt="logo"
             className="sm:w-[140px] w-[80px] mt-3"
           />
-          <div className="sm:hidden border mx-4">
+          <div className="sm:hidden  mx-4">
             <Sheet>
               <SheetTrigger>
                 <MenuIcon color="#875cff" className="flex mt-3" />
@@ -53,15 +33,14 @@ export const Header = () => {
                   </SheetTitle>
 
                   <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
-                    {navMenu.map((topico: Topico) => (
-                      <a
+                    {navRoutes.map((topico, i: number) => (
+                      <Link
                         className="hover:text-white outline-none"
-                        id={topico.topico}
-                        key={topico.topico}
-                        href={topico.ancora}
+                        key={i}
+                        to={topico.link}
                       >
-                        {topico.topico}
-                      </a>
+                        {topico.title}
+                      </Link>
                     ))}
                   </SheetDescription>
                 </SheetHeader>
@@ -70,15 +49,15 @@ export const Header = () => {
           </div>
         </div>
         <nav className="text-black gap-[6.25rem] flex text-[1.195rem] font-semibold">
-          {navMenu.map((topico: Topico) => (
-            <a
+          {navRoutes.map((topico, i: number) => (
+            <Link
               className="hover:text-roxo hidden sm:block cursor-pointer"
-              id={topico.topico}
-              key={topico.topico}
-              href={topico.ancora}
+              id={topico.title}
+              key={i}
+              to={topico.link}
             >
-              {topico.topico}
-            </a>
+              {topico.title}
+            </Link>
           ))}
         </nav>
         <div className="p-4 sm:mr-28 hidden sm:block">

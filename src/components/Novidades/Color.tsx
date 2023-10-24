@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RadioStyled } from "./InputRadio";
 import { Label } from "@radix-ui/react-label";
 import MudaCorCtx from "@/Context/StateColorContext";
@@ -13,9 +13,11 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
   const handlecorChange = (cor: string) => {
     setMudaCor(cor);
   };
-  mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
 
-  console.log(segundaCor);
+  useEffect(() => {
+    mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
+  }, []); //esse array vazio serve para garantir que esse useefect só será executado uma vez quando a página for recarregada
+
   return (
     <RadioStyled>
       <React.Fragment>

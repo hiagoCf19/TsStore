@@ -2,7 +2,7 @@ import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { ArrowDown } from "lucide-react";
 import { useContext } from "react";
 
-export const Ofertas = () => {
+export const Preview = () => {
   const produtos = useContext(ProdutoCtx);
 
   const produtosComDesconto = produtos.filter((item) => {
@@ -19,7 +19,10 @@ export const Ofertas = () => {
   });
 
   return (
-    <section className="mx-5 flex gap-4 flex-col">
+    <section
+      className="mx-5 flex gap-4 flex-col relative z-10"
+      id="Ofertas-do-mes"
+    >
       <h1 className=" uppercase -tracking-tighter font-semibold">Ofertas</h1>
 
       <div className="flex gap-4 overflow-hidden overflow-x-auto">

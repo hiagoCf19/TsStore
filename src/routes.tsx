@@ -5,7 +5,19 @@ import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import { ProdutoExibido } from "./components/Novidades/Produto";
 import React, { useContext } from "react";
 import MudaCorCtx from "./Context/StateColorContext";
-
+import { AllOferts } from "./components/Ofertas/AllOferts";
+export const navRoutes = [
+  {
+    component: <App />,
+    link: "/",
+    title: "Home",
+  },
+  {
+    component: <AllOferts />,
+    link: "/todas-as-nossas-ofertas",
+    title: "Promoções",
+  },
+];
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
 
@@ -45,6 +57,9 @@ const RoutesApp = () => {
           </React.Fragment>
         ))}
         <Route path="*" element={<Erro404 />} />
+        {navRoutes.map((route, i) => (
+          <Route path={route.link} element={route.component} />
+        ))}
       </Routes>
     </BrowserRouter>
   );

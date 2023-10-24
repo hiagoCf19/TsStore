@@ -17,20 +17,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "var(--border)",
-        input: "var(--input)",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         roxo: "var(--roxo)",
         cor25: "var(--cor25)",
         background: "var(--background)",
-        foreground: "var(--foreground)",
-        primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
-        },
-        secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
-        },
+        foreground: "hsl(var(--fontMenu))",
       },
 
       keyframes: {
@@ -46,14 +39,6 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      backgroundImage: {
-        BannerRoxoMobile: "url('Assets/Mobile/mobileRoxo.png')",
-        BannerLaranjaMobile: "url('Assets/Mobile/mobileLaranja.png')",
-        BannerRosaMobile: "url('Assets/Mobile/mobileRosa.png')",
-        BannerRoxoDesktop: "url('Assets/Desktop/roxoDesktop.png')",
-        BannerLaranjaDesktop: "url('Assets/Desktop/laranjaDesktop.png')",
-        BannerRosaDesktop: "url('Assets/Desktop/RosaDesktop.png')",
       },
     },
   },

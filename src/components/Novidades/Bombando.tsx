@@ -14,13 +14,13 @@ export const Bombando: React.FC = () => {
         <div className=" flex flex-col sm:flex-row w-full sm:flex-wrap sm:justify-center gap-8">
           {produtos.map((item: ProdutosInterface, i: number) => (
             <div
-              className=" flex flex-col gap-5 border-b-[1px] shadow-md shadow-[#875cff] sm:w-[21.875rem] rounded-[6px] pb-4 pt-1 "
+              className=" flex flex-col gap-5 border-b-[1px] shadow-md shadow-[#875cff] sm:w-[21.875rem] rounded-[6px] pb-4 "
               key={i}
             >
               <img
                 src={item.image}
                 alt="card"
-                className="w-full h-[25rem] rounded-[6px]"
+                className="w-full h-[25rem] rounded-t-[6px]"
               />
               <div className="flex flex-col gap-4 px-3 ">
                 <p className=" text-xl font-bold">{item.nome}</p>
@@ -34,7 +34,7 @@ export const Bombando: React.FC = () => {
               <Link
                 to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
                 onClick={() => setMudaCor(item.primeiraCor)}
-                className="flex items-center px-4"
+                className="flex items-center px-4 w-min"
               >
                 <BotaoStyled content="Ver mais " />
               </Link>

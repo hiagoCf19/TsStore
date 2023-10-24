@@ -77,6 +77,7 @@ body{
 	background-color: #1b1b1b;
 	color: #FFF;
 	font-family: 'Inter', sans-serif;
+	
 }	
 
 `;

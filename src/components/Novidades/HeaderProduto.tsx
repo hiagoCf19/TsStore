@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 export const HeaderProduto = () => {
   return (
     <React.Fragment>
-      <header className="fixed bg-primary h-[65px] w-full flex justify-aroud sm:justify-between  px-4 text-[20px] text-white font-semibold gap-6 sm:px-20">
+      <header className="fixed bg-background h-[65px] w-full flex justify-aroud sm:justify-between  px-4 text-[20px] text-white font-semibold gap-6 sm:px-20 border-b-[1px] border-solid border-roxo sm:border-none">
         <div className="flex items-center gap-4">
-          <VerifiedIcon size={45} color="#5CD2E6" />
+          <VerifiedIcon size={45} color="#875cff" />
           <h1 className=""> Confira os detalhes sobre o produto</h1>
         </div>
         <div className="flex items-center">
@@ -16,7 +16,7 @@ export const HeaderProduto = () => {
           </Link>{" "}
         </div>
       </header>
-      <div className="h-[65px]"></div>
+      <div className="h-[200px] w-full"></div>
     </React.Fragment>
   );
 };

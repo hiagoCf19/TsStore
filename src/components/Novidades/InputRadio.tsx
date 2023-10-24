@@ -19,11 +19,12 @@ export const RadioStyled = styled.div`
       inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
     background-color: hsla(0, 0%, 0%, 0.2);
     background-image: radial-gradient(
-      hsla(200, 100%, 90%, 1) 0%,
-      hsla(200, 100%, 70%, 1) 15%,
-      hsla(200, 100%, 60%, 0.3) 28%,
-      hsla(200, 100%, 30%, 0) 70%
+      hsla(260, 100%, 85%, 1) 0%,
+      hsla(260, 100%, 65%, 1) 5%,
+      hsla(260, 100%, 55%, 0.3) 38%,
+      hsla(260, 100%, 25%, 0) 70%
     );
+
     background-repeat: no-repeat;
     transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
       transform 1.25s cubic-bezier(0.8, 0, 1, 1);

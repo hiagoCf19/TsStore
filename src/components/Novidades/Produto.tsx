@@ -11,7 +11,7 @@ import { BotaoStyled } from "../UiVerse/BotaoStyled";
 const Linha = styled.div`
   width: max;
   height: 1px;
-  background-color: #5cd2e6;
+  background-color: var(--roxo);
 `;
 export const ProdutoExibido = ({
   nome,
@@ -27,7 +27,7 @@ export const ProdutoExibido = ({
       <ResetCSS />
       <HeaderProduto />
       <div className=" flex justify-center items-center  sm:mt-12 h-[80vh]">
-        <div className="sm:shadow-none shadow-lg shadow-[#5cd2e6] flex justify-center flex-col sm:flex-row m-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[6px]  sm:mx-[200px] overflow-y-hidden">
+        <div className="sm:shadow-none shadow-lg shadow-roxo flex justify-center flex-col sm:flex-row m-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[6px]  sm:mx-[200px] overflow-y-hidden">
           <div className="flex-1">
             <img
               src={image}
