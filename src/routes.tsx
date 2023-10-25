@@ -57,7 +57,7 @@ const RoutesApp = () => {
           </React.Fragment>
         ))}
         <Route path="*" element={<Erro404 />} />
-        {navRoutes.map((route, i) => (
+        {navRoutes.map((route) => (
           <Route path={route.link} element={route.component} />
         ))}
       </Routes>
