@@ -9,11 +9,7 @@ export const Banner = () => {
           alt="banner"
           className="hidden sm:block "
         />
-        <img
-          src="Assets/banner-55%off.png"
-          alt="55%off"
-          className=" sm:hidden"
-        />
+        <img src="Assets/bannerOff.png" alt="55%off" className=" sm:hidden" />
       </div>
     </React.Fragment>
   );
