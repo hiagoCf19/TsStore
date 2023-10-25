@@ -17,7 +17,7 @@ export const Categorias = () => {
         {category.map((categoria: string, i: number) => (
           <div
             key={i}
-            className="border border-solid border-roxo p-2 px-6 w-[100px] flex justify-center items-center rounded-lg shadow-md shadow-roxo hover:shadow-lg hover:shadow-roxo bg-[#282828] hover:scale-105 cursor-pointer"
+            className="flex-1 border border-solid border-roxo p-2 px-6  flex justify-center items-center rounded-lg shadow-md shadow-roxo hover:shadow-lg hover:shadow-roxo bg-[#282828] hover:scale-105 cursor-pointer w-[100px]"
             onClick={() => console.log(categoria)}
           >
             <p className="text-muted-foreground font-semibold hover:text-white">

@@ -75,7 +75,7 @@ export function ProdutoProvider({ children }: Children) {
       terceiraCor: "Rosa",
     },
     {
-      category: "Calça",
+      category: "Conjunto",
       nome: "Conjunto Manfinity",
       descricao: "Conjunto com moletom & short para o inverno",
       price: 149,
@@ -87,7 +87,7 @@ export function ProdutoProvider({ children }: Children) {
       terceiraCor: "Preto",
     },
     {
-      category: "Tenis",
+      category: "Tênis",
       nome: "Tênis Chunky",
       descricao:
         "Tenis indicado para Corrida, Academia e Caminhada. Leve, Macio, Confortável e Respirável. Moda Academia Modelo unissex",
@@ -101,7 +101,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 15,
     },
     {
-      category: "Tenis",
+      category: "Tênis",
       nome: "Nike Quest 4",
       descricao: "O Nike favorito dos corredores",
       price: 230,
