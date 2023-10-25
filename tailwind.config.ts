@@ -23,7 +23,7 @@ module.exports = {
         roxo: "var(--roxo)",
         cor25: "var(--cor25)",
         background: "var(--background)",
-        foreground: "hsl(var(--fontMenu))",
+        foreground: "var(--fontMenu)",
       },
 
       keyframes: {

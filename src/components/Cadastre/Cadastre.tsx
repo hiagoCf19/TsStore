@@ -10,6 +10,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { BotaoStyled } from "../UiVerse/BotaoStyled";
+import { BotaoSM } from "../UiVerse/BotaoSMstyled";
 
 export const Cadastre = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -18,34 +20,34 @@ export const Cadastre = () => {
   const testResult: boolean = regTestEmail.test(userEmail);
 
   return (
-    <section className="mx-8 sm:mx-[6.25rem] sm:flex sm:justify-center">
-      <div className="flex flex-col  gap-6 border border-solid p-5 sm:w-[45rem]  sm:items-center ">
-        <p className="text-center font-normal text-base text-[#212121d5] sm:text-lg">
+    <section className="mx-5 sm:mx-[6.25rem] sm:flex sm:justify-center ">
+      <div className="flex flex-col  gap-6 border border-solid border-roxo p-5 sm:w-[45rem] sm:items-center rounded-lg ">
+        <p className="text-center font-normal text-base text-[#a7a7a7] sm:text-lg">
           Quer receber nossas novidades, promoções exclusivas e 10% OFF na
           primeira compra? Cadastre-se
         </p>
-        <div className="flex">
+        <div className="flex gap-4">
           <Input
             placeholder="Digite seu e-mail"
             type="text"
-            className="border-[1px] border-solid border-[#0000008d] w-[12.5rem] sm:w-[18.75rem]"
+            className="border-[1px] border-solid border-roxo shadow-md shadow-roxo w-[12.5rem] sm:w-[18.75rem]"
             onChange={(e) => setUserEmail(e.target.value)}
             value={userEmail}
           />
           <AlertDialog>
             <AlertDialogTrigger
-              className="bg-primary p-3 w-[100px] h-[40px] text-[#FFF]"
+              className=" w-[100px] h-[40px] text-[#FFF]"
               onClick={() => {
                 testResult ? setValidado(true) : setValidado(false);
               }}
             >
-              Enviar
+              <BotaoSM content="Enviar" />
             </AlertDialogTrigger>
             {validado ? (
-              <AlertDialogContent className="bg-[#FFF]">
+              <AlertDialogContent className="bg-background border border-solid border-roxo w-[90%] rounded-lg shadow-roxo">
                 <AlertDialogHeader>
                   <AlertDialogTitle>Parabéns!</AlertDialogTitle>
-                  <AlertDialogDescription>
+                  <AlertDialogDescription className="text-[#a7a7a7]">
                     Cadastro realizado com sucesso, em breve você receberá um
                     cupom para obter 10% de desconto em sua primeira compra!
                   </AlertDialogDescription>
@@ -57,21 +59,21 @@ export const Cadastre = () => {
                       setUserEmail("");
                     }}
                   >
-                    Continuar
+                    <BotaoStyled content="Continuar" />
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>
             ) : (
-              <AlertDialogContent className="bg-[#FFF]">
+              <AlertDialogContent className="bg-background border border-solid border-[#952323] w-[90%] rounded-lg shadow-[#952323] ">
                 <AlertDialogHeader>
                   <AlertDialogTitle>E-mail invalido</AlertDialogTitle>
-                  <AlertDialogDescription>
+                  <AlertDialogDescription className="text-[#a7a7a7] text-base">
                     Insira um e-mail válido para continuar o seu cadastro!
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogAction onClick={() => setUserEmail("")}>
-                    Tentar novamente
+                    <BotaoSM content="Tentar novamente" />
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>

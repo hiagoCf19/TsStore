@@ -24,7 +24,7 @@ export const Bombando: React.FC = () => {
               />
               <div className="flex flex-col gap-4 px-3 ">
                 <p className=" text-xl font-bold">{item.nome}</p>
-                <span className=" font-normal text-base leading-6 text-[#404040] h-[80px] ">
+                <span className=" font-normal text-base leading-6 text-[#a7a7a7]  ">
                   {item.descricao}
                 </span>
                 <p className="text-xl font-bold">{`R$ ${item.price.toFixed(

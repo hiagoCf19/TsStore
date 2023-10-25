@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { ContentProps } from "./BotaoStyled";
 
-const BtNeon = styled.button`
+const StyledButtonSm = styled.div`
   --green: #875cff;
   width: max-content;
   font-size: 15px;
-  padding: 0.7em 2.7em;
+  padding: 0.7em 1.4em;
   letter-spacing: 0.06em;
   position: relative;
   font-family: inherit;
@@ -51,9 +52,7 @@ const BtNeon = styled.button`
     transform: translateX(15em);
   }
 `;
-export interface ContentProps {
-  content: string;
-}
-export const BotaoStyled = ({ content }: ContentProps) => {
-  return <BtNeon>{content}</BtNeon>;
+
+export const BotaoSM = ({ content }: ContentProps) => {
+  return <StyledButtonSm>{content}</StyledButtonSm>;
 };

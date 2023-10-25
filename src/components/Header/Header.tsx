@@ -14,8 +14,8 @@ import { navRoutes } from "@/routes";
 export const Header = () => {
   return (
     <React.Fragment>
-      <header className=" sm:absolute fixed sm:bg-transparent flex flex-col sm:flex-row  sm:items-center sm:justify-between w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none">
-        <div className="flex justify-between sm:justify-normal items-center h-[3.625rem] px-4 sm:px-28 bg-transparent ">
+      <header className=" sm:absolute fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center sm:justify-between w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none">
+        <div className="flex justify-between sm:justify-normal items-center h-[3.625rem] px-4 sm:px-28 bg-transparent">
           <img
             src="Assets/tsStore.svg"
             alt="logo"
@@ -35,7 +35,7 @@ export const Header = () => {
                   <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
                     {navRoutes.map((topico, i: number) => (
                       <Link
-                        className="hover:text-white outline-none"
+                        className="hover:text-roxo outline-none"
                         key={i}
                         to={topico.link}
                       >

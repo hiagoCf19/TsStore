@@ -1,6 +1,7 @@
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { ArrowDown } from "lucide-react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export const Preview = () => {
   const produtos = useContext(ProdutoCtx);
@@ -19,12 +20,8 @@ export const Preview = () => {
   });
 
   return (
-    <section
-      className="mx-5 flex gap-4 flex-col relative z-10"
-      id="Ofertas-do-mes"
-    >
+    <section className="mx-5 flex gap-4 flex-col relative" id="Ofertas-do-mes">
       <h1 className=" uppercase -tracking-tighter font-semibold">Ofertas</h1>
-
       <div className="flex gap-4 overflow-hidden overflow-x-auto">
         {produtosComDesconto.map((produto: ProdutosInterface, i: number) => (
           <div className="flex flex-col gap-2 " key={i}>
@@ -53,6 +50,7 @@ export const Preview = () => {
           </div>
         ))}
       </div>
+      <Link to={"/todas-as-nossas-ofertas"}>a</Link>
     </section>
   );
 };
