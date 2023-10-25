@@ -16,7 +16,7 @@ export const HeaderProduto = () => {
           </Link>{" "}
         </div>
       </header>
-      <div className="h-[200px] w-full"></div>
+      <div className="h-[65px] w-full"></div>
     </React.Fragment>
   );
 };

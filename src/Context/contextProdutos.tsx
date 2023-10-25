@@ -22,16 +22,16 @@ export function ProdutoProvider({ children }: Children) {
   const produto: ProdutosInterface[] = [
     {
       category: "Camisa",
-      nome: "Camiseta Paris",
+      nome: "Camiseta Casual Wear",
       descricao:
         "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
       price: 45,
-      image: "Assets/Produtos/casualWear/casualWearCaramelo.png",
+      image: "Assets/Produtos/casualWear/ParisVerde.png",
       imageTwo: "Assets/Produtos/casualWear/ParisBranca.png",
-      imageThree: "Assets/Produtos/casualWear/ParisVerde.png",
-      primeiraCor: "Caramelo",
+      imageThree: "Assets/Produtos/casualWear/casualWearCaramelo.png",
+      primeiraCor: "Verde",
       segundaCor: "Preto",
-      terceiraCor: "Verde",
+      terceiraCor: "Caramelo",
     },
     {
       category: "Conjunto",
