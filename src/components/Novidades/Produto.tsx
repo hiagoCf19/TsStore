@@ -28,11 +28,11 @@ export const ProdutoExibido = ({
       <HeaderProduto />
       <div className=" flex justify-center items-center  sm:mt-12 h-[80vh]">
         <div className="sm:shadow-none shadow-lg shadow-roxo flex justify-center flex-col sm:flex-row m-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[6px]  sm:mx-[200px] overflow-y-hidden">
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <img
               src={image}
               alt={nome}
-              className="sm:w-[34.375rem] rounded-[4px] sm:rounded-[8px] max-h-[28.125rem] w-[23.125rem] "
+              className="sm:w-[34.375rem] rounded-[4px] sm:rounded-[8px] max-h-[28.125rem] w-full "
             />
           </div>
 

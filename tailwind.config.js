@@ -24,6 +24,10 @@ module.exports = {
         cor25: "var(--cor25)",
         background: "var(--background)",
         foreground: "var(--fontMenu)",
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "var(--muted-foreground)",
+        },
       },
 
       keyframes: {

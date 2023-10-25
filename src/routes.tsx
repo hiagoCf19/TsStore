@@ -58,7 +58,9 @@ const RoutesApp = () => {
         ))}
         <Route path="*" element={<Erro404 />} />
         {navRoutes.map((route) => (
-          <Route path={route.link} element={route.component} />
+          <React.Fragment key={route.title}>
+            <Route path={route.link} element={route.component} />
+          </React.Fragment>
         ))}
       </Routes>
     </BrowserRouter>
