@@ -1,8 +1,10 @@
 export const Footer = () => {
   return (
-    <footer className="h-[4.625rem] w-full bg-primary text-white">
+    <footer className="h-[4.625rem] w-full bg-primary text-white border-t border-solid border-roxo">
       <div className="flex justify-center items-center h-full font-semibold">
-        <p>2023 &copy; Hiago Ferreira</p>
+        <a href="https://hiagoferreira.netlify.app/" target="about_blank">
+          2023 &copy; Hiago Ferreira
+        </a>
       </div>
     </footer>
   );

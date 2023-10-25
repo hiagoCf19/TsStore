@@ -26,11 +26,11 @@ export const Cadastre = () => {
           Quer receber nossas novidades, promoções exclusivas e 10% OFF na
           primeira compra? Cadastre-se
         </p>
-        <div className="flex gap-4">
+        <div className="flex gap-2 mx-5">
           <Input
             placeholder="Digite seu e-mail"
             type="text"
-            className="border-[1px] border-solid border-roxo shadow-md shadow-roxo w-[12.5rem] sm:w-[18.75rem]"
+            className="border-[1px] border-solid border-roxo shadow-md  w-[12.5rem] sm:w-[18.75rem]"
             onChange={(e) => setUserEmail(e.target.value)}
             value={userEmail}
           />

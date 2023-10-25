@@ -5,11 +5,11 @@ const StyledButtonSm = styled.div`
   --green: #875cff;
   width: max-content;
   font-size: 15px;
-  padding: 0.7em 1.4em;
+  padding: 0.5em 1.4em;
   letter-spacing: 0.06em;
   position: relative;
   font-family: inherit;
-  border-radius: 0.6em;
+  border-radius: 0.4em;
   overflow: hidden;
   transition: all 0.3s;
   line-height: 1.4em;

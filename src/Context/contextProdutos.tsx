@@ -48,7 +48,7 @@ export function ProdutoProvider({ children }: Children) {
     },
 
     {
-      category: "conjunto",
+      category: "Conjunto",
       nome: "Essence Split",
       descricao:
         "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
@@ -62,7 +62,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 20,
     },
     {
-      category: "oculos",
+      category: "Oculos",
       nome: "Óculos Redondo",
       descricao:
         "Armação metálica em grafite com lentes arredondadas. Sem erro!",
@@ -75,7 +75,7 @@ export function ProdutoProvider({ children }: Children) {
       terceiraCor: "Rosa",
     },
     {
-      category: "conjunto",
+      category: "Calça",
       nome: "Conjunto Manfinity",
       descricao: "Conjunto com moletom & short para o inverno",
       price: 149,
@@ -87,7 +87,7 @@ export function ProdutoProvider({ children }: Children) {
       terceiraCor: "Preto",
     },
     {
-      category: "tenis",
+      category: "Tenis",
       nome: "Tênis Chunky",
       descricao:
         "Tenis indicado para Corrida, Academia e Caminhada. Leve, Macio, Confortável e Respirável. Moda Academia Modelo unissex",
@@ -101,7 +101,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 15,
     },
     {
-      category: "tenis",
+      category: "Tenis",
       nome: "Nike Quest 4",
       descricao: "O Nike favorito dos corredores",
       price: 230,
