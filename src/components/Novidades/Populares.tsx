@@ -3,7 +3,6 @@ import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BotaoStyled } from "../UiVerse/BotaoStyled";
-import { TitleGeneric } from "../UiVerse/title";
 
 export const Bombando: React.FC = () => {
   const { setMudaCor }: any = useContext(MudaCorCtx);
