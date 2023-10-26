@@ -4,9 +4,9 @@ const StyledSearch = styled.div`
   --input-line: #cccccc;
   --input-text-color: #808080;
   --input-text-hover-color: transparent;
-  --input-border-color: rgb(186, 66, 255);
+  --input-border-color: rgb(135, 92, 255);
   --input-border-hover-color: #999999;
-  --input-bg-color: #333333;
+  --input-bg-color: #252525;
   --search-max-width: 250px;
   --search-min-width: 150px;
   --border-radius: 5px;

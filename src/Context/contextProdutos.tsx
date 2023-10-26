@@ -32,6 +32,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Verde",
       segundaCor: "Preto",
       terceiraCor: "Caramelo",
+      PorcentagemDeDesconto: 20,
     },
     {
       category: "Conjunto",
@@ -45,6 +46,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Roxo",
       segundaCor: "Preto",
       terceiraCor: "Vermelho",
+      PorcentagemDeDesconto: 20,
     },
 
     {
@@ -73,6 +75,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Transparente",
       segundaCor: "Marrom",
       terceiraCor: "Rosa",
+      PorcentagemDeDesconto: 20,
     },
     {
       category: "Conjunto",
@@ -85,6 +88,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Azul",
       segundaCor: "Marfim",
       terceiraCor: "Preto",
+      PorcentagemDeDesconto: 20,
     },
     {
       category: "Tênis",

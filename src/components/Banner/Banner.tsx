@@ -3,7 +3,7 @@ import React from "react";
 export const Banner = () => {
   return (
     <React.Fragment>
-      <div className="mx-[20px] sm:mx-0">
+      <div className="mx-[20px] sm:mx-0 abs">
         <img
           src="Assets/BannerTop.png"
           alt="banner"

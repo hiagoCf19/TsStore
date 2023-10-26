@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { RadioStyled } from "./InputRadio";
+
 import { Label } from "@radix-ui/react-label";
 import MudaCorCtx from "@/Context/StateColorContext";
+import { RadioStyled } from "./InputRadio";
 
 export interface Props {
   primeiraCor: string;

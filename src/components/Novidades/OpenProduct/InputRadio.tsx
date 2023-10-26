@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Label } from "../ui/label";
+
 import { Fragment, useState } from "react";
+import { Label } from "@radix-ui/react-label";
 export const RadioStyled = styled.div`
   display: flex;
 

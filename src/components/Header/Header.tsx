@@ -1,5 +1,5 @@
 import { SearchStyled } from "../UiVerse/SearchStyled";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { navRoutes } from "@/routes";
 import {
@@ -11,17 +11,16 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
-
-export const Header = () => {
+interface PropsHeader {
+  props: ReactNode;
+  line: ReactNode;
+}
+export const Header = ({ props, line }: PropsHeader) => {
   return (
     <React.Fragment>
-      <header className=" sm:absolute fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center sm:justify-between w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none">
+      <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center sm:justify-between w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none">
         <div className="flex justify-between sm:justify-normal items-center h-[3.625rem] px-4 sm:px-28 bg-transparent">
-          <img
-            src="Assets/tsStore.svg"
-            alt="logo"
-            className="sm:w-[140px] w-[80px] "
-          />
+          {props}
           <div className="sm:hidden  mx-4">
             <Sheet>
               <SheetTrigger>
@@ -46,7 +45,7 @@ export const Header = () => {
             </Sheet>
           </div>
         </div>
-        <nav className="text-black gap-[6.25rem] flex text-[1.195rem] font-semibold">
+        <nav className=" text-muted-foreground gap-[6.25rem] flex text-[1.195rem] font-semibold">
           {navRoutes.map((topico, i: number) => (
             <Link
               className="hover:text-roxo hidden sm:block cursor-pointer"
@@ -62,7 +61,8 @@ export const Header = () => {
           <SearchStyled />
         </div>
       </header>
-      <div className="h-[60px] w-full sm:hidden mb-7 "></div>
+      {line}
+      <div className="h-[60px] w-full sm:hidden mb-7"></div>
     </React.Fragment>
   );
 };

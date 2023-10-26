@@ -1,10 +1,14 @@
-import { TiArrowBackOutline } from "react-icons/ti";
-import { Header } from "../Header/Header";
 import { Link } from "react-router-dom";
+import { Header } from "../Header/Header";
+import { TiArrowBackOutline } from "react-icons/ti";
+import React from "react";
 
-export const AllOferts = () => {
+interface PropsCategory {
+  category: string;
+}
+export const AllCategorys = ({ category }: PropsCategory) => {
   return (
-    <>
+    <React.Fragment>
       <Header
         props={
           <Link to={"/"}>
@@ -15,6 +19,7 @@ export const AllOferts = () => {
         }
         line={<div className="h-[1px] w-full bg-roxo"></div>}
       />
-    </>
+      {category}
+    </React.Fragment>
   );
 };

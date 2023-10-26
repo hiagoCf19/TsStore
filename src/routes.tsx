@@ -1,11 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useContext } from "react";
 import Erro404 from "./components/ERROR/Error404";
 import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
-import { ProdutoExibido } from "./components/Novidades/Produto";
-import React, { useContext } from "react";
 import MudaCorCtx from "./Context/StateColorContext";
 import { AllOferts } from "./components/Ofertas/AllOferts";
+import { AllCategorys } from "./components/Categorias/OpenCategory";
+import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
+import { ResetCSS } from "./Styles/Reset";
+export const category: string[] = [];
 export const navRoutes = [
   {
     component: <App />,
@@ -18,19 +21,24 @@ export const navRoutes = [
     title: "Promoções",
   },
 ];
+
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-
   const { mudaCor }: any = useContext(MudaCorCtx);
 
+  for (let i = 0; i < produtos.length; i++) {
+    const categoria = produtos[i].category;
+    !category.includes(categoria) ? category.push(categoria) : null;
+  }
   return (
     <BrowserRouter>
+      <ResetCSS />
       <Routes>
         <Route path="/" element={<App />} />
 
         {produtos.map((item: ProdutosInterface, i: number) => (
           <React.Fragment key={i}>
-            {/* /\s+/ => encontra espaços e ' ', /, - etc. => G global, para que seja feito em toda string  */}
+            {/* /\s+/ => encontra espaços : ' ', /, - etc. => G global, para que seja feito em toda string  */}
             <Route
               path={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
               element={
@@ -61,6 +69,13 @@ const RoutesApp = () => {
           <React.Fragment key={route.title}>
             <Route path={route.link} element={route.component} />
           </React.Fragment>
+        ))}
+        {category.map((route, i) => (
+          <Route
+            path={`/${route.replace(/\s+/g, "-").toLowerCase()}`}
+            element={<AllCategorys category={route} />}
+            key={i}
+          />
         ))}
       </Routes>
     </BrowserRouter>

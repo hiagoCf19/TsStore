@@ -66,7 +66,7 @@ table {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #66219f71;
+  background-color: #66219f27;
 	border-radius: 100px;
 }
  }
