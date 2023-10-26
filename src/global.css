@@ -22,3 +22,6 @@
     @apply bg-background w-full;
   }
 }
+.shadow-bottom {
+  box-shadow: 0px 4px 1px 1px rgb(212, 6, 6);
+}

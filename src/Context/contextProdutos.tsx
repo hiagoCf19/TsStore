@@ -35,7 +35,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 20,
     },
     {
-      category: "Conjunto",
+      category: "Conjuntos",
       nome: "Manfinity Homme",
       descricao:
         "Manfinity Homme Homens Gráfica Letra Moletom & Cintura Com Cordão Calças De Treino",
@@ -50,7 +50,7 @@ export function ProdutoProvider({ children }: Children) {
     },
 
     {
-      category: "Conjunto",
+      category: "Conjuntos",
       nome: "Essence Split",
       descricao:
         "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
@@ -78,7 +78,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 20,
     },
     {
-      category: "Conjunto",
+      category: "Conjuntos",
       nome: "Conjunto Manfinity",
       descricao: "Conjunto com moletom & short para o inverno",
       price: 149,

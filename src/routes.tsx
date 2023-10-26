@@ -73,7 +73,7 @@ const RoutesApp = () => {
         {category.map((route, i) => (
           <Route
             path={`/${route.replace(/\s+/g, "-").toLowerCase()}`}
-            element={<AllCategorys category={route} />}
+            element={<AllCategorys propsCategory={route} />}
             key={i}
           />
         ))}
