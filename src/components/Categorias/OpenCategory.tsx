@@ -3,6 +3,7 @@ import { Header } from "../Header/Header";
 import { TiArrowBackOutline } from "react-icons/ti";
 import React, { Fragment, useState } from "react";
 import { category } from "@/routes";
+import { ContentCategory } from "./OpenCategoryContent";
 
 interface PropsCategory {
   propsCategory: string;
@@ -46,7 +47,6 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
                 }`}
                 onClick={() => {
                   setAtivo(i);
-                  console.log(ativo);
                 }}
               >
                 {AllCategory}
@@ -54,36 +54,36 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
             </Fragment>
           ))}
         </aside>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col sm:w-full ">
           {ativo === 0 ? (
             <img
               src="Assets/camisasBanner.png"
               alt={propsCategory}
-              className="h-[400px] ml-12 rounded-xl"
+              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
             />
           ) : ativo === 1 ? (
             <img
               src="Assets/conjuntosBanner.png"
               alt={propsCategory}
-              className="h-[400px] ml-12 rounded-xl"
+              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
             />
           ) : ativo === 2 ? (
             <img
               src="Assets/conjuntosBanner.png"
               alt={propsCategory}
-              className="h-[400px] ml-12 rounded-xl"
+              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
             />
           ) : ativo === 3 ? (
             <img
-              src="Assets/conjuntosBanner.png"
+              src="Assets/tenisBanner.png"
               alt={propsCategory}
-              className="h-[400px] ml-12 rounded-xl"
+              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
             />
           ) : (
             ""
           )}
-          {propsCategory}
         </div>
+        <ContentCategory props={propsCategory} />
       </section>
     </React.Fragment>
   );
