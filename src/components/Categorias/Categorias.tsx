@@ -5,9 +5,9 @@ import { TitleGeneric } from "../UiVerse/title";
 
 export const Categorias = () => {
   return (
-    <section className="mx-5 flex gap-4 flex-col">
+    <section className="mx-5 flex gap-4 flex-col relative overflow-auto">
       <TitleGeneric title={"Categorias"} />
-      <div className="flex flex-wrap gap-8 mx-2 sm:mx-[100px] sm:justify-center">
+      <div className="flex gap-4 sm:gap-10 overflow-visible overflow-x-scroll sm:overflow-x-hidden sm:flex sm:justify-center  ">
         {category.map((categoria, i) => (
           <Link
             key={i}
