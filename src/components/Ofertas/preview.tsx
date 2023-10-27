@@ -27,7 +27,7 @@ export const Preview = () => {
       <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:mb-5 sm:text-[24px]">
         Ofertas
       </h1>
-      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex sm:justify-center  ">
+      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex  ">
         {produtosComDesconto.map((produto: ProdutosInterface, i: number) => (
           <div className="flex flex-col gap-2" key={i}>
             <div className="bg-cor25 w-[150px] h-[150px] rounded-md overflow-hidden relative">

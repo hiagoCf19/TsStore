@@ -3,7 +3,7 @@ import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-const CardSty = styled.div`
+export const CardSty = styled.div`
   position: relative;
   width: 180px;
   height: 300px;

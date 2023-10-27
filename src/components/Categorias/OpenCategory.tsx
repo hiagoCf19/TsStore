@@ -54,36 +54,38 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
             </Fragment>
           ))}
         </aside>
-        <div className="flex flex-col sm:w-full ">
-          {ativo === 0 ? (
-            <img
-              src="Assets/camisasBanner.png"
-              alt={propsCategory}
-              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-            />
-          ) : ativo === 1 ? (
-            <img
-              src="Assets/conjuntosBanner.png"
-              alt={propsCategory}
-              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-            />
-          ) : ativo === 2 ? (
-            <img
-              src="Assets/conjuntosBanner.png"
-              alt={propsCategory}
-              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-            />
-          ) : ativo === 3 ? (
-            <img
-              src="Assets/tenisBanner.png"
-              alt={propsCategory}
-              className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-            />
-          ) : (
-            ""
-          )}
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col sm:w-full ">
+            {ativo === 0 ? (
+              <img
+                src="Assets/camisasBanner.png"
+                alt={propsCategory}
+                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
+              />
+            ) : ativo === 1 ? (
+              <img
+                src="Assets/conjuntosBanner.png"
+                alt={propsCategory}
+                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
+              />
+            ) : ativo === 2 ? (
+              <img
+                src="Assets/conjuntosBanner.png"
+                alt={propsCategory}
+                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
+              />
+            ) : ativo === 3 ? (
+              <img
+                src="Assets/tenisBanner.png"
+                alt={propsCategory}
+                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
+              />
+            ) : (
+              ""
+            )}
+          </div>
+          <ContentCategory props={propsCategory} />
         </div>
-        <ContentCategory props={propsCategory} />
       </section>
     </React.Fragment>
   );
