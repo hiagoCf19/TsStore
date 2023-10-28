@@ -1,29 +1,37 @@
 import { Banner } from "./components/Banner/Banner";
 import { Bombando } from "./components/Novidades/Populares";
 import { Cadastre } from "./components/Cadastre/Cadastre";
-import { Categorias } from "./components/Categorias/Categorias";
+import { CategoriasMob } from "./components/Categorias/CategoriasMob";
 import { Facilidades } from "./components/Facilidades/Facilidades";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { Preview } from "./components/Ofertas/preview";
 import "./global.css";
+import { CoHeader } from "./components/Header/CoHeader";
+
 function App() {
   return (
     <>
-      <Header
-        line={""}
-        props={
-          <img
-            src="Assets/tsStore.svg"
-            alt="logo"
-            className="sm:w-[120px] w-[50px] sm:mt-1"
-          />
-        }
-      />
+      <div className="fixed bg-background w-full z-50">
+        <Header
+          line={""}
+          props={
+            <div className="sm:bg-background px-2 sm:h-10 flex items-center justify-between w-full">
+              <img
+                src="Assets/tsStoreMobile.svg"
+                alt="logo"
+                className=" w-[90px] sm:w-[110px] "
+              />
+            </div>
+          }
+        />
+        <CoHeader />
+      </div>
+      <div className="sm:h-[18vh] h-[10vh] w-full mb-4"></div>
       <div className="flex flex-col gap-10">
         <Banner />
         <Preview />
-        <Categorias />
+        <CategoriasMob />
         <Bombando />
         <Facilidades />
         <Cadastre />
