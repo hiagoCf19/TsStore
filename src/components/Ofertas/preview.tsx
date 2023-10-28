@@ -6,11 +6,8 @@ import { Link } from "react-router-dom";
 export const Preview = () => {
   const produtos = useContext(ProdutoCtx);
 
-  const produtosComDesconto = produtos.filter((item) => {
-    return item.hasOwnProperty("PorcentagemDeDesconto");
-  });
-  const precoFinal = produtosComDesconto.map((item) => {
-    if (item.PorcentagemDeDesconto !== undefined) {
+  const precoFinal = produtos.map((item) => {
+    if (item.PorcentagemDeDesconto >= 0) {
       const desconto = (item.price * item.PorcentagemDeDesconto) / 100;
       const precoComDesconto = item.price - desconto;
       return precoComDesconto;
@@ -27,9 +24,14 @@ export const Preview = () => {
       <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:mb-5 sm:text-[24px]">
         Ofertas
       </h1>
-      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex  ">
-        {produtosComDesconto.map((produto: ProdutosInterface, i: number) => (
-          <div className="flex flex-col gap-2" key={i}>
+      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex sm:justify-center  ">
+        {produtos.map((produto: ProdutosInterface, i: number) => (
+          <div
+            className={`${
+              produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+            } flex flex-col gap-2 `}
+            key={i}
+          >
             <div className="bg-cor25 w-[150px] h-[150px] rounded-md overflow-hidden relative">
               <div>
                 <div className="absolute ml-2 my-2 p-1 px-2 bg-roxo rounded-full">

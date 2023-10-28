@@ -14,6 +14,7 @@ export const ContentCategory = ({ props }: PropsCategory) => {
   const produtosComDesconto = conjuntos.filter((produto) => {
     return produto.hasOwnProperty("PorcentagemDeDesconto");
   });
+
   const precoFinal = produtosComDesconto.map((produto) => {
     if (produto.PorcentagemDeDesconto !== undefined) {
       const desconto = (produto.price * produto.PorcentagemDeDesconto) / 100;
@@ -28,7 +29,7 @@ export const ContentCategory = ({ props }: PropsCategory) => {
     <>
       <div
         className={`flex ${
-          conjuntos.length % 2 === 0 ? "justify-center" : "pl-5"
+          conjuntos.length % 2 === 0 ? "justify-center" : "pl-0"
         }  sm:flex-row w-full flex-wrap sm:gap-8 sm:mx-10 gap-2 z-0`}
       >
         {conjuntos.map((produto: ProdutosInterface, i: number) => (
@@ -52,11 +53,19 @@ export const ContentCategory = ({ props }: PropsCategory) => {
                         <i className="text-[12px]"> R$</i>
                         {precoFinal[i]?.toFixed(2).replace(".", ",")}
                       </p>
-                      <p className=" text-[10px]  truncate line-through text-[#a7a7a7b1] flex items-center ">
+                      <p
+                        className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex items-center ${
+                          produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        } `}
+                      >
                         <i className="text-[10px]">R$</i>
                         {produto.price.toFixed(2).replace(".", ",")}
                       </p>
-                      <div className=" w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center produtos-center text-roxo">
+                      <div
+                        className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center produtos-center text-roxo  ${
+                          produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
+                      >
                         <span className="text-[10px]">
                           -{produto.PorcentagemDeDesconto}%{" "}
                         </span>

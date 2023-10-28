@@ -83,6 +83,7 @@ export const Bombando: React.FC = () => {
       return;
     }
   });
+
   return (
     <section
       className=" sm:mx-[90px] flex flex-col gap-4"
@@ -110,11 +111,19 @@ export const Bombando: React.FC = () => {
                         <i className="text-[12px]"> R$</i>
                         {precoFinal[i].toFixed(2).replace(".", ",")}
                       </p>
-                      <p className=" text-[10px]  truncate line-through text-[#a7a7a7b1] flex ">
+                      <p
+                        className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
+                          item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
+                      >
                         <i className="text-[10px]">R$</i>
                         {item.price.toFixed(2).replace(".", ",")}
                       </p>
-                      <div className=" w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo">
+                      <div
+                        className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
+                          item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
+                      >
                         <span className="text-[10px]">
                           -{item.PorcentagemDeDesconto}%{" "}
                         </span>

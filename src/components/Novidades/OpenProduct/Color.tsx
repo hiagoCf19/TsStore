@@ -18,7 +18,7 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
   useEffect(() => {
     mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
   }, []); //esse array vazio serve para garantir que esse useefect só será executado uma vez quando a página for recarregada
-  console.log(mudaCor);
+
   return (
     <RadioStyled>
       <React.Fragment>
