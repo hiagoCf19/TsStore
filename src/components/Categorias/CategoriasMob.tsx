@@ -11,7 +11,7 @@ export const CategoriasMob = () => {
         {category.map((categoria, i) => (
           <Link
             key={i}
-            className="flex-1 sm:flex-initial border border-solid border-roxo  px-6  flex justify-center items-center rounded-lg shadow-md shadow-roxo hover:shadow-lg hover:shadow-roxo bg-[#343232] hover:scale-105 cursor-pointer sm:max-w-[130px] text-muted-foreground font-semibold  hover:text-white "
+            className="flex-1 sm:flex-initial border border-solid border-roxo  px-6 py-2 flex justify-center items-center rounded-lg shadow-md shadow-roxo hover:shadow-lg hover:shadow-roxo bg-[#343232] hover:scale-105 cursor-pointer sm:max-w-[130px] text-muted-foreground font-semibold  hover:text-white "
             to={`/${categoria.replace(/\s+/g, "-").toLowerCase()}`}
           >
             {categoria}
