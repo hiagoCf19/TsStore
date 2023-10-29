@@ -7,8 +7,8 @@ const StyledSearch = styled.div`
   --input-border-color: rgb(135, 92, 255);
   --input-border-hover-color: #999999;
   --input-bg-color: #252525;
-  --search-max-width: 950px;
-  --search-min-width: 950px;
+  --search-max-width: 250px;
+  --search-min-width: 150px;
   --border-radius: 5px;
   --transition-cubic-bezier: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 

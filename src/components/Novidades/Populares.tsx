@@ -1,9 +1,8 @@
 import MudaCorCtx from "@/Context/StateColorContext";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { TitleGeneric } from "../UiVerse/title";
 export const CardSty = styled.div`
   position: relative;
   width: 180px;
@@ -90,63 +89,54 @@ export const Bombando: React.FC = () => {
       className=" sm:mx-[90px] flex flex-col gap-4"
       id="produtos-do-momento"
     >
-      <TitleGeneric title="Mais populares" />
-
       <div className="flex flex-col  gap-8">
         <div className=" flex justify-center  sm:flex-row w-full flex-wrap sm:gap-8 sm:mx-10 gap-2 z-0">
           {produtos.map((item: ProdutosInterface, i: number) => (
-            <React.Fragment>
-              {item.image === "" ? (
-                ""
-              ) : (
-                <Link
-                  to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
-                  onClick={() => setMudaCor(item.primeiraCor)}
-                  key={i}
-                >
-                  <CardSty>
-                    <div className="blob"></div>
-                    <div className="bg">
-                      <img
-                        src={item.image}
-                        alt="card"
-                        className="h-[200px] w-full rounded-t-[6px]
+            <Link
+              to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
+              onClick={() => setMudaCor(item.primeiraCor)}
+            >
+              <CardSty>
+                <div className="blob"></div>
+                <div className="bg">
+                  <img
+                    src={item.image}
+                    alt="card"
+                    className="h-[200px] w-full rounded-t-[6px]
               "
-                      />
-                      <div className="flex flex-col gap-2 px-2 py-2 ">
-                        <div className="flex gap-1 items-center">
-                          <p className="text-sm font-bold text-white">
-                            <i className="text-[12px]"> R$</i>
-                            {precoFinal[i].toFixed(2).replace(".", ",")}
-                          </p>
-                          <p
-                            className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
-                              item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                            }`}
-                          >
-                            <i className="text-[10px]">R$</i>
-                            {item.price.toFixed(2).replace(".", ",")}
-                          </p>
-                          <div
-                            className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
-                              item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                            }`}
-                          >
-                            <span className="text-[10px]">
-                              -{item.PorcentagemDeDesconto}%{" "}
-                            </span>
-                          </div>
-                        </div>
-
-                        <span className=" font-normal text-base leading-6 text-[#a7a7a7] truncate   ">
-                          {item.nome}
+                  />
+                  <div className="flex flex-col gap-2 px-2 py-2 ">
+                    <div className="flex gap-1 items-center">
+                      <p className="text-sm font-bold text-white">
+                        <i className="text-[12px]"> R$</i>
+                        {precoFinal[i].toFixed(2).replace(".", ",")}
+                      </p>
+                      <p
+                        className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
+                          item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
+                      >
+                        <i className="text-[10px]">R$</i>
+                        {item.price.toFixed(2).replace(".", ",")}
+                      </p>
+                      <div
+                        className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
+                          item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
+                      >
+                        <span className="text-[10px]">
+                          -{item.PorcentagemDeDesconto}%{" "}
                         </span>
                       </div>
                     </div>
-                  </CardSty>
-                </Link>
-              )}
-            </React.Fragment>
+
+                    <span className=" font-normal text-base leading-6 text-[#a7a7a7] truncate   ">
+                      {item.nome}
+                    </span>
+                  </div>
+                </div>
+              </CardSty>
+            </Link>
           ))}
         </div>
       </div>

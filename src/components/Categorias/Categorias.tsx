@@ -3,11 +3,11 @@ import { category } from "@/routes";
 import { Link } from "react-router-dom";
 import { TitleGeneric } from "../UiVerse/title";
 
-export const CategoriasMob = () => {
+export const Categorias = () => {
   return (
-    <section className=" flex flex-col relative overflow-auto sm:hidden">
-      <TitleGeneric title="Categorias" />
-      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex sm:justify-center pt-3 mx-5">
+    <section className="mx-5 flex flex-col relative overflow-auto">
+      <TitleGeneric title={"Categorias"} />
+      <div className="flex gap-4 sm:gap-10 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex sm:justify-center py-3">
         {category.map((categoria, i) => (
           <Link
             key={i}
