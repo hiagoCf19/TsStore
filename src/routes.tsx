@@ -50,6 +50,7 @@ const RoutesApp = () => {
                   segundaCor={item.segundaCor}
                   terceiraCor={item.terceiraCor}
                   category={item.category}
+                  PorcentagemDeDesconto={item.PorcentagemDeDesconto}
                   image={`${
                     mudaCor === item.primeiraCor
                       ? item.image
