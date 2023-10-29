@@ -7,7 +7,10 @@ export const Facilidades: React.FC = () => {
   return (
     <section className="bg-primary">
       <div className="flex flex-col gap-8 sm:gap-0 py-8">
-        <TitleGeneric title="Conheça todas as nossas facilidades" />
+        <div className="mx-5">
+          <TitleGeneric title="Conheça todas as nossas facilidades" />
+        </div>
+
         <div className="flex flex-col gap-12 h-[18.813rem] sm:h-[13rem] sm:justify-center sm:items-center sm:flex-row">
           <Topico
             title={"PAGUE PELO PIX"}
