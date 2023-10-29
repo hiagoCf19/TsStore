@@ -67,7 +67,7 @@ export const Header = ({ props, line }: PropsHeader) => {
       </header>
       {line}
 
-      <div className="h-[0px] w-full sm:hidden mb-7"></div>
+      <div className="h-[40px] w-full sm:hidden mb-7"></div>
     </React.Fragment>
   );
 };
