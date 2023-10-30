@@ -97,14 +97,13 @@ export const Bombando: React.FC = () => {
       <div className="flex flex-col  gap-8">
         <div className=" flex justify-center  sm:flex-row w-full flex-wrap sm:gap-8 sm:mx-10 gap-2 z-0">
           {produtos.map((item: ProdutosInterface, i: number) => (
-            <React.Fragment>
+            <React.Fragment key={i}>
               {item.image === "" ? (
                 ""
               ) : (
                 <Link
                   to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
                   onClick={() => setMudaCor(item.primeiraCor)}
-                  key={i}
                 >
                   <CardSty>
                     <div className="blob"></div>

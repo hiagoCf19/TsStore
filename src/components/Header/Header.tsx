@@ -10,6 +10,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
+import { Login } from "./Login";
 
 interface PropsHeader {
   props: ReactNode;
@@ -49,7 +50,7 @@ export const Header = ({ props, line }: PropsHeader) => {
             </nav>
           </div>
           {/* NAV DESK */}
-          <nav className=" text-white gap-16 flex text-[1.195rem] font-semibold">
+          <nav className=" text-white gap-16 flex text-[1.195rem] font-semibold pt-2 pl-[100px]">
             {navRoutes.map((topico, i: number) => (
               <Link
                 className="hover:text-roxo hidden sm:block cursor-pointer"
@@ -62,8 +63,7 @@ export const Header = ({ props, line }: PropsHeader) => {
             ))}
           </nav>
         </div>
-
-        <div className="text-white hidden sm:block">aa</div>
+        <Login />
       </header>
       {line}
 
