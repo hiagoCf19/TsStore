@@ -1,7 +1,7 @@
 export const LoginCpn = () => {
   return (
     <>
-      <p>login</p>
+      <p>Tela de login em produção...</p>
     </>
   );
 };

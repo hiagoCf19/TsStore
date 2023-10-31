@@ -1,7 +1,7 @@
 export const CadastreSe = () => {
   return (
     <>
-      <p>cadastre-se</p>
+      <p>Tela de cadastro em produção...</p>
     </>
   );
 };
