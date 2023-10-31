@@ -10,6 +10,7 @@ import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
 import { CadastreSe } from "./components/Header/CadastreSe";
 import { LoginCpn } from "./components/Header/Login";
+import { OpenPopulares } from "./components/Novidades/OpenPopulares";
 
 export const category: string[] = [];
 export const navRoutes = [
@@ -22,6 +23,11 @@ export const navRoutes = [
     component: <AllOferts />,
     link: "/todas-as-nossas-ofertas",
     title: "Promoções",
+  },
+  {
+    component: <OpenPopulares />,
+    link: "/todos-os-populares-do-momento",
+    title: "Populares",
   },
 ];
 
@@ -68,7 +74,7 @@ const RoutesApp = () => {
             />
           </React.Fragment>
         ))}
-        <Route path="*" element={<Erro404 />} />
+
         {navRoutes.map((route) => (
           <React.Fragment key={route.title}>
             <Route path={route.link} element={route.component} />
@@ -83,6 +89,8 @@ const RoutesApp = () => {
         ))}
         <Route path="/realize-seu-cadastro" element={<CadastreSe />} />
         <Route path="/login" element={<LoginCpn />} />
+
+        <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>
   );

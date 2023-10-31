@@ -6,7 +6,7 @@ import { TitleGeneric } from "../UiVerse/title";
 export const Facilidades: React.FC = () => {
   return (
     <section className="bg-primary">
-      <div className="flex flex-col gap-8 sm:gap-0 py-8">
+      <div className="flex flex-col gap-8 sm:gap-0">
         <div className="mx-5">
           <TitleGeneric title="Conheça todas as nossas facilidades" />
         </div>

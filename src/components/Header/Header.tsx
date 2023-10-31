@@ -19,7 +19,7 @@ interface PropsHeader {
 export const Header = ({ props, line }: PropsHeader) => {
   return (
     <React.Fragment>
-      <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none sm:px-[150px] sm:h-10 justify-between sm:pt-2">
+      <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none sm:px-[50px] sm:h-10 justify-between sm:pt-2">
         <div className="flex items-center">
           <div className="flex  sm:justify-normal items-center h-[3.625rem] px-4 bg-transparent w-full justify-between ">
             {props}

@@ -9,7 +9,7 @@ export const Banner = () => {
   }, 4000);
   return (
     <React.Fragment>
-      <div className="mx-[20px] sm:mx-0 abs">
+      <div className="mx-[20px] sm:mx-0 abs sm:mb-[-40px]">
         <img
           src={
             bannerExibido === 0

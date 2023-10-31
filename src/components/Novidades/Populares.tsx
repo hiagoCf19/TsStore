@@ -1,9 +1,10 @@
-import MudaCorCtx from "@/Context/StateColorContext";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 import { TitleGeneric } from "../UiVerse/title";
+import { CardProd } from "../repetitivos/Card";
+import { Link } from "react-router-dom";
 export const CardSty = styled.div`
   position: relative;
   width: 180px;
@@ -69,22 +70,9 @@ export const CardSty = styled.div`
 `;
 
 export const Bombando: React.FC = () => {
-  const { setMudaCor }: any = useContext(MudaCorCtx);
-
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-  const produtosComDesconto = produtos.filter((item) => {
-    return item.hasOwnProperty("PorcentagemDeDesconto");
-  });
-  const precoFinal: any = produtosComDesconto.map((item) => {
-    if (item.PorcentagemDeDesconto !== undefined) {
-      const desconto = (item.price * item.PorcentagemDeDesconto) / 100;
-      const precoComDesconto = item.price - desconto;
-      return precoComDesconto;
-    } else {
-      return;
-    }
-  });
-
+  const slicePar1: number = 1;
+  const slicePar2: number = 11;
   return (
     <section
       className=" sm:mx-[90px] flex flex-col gap-4 mt-[-25px]"
@@ -94,62 +82,25 @@ export const Bombando: React.FC = () => {
         <TitleGeneric title="Mais populares" />
       </div>
 
-      <div className="flex flex-col  gap-8">
-        <div className=" flex justify-center  sm:flex-row w-full flex-wrap sm:gap-8 sm:mx-10 gap-2 z-0">
-          {produtos.map((item: ProdutosInterface, i: number) => (
-            <React.Fragment key={i}>
-              {item.image === "" ? (
-                ""
-              ) : (
-                <Link
-                  to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
-                  onClick={() => setMudaCor(item.primeiraCor)}
-                >
-                  <CardSty>
-                    <div className="blob"></div>
-                    <div className="bg">
-                      <img
-                        src={item.image}
-                        alt="card"
-                        className="h-[200px] w-full rounded-t-[6px]
-              "
-                      />
-                      <div className="flex flex-col gap-2 px-2 py-2 ">
-                        <div className="flex gap-1 items-center">
-                          <p className="text-sm font-bold text-white">
-                            <i className="text-[12px]"> R$</i>
-                            {precoFinal[i].toFixed(2).replace(".", ",")}
-                          </p>
-                          <p
-                            className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
-                              item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                            }`}
-                          >
-                            <i className="text-[10px]">R$</i>
-                            {item.price.toFixed(2).replace(".", ",")}
-                          </p>
-                          <div
-                            className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
-                              item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                            }`}
-                          >
-                            <span className="text-[10px]">
-                              -{item.PorcentagemDeDesconto}%{" "}
-                            </span>
-                          </div>
-                        </div>
-
-                        <span className=" font-normal text-base leading-6 text-[#a7a7a7] truncate   ">
-                          {item.nome}
-                        </span>
-                      </div>
-                    </div>
-                  </CardSty>
-                </Link>
-              )}
-            </React.Fragment>
-          ))}
+      <div className="flex flex-col  gap-8 overflow-hidden">
+        <div className=" flex justify-center sm:justify-normal  uto sm:flex-row w-full flex-wrap sm:gap-5 sm:mx-10 gap-2 z-0 sm:flex-nowrap">
+          {produtos
+            .slice(slicePar1, slicePar2)
+            .map((item: ProdutosInterface, i: number) => (
+              <CardProd
+                i={i}
+                item={item}
+                slicePar1={slicePar1}
+                slicePar2={slicePar2}
+              />
+            ))}
         </div>
+        <Link
+          to={"/todos-os-populares-do-momento"}
+          className="flex justify-center underline text-muted-foreground hover:text-roxo"
+        >
+          Ver todos
+        </Link>
       </div>
     </section>
   );

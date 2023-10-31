@@ -28,7 +28,7 @@ function App() {
         <CoHeader />
       </div>
       <div className="sm:h-[8vh] h-[10vh] w-full mb-4"></div>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 sm:gap-20">
         <Banner />
         <Preview />
         <CategoriasMob />

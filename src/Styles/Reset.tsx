@@ -62,11 +62,9 @@ table {
 ::-webkit-scrollbar {
   width: 6px;
 }
-::-webkit-scrollbar {
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-}
+
 ::-webkit-scrollbar-thumb {
-  background-color: #66219f27;
+  background-color: #aa8a8a27;
 	border-radius: 100px;
 }
  }
