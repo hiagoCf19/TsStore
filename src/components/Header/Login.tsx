@@ -1,3 +1,7 @@
-export const Login = () => {
-  return <div className="text-white hidden sm:block">aa</div>;
+export const LoginCpn = () => {
+  return (
+    <>
+      <p>login</p>
+    </>
+  );
 };

@@ -8,6 +8,9 @@ import { AllOferts } from "./components/Ofertas/AllOferts";
 import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
+import { CadastreSe } from "./components/Header/CadastreSe";
+import { LoginCpn } from "./components/Header/Login";
+
 export const category: string[] = [];
 export const navRoutes = [
   {
@@ -78,6 +81,8 @@ const RoutesApp = () => {
             key={i}
           />
         ))}
+        <Route path="/realize-seu-cadastro" element={<CadastreSe />} />
+        <Route path="/login" element={<LoginCpn />} />
       </Routes>
     </BrowserRouter>
   );
