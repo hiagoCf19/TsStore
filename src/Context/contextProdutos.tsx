@@ -75,7 +75,7 @@ export function ProdutoProvider({ children }: Children) {
       primeiraCor: "Transparente",
       segundaCor: "Marrom",
       terceiraCor: "Rosa",
-      PorcentagemDeDesconto: 0,
+      PorcentagemDeDesconto: 14,
     },
     {
       category: "Conjuntos",

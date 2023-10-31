@@ -8,8 +8,8 @@ import { CardSty } from "../Novidades/Populares";
 interface Propscard {
   item: ProdutosInterface;
   i: number;
-  slicePar1: number;
-  slicePar2: number;
+  slicePar1?: number;
+  slicePar2?: number;
 }
 //       slice par 1 e 2 mostram de qual a qual item será exibido, é definido no componente populares, pai deste
 export const CardProd = ({ item, i, slicePar1, slicePar2 }: Propscard) => {
