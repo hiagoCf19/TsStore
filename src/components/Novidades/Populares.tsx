@@ -74,7 +74,7 @@ export const Bombando: React.FC = () => {
 
   return (
     <section
-      className="mx-5 flex gap-4 flex-col relative justify-center w-[82'%]"
+      className="sm:mx-5 flex gap-4 flex-col relative justify-center sm:w-[82%]"
       id="produtos-do-momento"
     >
       <div className="mx-5">

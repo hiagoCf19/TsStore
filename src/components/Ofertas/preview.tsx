@@ -9,7 +9,7 @@ export const Preview = () => {
   console.log(produtos);
   return (
     <section
-      className="mx-5 flex gap-4 flex-col relative justify-center w-[85%]"
+      className="mx-5 flex gap-4 flex-col relative justify-center w-[95%] sm:w-[85%]"
       id="Ofertas-do-mes"
     >
       <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:mb-5 sm:text-[24px]">
