@@ -89,6 +89,7 @@ export const Bombando: React.FC = () => {
             .map((item: ProdutosInterface, i: number) => (
               <CardProd
                 i={i}
+                key={i}
                 item={item}
                 slicePar1={slicePar1}
                 slicePar2={slicePar2}
