@@ -19,7 +19,19 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
       ? 2
       : propsCategory === "Tênis"
       ? 3
-      : null
+      : propsCategory === "Feminino"
+      ? 4
+      : propsCategory === "Infantil"
+      ? 5
+      : propsCategory === "Masculino"
+      ? 6
+      : propsCategory === "Perfume"
+      ? 7
+      : propsCategory === "Eletrônicos"
+      ? 8
+      : propsCategory === "Acessorios"
+      ? 9
+      : ""
   );
 
   return (
@@ -55,35 +67,7 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
           ))}
         </aside>
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col sm:w-full ">
-            {ativo === 0 ? (
-              <img
-                src="Assets/camisasBanner.png"
-                alt={propsCategory}
-                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-              />
-            ) : ativo === 1 ? (
-              <img
-                src="Assets/conjuntosBanner.png"
-                alt={propsCategory}
-                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-              />
-            ) : ativo === 2 ? (
-              <img
-                src="Assets/conjuntosBanner.png"
-                alt={propsCategory}
-                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-              />
-            ) : ativo === 3 ? (
-              <img
-                src="Assets/tenisBanner.png"
-                alt={propsCategory}
-                className="sm:h-[400px] h-[180px] sm:ml-20 mx-5 rounded-xl"
-              />
-            ) : (
-              ""
-            )}
-          </div>
+          <div className="flex flex-col sm:w-full "></div>
           <ContentCategory props={propsCategory} />
         </div>
       </section>

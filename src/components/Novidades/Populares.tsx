@@ -71,28 +71,28 @@ export const CardSty = styled.div`
 
 export const Bombando: React.FC = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-  const slicePar1: number = 1;
-  const slicePar2: number = 11;
+
   return (
     <section
-      className=" sm:mx-[90px] flex flex-col gap-4 mt-[-25px]"
+      className="mx-5 flex gap-4 flex-col relative justify-center w-[82'%]"
       id="produtos-do-momento"
     >
       <div className="mx-5">
         <TitleGeneric title="Mais populares" />
       </div>
 
-      <div className="flex flex-col  gap-8 overflow-hidden">
-        <div className=" flex justify-center sm:justify-normal  uto sm:flex-row w-full flex-wrap sm:gap-5 sm:mx-10 gap-2 z-0 sm:flex-nowrap">
+      <div className="flex flex-col  gap-8 overflow-hidden  ">
+        <div className=" flex justify-center sm:justify-normal sm:flex-row w-full flex-wrap sm:gap-2  gap-2 z-0 sm:flex-nowrap">
           {produtos
-            .slice(slicePar1, slicePar2)
+            .slice(1, 10)
+            .sort(() => Math.random() - 0.5)
             .map((item: ProdutosInterface, i: number) => (
               <CardProd
                 i={i}
                 key={i}
                 item={item}
-                slicePar1={slicePar1}
-                slicePar2={slicePar2}
+                slicePar1={1}
+                slicePar2={10}
               />
             ))}
         </div>

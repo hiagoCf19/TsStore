@@ -1,5 +1,5 @@
 import MudaCorCtx from "@/Context/StateColorContext";
-import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
+import { ProdutosInterface } from "@/Context/contextProdutos";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,25 +12,8 @@ interface Propscard {
   slicePar2?: number;
 }
 //       slice par 1 e 2 mostram de qual a qual item será exibido, é definido no componente populares, pai deste
-export const CardProd = ({ item, i, slicePar1, slicePar2 }: Propscard) => {
+export const CardProd = ({ item, i }: Propscard) => {
   const { setMudaCor }: any = useContext(MudaCorCtx);
-
-  const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-  const produtosComDesconto = produtos.filter((item) => {
-    return item.hasOwnProperty("PorcentagemDeDesconto");
-  });
-  const precoFinal: any = produtosComDesconto
-    .slice(slicePar1, slicePar2)
-    .map((item) => {
-      if (item.PorcentagemDeDesconto !== undefined) {
-        const desconto = (item.price * item.PorcentagemDeDesconto) / 100;
-        const precoComDesconto = item.price - desconto;
-        return precoComDesconto;
-      } else {
-        return;
-      }
-    });
-
   return (
     <React.Fragment key={i}>
       {item.image === "" ? (
@@ -54,7 +37,9 @@ export const CardProd = ({ item, i, slicePar1, slicePar2 }: Propscard) => {
                 <div className="flex gap-1 items-center">
                   <p className="text-sm font-bold text-white">
                     <i className="text-[12px]"> R$</i>
-                    {precoFinal[i].toFixed(2).replace(".", ",")}
+                    {item.finalPrice !== undefined
+                      ? item.finalPrice.toFixed(2).replace(".", ",")
+                      : "Preço indisponível"}
                   </p>
                   <p
                     className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
