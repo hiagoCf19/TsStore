@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-const Style404 = styled.div`
+export const Galaxy = styled.div`
   .card {
   }
-  --bg-col: #010101;
-  --space-col: #2d093a;
-  --galaxy-col: #460a42;
+  --bg-col: #000;
+  --space-col: #180977;
+  --galaxy-col: #3c2ba8;
   --space-gradient: radial-gradient(ellipse at top, var(--bg-col), transparent),
     radial-gradient(ellipse at bottom, var(--galaxy-col) 10%, transparent 60%),
     radial-gradient(ellipse at bottom right, var(--space-col), transparent);
@@ -151,6 +151,7 @@ const Style404 = styled.div`
   overflow: clip;
   animation: space-drift 180s ease-in-out infinite;
 
+  padding: 20px 20px;
   @media (min-width: 640px) {
     min-width: max-content;
     padding: 2rem 4rem;
@@ -216,7 +217,7 @@ const Style404 = styled.div`
 `;
 const Erro404: React.FC = () => {
   return (
-    <Style404 className="card">
+    <Galaxy>
       <div className="h-screen flex flex-col items-center justify-center ">
         <h1 className="text-4xl font-bold mb-4">
           Erro 404 - Página não encontrada
@@ -232,7 +233,7 @@ const Erro404: React.FC = () => {
           .
         </p>
       </div>
-    </Style404>
+    </Galaxy>
   );
 };
 
