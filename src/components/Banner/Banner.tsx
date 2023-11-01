@@ -9,23 +9,37 @@ export const Banner = () => {
   }, 4000);
   return (
     <React.Fragment>
-      <div className="mx-[20px] sm:mx-0 abs sm:mb-[-40px]">
+      <div className=" mt-[-35px] sm:mt-0 abs sm:mb-[-40px]">
         <img
           src={
             bannerExibido === 0
-              ? "Assets/Banner/gamer.png"
+              ? "Assets/Desktop/Banner/gamer.png"
               : bannerExibido === 1
-              ? "Assets/Banner/verao.png"
+              ? "Assets/Desktop/Banner/verao.png"
               : bannerExibido === 2
-              ? "Assets/Banner/plusSize.png"
+              ? "Assets/Desktop/Banner/plusSize.png"
               : bannerExibido === 3
-              ? "Assets/Banner/tenis.png"
+              ? "Assets/Desktop/Banner/tenis.png"
               : ""
           }
           alt="banner"
           className="hidden sm:block  "
         />
-        <img src="Assets/bannerOff.png" alt="55off" className=" sm:hidden" />
+        <img
+          src={
+            bannerExibido === 0
+              ? "Assets/Mobile/Banners/gamer.png"
+              : bannerExibido === 1
+              ? "Assets/Mobile/Banners/verao.png"
+              : bannerExibido === 2
+              ? "Assets/Mobile/Banners/plus.png"
+              : bannerExibido === 3
+              ? "Assets/Mobile/Banners/tenis.png"
+              : ""
+          }
+          alt="banner"
+          className=" sm:hidden"
+        />
       </div>
     </React.Fragment>
   );

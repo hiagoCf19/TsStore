@@ -1,7 +1,6 @@
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../Header/Header";
-import { TiArrowBackOutline } from "react-icons/ti";
-import React, { Fragment, useState } from "react";
 import { category } from "@/routes";
 import { ContentCategory } from "./OpenCategoryContent";
 
@@ -39,13 +38,18 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
       <Header
         props={
           <Link to={"/"}>
-            <div className="sm:w-[120px] w-[50px] sm:mt-1">
-              <TiArrowBackOutline size={40} color={"#875cff"} />
+            <div className="sm:bg-background px-2 sm:h-10 flex items-center justify-between w-full">
+              <img
+                src="Assets/tsStore.svg"
+                alt="logo"
+                className=" w-[90px] sm:w-[110px] "
+              />
             </div>
           </Link>
         }
         line={<div className="h-[1px] w-full bg-roxo"></div>}
       />
+
       <section className="flex gap-4 sm:mx-[100px] sm:mt-10 flex-col sm:flex-row ">
         <aside className="border-none sm:border-r sm:border-solid sm:border-roxo sm:p-3 flex sm:flex-col text-[18px] sm:ml-[-20px] gap-4 text-[#a7a7a7d7] flex-wrap justify-center sm:justify-start sm:h-[80vh]">
           {category.map((AllCategory, i) => (
