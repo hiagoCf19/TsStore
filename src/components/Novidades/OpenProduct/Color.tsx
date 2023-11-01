@@ -18,7 +18,7 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
   useEffect(() => {
     mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
   }, []); //esse array vazio serve para garantir que esse useefect só será executado uma vez quando a página for recarregada
-
+  console.log(primeiraCor);
   return (
     <RadioStyled>
       <React.Fragment>
@@ -50,7 +50,7 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
         </div>
         <div
           className={`flex items-center ${
-            segundaCor === undefined ? "hidden" : null
+            terceiraCor === undefined ? "hidden" : null
           }`}
         >
           <input
