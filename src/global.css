@@ -19,6 +19,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background w-full;
+    @apply bg-background  w-full;
   }
 }

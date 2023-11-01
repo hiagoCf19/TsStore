@@ -1,9 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-export const Error404Sty = styled.div`
-  .card {
-  }
+import { createGlobalStyle } from "styled-components";
+
+export const Galaxy = createGlobalStyle`
+ :root{
   --bg-col: #000;
   --space-col: #180977;
   --galaxy-col: #3c2ba8;
@@ -142,6 +140,9 @@ export const Error404Sty = styled.div`
       rgba(255, 255, 255, 0.336) 2px,
       transparent 6px
     );
+ }
+  
+body{
 
   background-color: #010101;
   background-image: var(--space-gradient), var(--stars);
@@ -149,14 +150,11 @@ export const Error404Sty = styled.div`
   background-repeat: no-repeat;
   box-shadow: 5px 7px 20px var(--bg-col);
   overflow: clip;
-  animation: space-drift 180s ease-in-out infinite;
-
-  padding: 20px 20px;
-  @media (min-width: 640px) {
-    min-width: max-content;
-    padding: 2rem 4rem;
-    min-height: 100%;
-  }
+  height: 100vh;
+  animation: space-drift 180s ease-in-out infinite;;
+  
+}
+  
 
   /*
     ANIMATION: SPACE
@@ -216,26 +214,3 @@ export const Error404Sty = styled.div`
     }
   }
 `;
-const Erro404: React.FC = () => {
-  return (
-    <Error404Sty>
-      <div className="h-screen flex flex-col items-center justify-center ">
-        <h1 className="text-4xl font-bold mb-4">
-          Erro 404 - Página não encontrada
-        </h1>
-        <p className="text-lg text-white">
-          A página que você está procurando não existe.
-        </p>
-        <p className="text-lg text-white">
-          Por favor, verifique o URL ou{" "}
-          <Link to={"/"} className="text-roxo">
-            retorne à página inicial
-          </Link>
-          .
-        </p>
-      </div>
-    </Error404Sty>
-  );
-};
-
-export default Erro404;
