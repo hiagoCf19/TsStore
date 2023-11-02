@@ -5,7 +5,7 @@ export const Error404Sty = styled.div`
   .card {
   }
   --bg-col: #000;
-  --space-col: #180977;
+  --space-col: #220350;
   --galaxy-col: #3c2ba8;
   --space-gradient: radial-gradient(ellipse at top, var(--bg-col), transparent),
     radial-gradient(ellipse at bottom, var(--galaxy-col) 10%, transparent 60%),
