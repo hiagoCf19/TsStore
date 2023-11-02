@@ -8,7 +8,6 @@ const StyLogin = styled.div`
 
   .form__field {
     font-family: inherit;
-
     border: none;
     border-bottom: 2px solid #9b9b9b;
     outline: 0;
@@ -65,13 +64,18 @@ const StyLogin = styled.div`
 `;
 interface propsInputLogin {
   placeholder: string;
+  type: string;
   children: ReactNode;
 }
-export const InputLogin = ({ placeholder, children }: propsInputLogin) => {
+export const InputLogin = ({
+  placeholder,
+  children,
+  type,
+}: propsInputLogin) => {
   return (
     <StyLogin className="form__group field">
       <input
-        type="input"
+        type={type}
         className="form__field"
         placeholder={placeholder}
         required

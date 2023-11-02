@@ -2,6 +2,8 @@ import { Galaxy } from "@/Styles/Galaxy";
 import styled from "styled-components";
 import { InputLogin } from "../repetitivos/inputLogin";
 
+import { LogButton } from "../repetitivos/Logbutton";
+
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -61,12 +63,33 @@ export const LoginCpn = () => {
             <div className="circle"></div>
             <div className="card-inner">
               <div className="flex h-full sm:p-7 gap-4">
-                <div className="flex-1 hidden sm:block border border-solid border-roxo"></div>
-                <div className="flex-1 flex flex-col items-center justify-center py-5  border border-solid gap-8 ">
-                  <h1>Login</h1>
-                  <div className="flex flex-col gap-3 ">
-                    <InputLogin placeholder="User">User</InputLogin>
-                    <InputLogin placeholder="Senha">Senha</InputLogin>
+                <div className="w-[55%] hidden sm:block border border-solid border-roxo"></div>
+                <div className="flex-1 flex flex-col items-center justify-center py-5   gap-8 ">
+                  <div className="  flex flex-col gap-5 h-full justify-center sm:scale-[1.20]">
+                    <div className="w-full flex items-center justify-center">
+                      <img
+                        src="Assets/tsStore.svg"
+                        alt=""
+                        className="w-[200px] "
+                      />
+                    </div>
+                    {/* mensagem de boas vindas mobile */}
+                    <h1 className=" text-center text-[20px] sm:hidden">
+                      Seja bem vindo
+                    </h1>
+                    {/* inputs */}
+                    <div className="flex flex-col gap-5 ">
+                      <InputLogin type="input" placeholder="User">
+                        Digite seu usuário
+                      </InputLogin>
+                      <InputLogin type="password" placeholder="Senha">
+                        Digite sua senha
+                      </InputLogin>
+                    </div>
+                    <div className="flex flex-col py-5 gap-3">
+                      <LogButton content={"Entrar"} />
+                      <LogButton content={"Cadastre-se"} />
+                    </div>
                   </div>
                 </div>
               </div>
