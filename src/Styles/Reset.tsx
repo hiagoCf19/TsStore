@@ -77,5 +77,8 @@ body{
 	font-family: 'Inter', sans-serif;
 	
 }	
+.bg-transp{
+	background: rgba(0, 0, 0, 0.831);
+}
 
 `;
