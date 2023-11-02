@@ -21,7 +21,7 @@ export const AlertMsg = ({ botao, AlertMensage, title }: PropsAlert) => {
     <AlertDialog>
       <AlertDialogTrigger>{botao}</AlertDialogTrigger>
 
-      <AlertDialogContent className="bg-transp border border-solid border-[#725cff] w-[90%] rounded-lg shadow-[#725cff] ">
+      <AlertDialogContent className=" bg-transp border border-solid border-[#725cff] w-[90%] rounded-lg shadow-[#725cff] ">
         <AlertDialogHeader>
           <AlertDialogTitle>{title}</AlertDialogTitle>
           <AlertDialogDescription className="text-[#a7a7a7] text-base">
