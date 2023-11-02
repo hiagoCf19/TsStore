@@ -5,6 +5,9 @@ const StyLogin = styled.div`
   position: relative;
   padding: 15px 0 0;
   display: flex;
+  @media (min-width: 640px) {
+    width: 130%;
+  }
 
   .form__field {
     font-family: inherit;
@@ -16,6 +19,7 @@ const StyLogin = styled.div`
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
+    width: 100%;
   }
 
   .form__field::placeholder {

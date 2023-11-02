@@ -15,7 +15,9 @@ const StyButton = styled.button`
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-
+  @media (min-width: 640px) {
+    width: 100%;
+  }
   &:hover {
     box-shadow: 0 0 10px #725cff, 0 0 25px #470167, 0 0 20px #ae00ff;
     transition-delay: 0.6s;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { InputLogin } from "../repetitivos/inputLogin";
 
 import { LogButton } from "../repetitivos/Logbutton";
+import { DeskLeft } from "./DesktopLeft";
 
 const Container = styled.div`
   width: 90%;
@@ -62,20 +63,27 @@ export const LoginCpn = () => {
             <div className="circle"></div>
             <div className="circle"></div>
             <div className="card-inner">
-              <div className="flex h-full sm:p-7 gap-4">
-                <div className="w-[55%] hidden sm:block border border-solid border-roxo"></div>
-                <div className="flex-1 flex flex-col items-center justify-center py-5   gap-8 ">
-                  <div className="  flex flex-col gap-5 h-full justify-center sm:scale-[1.20]">
+              <div className="flex h-full sm:mx-20 ">
+                {/* PARTE  ILUSTRATIVA APENAS DESK */}
+                <div className="flex-1 hidden sm:block h-full scale-125">
+                  <DeskLeft />
+                </div>
+                {/* PARTE DOS INPUTS */}
+                <div className="flex-1 flex justify-center ">
+                  <div className="  flex flex-col gap-5 h-full justify-center sm:scale-[1.25]">
                     <div className="w-full flex items-center justify-center">
                       <img
                         src="Assets/tsStore.svg"
                         alt=""
-                        className="w-[200px] "
+                        className="w-[200px] sm:hidden "
                       />
                     </div>
                     {/* mensagem de boas vindas mobile */}
                     <h1 className=" text-center text-[20px] sm:hidden">
-                      Seja bem vindo
+                      Seja bem-vindo
+                    </h1>
+                    <h1 className=" text-center text-[26px] hidden sm:block sm:ml-20">
+                      LOGIN
                     </h1>
                     {/* inputs */}
                     <div className="flex flex-col gap-5 ">
@@ -86,7 +94,7 @@ export const LoginCpn = () => {
                         Digite sua senha
                       </InputLogin>
                     </div>
-                    <div className="flex flex-col py-5 gap-3">
+                    <div className="flex flex-col py-5 gap-3 sm:w-[130%]">
                       <LogButton content={"Entrar"} />
                       <LogButton content={"Cadastre-se"} />
                     </div>
