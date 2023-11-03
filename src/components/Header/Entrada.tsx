@@ -7,7 +7,7 @@ export const Entradas = () => {
     <div className=" hidden sm:block">
       <div className="text-white flex gap-5 items-center">
         <Link to={"/login"} className="flex items-center gap-3 font-semibold">
-          <User color="#725cff" />
+          <User color="#725cfff0" />
           Login
         </Link>
       </div>
