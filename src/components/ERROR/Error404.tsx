@@ -227,7 +227,7 @@ const Erro404: React.FC = () => {
           A página que você está procurando não existe.
         </p>
         <p className="text-lg text-white">
-          Por favor, verifique o URL ou{" "}
+          Por favor, verifique o URL ou então
           <Link to={"/"} className="text-roxo">
             retorne à página inicial
           </Link>
