@@ -8,7 +8,7 @@ import { AllOferts } from "./components/Ofertas/AllOferts";
 import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
-import { CadastreSe } from "./components/Header/CadastreSe";
+
 import { LoginCpn } from "./components/Login/Login";
 import { OpenPopulares } from "./components/Novidades/OpenPopulares";
 
@@ -88,7 +88,7 @@ const RoutesApp = () => {
             key={i}
           />
         ))}
-        <Route path="/realize-seu-cadastro" element={<CadastreSe />} />
+
         <Route path="/login" element={<LoginCpn />} />
 
         <Route path="*" element={<Erro404 />} />

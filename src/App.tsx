@@ -1,6 +1,6 @@
 import { Banner } from "./components/Banner/Banner";
 import { Bombando } from "./components/Novidades/Populares";
-import { Cadastre } from "./components/Cadastre/Cadastre";
+import { Cadastre } from "./components/e-mail/EmailDesconto";
 import { CategoriasMob } from "./components/Categorias/CategoriasMob";
 import { Facilidades } from "./components/Facilidades/Facilidades";
 import { Footer } from "./components/Footer/Footer";
