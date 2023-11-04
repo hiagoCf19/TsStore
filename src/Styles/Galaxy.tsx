@@ -152,6 +152,7 @@ body{
   overflow: clip;
   height: 100vh;
   animation: space-drift 180s ease-in-out infinite;;
+  -webkit-animation: space-drift 180s ease-in-out infinite ;
   
 }
   

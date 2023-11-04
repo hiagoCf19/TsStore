@@ -46,6 +46,7 @@ const StyLogin = styled.div`
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
+    border-image: -webkit-linear-gradient(to right, #430873, #725cff);
     border-image: linear-gradient(to right, #430873, #725cff);
     border-image-slice: 1;
   }
@@ -66,6 +67,7 @@ const StyLogin = styled.div`
     box-shadow: none;
   }
 `;
+
 interface propsInputLogin {
   placeholder: string;
   type: string;

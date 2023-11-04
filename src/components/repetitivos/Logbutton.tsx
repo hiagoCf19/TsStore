@@ -1,28 +1,6 @@
 import styled from "styled-components";
 
-const StyButton = styled.a`
-  position: relative;
-  padding: 1em 2.5em;
-  width: 100%;
-  outline: none;
-  background: rgba(0, 0, 0, 0.61);
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 15px;
-  overflow: hidden;
-  transition: 0.2s;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  @media (min-width: 640px) {
-    width: 100%;
-  }
-  &:hover {
-    box-shadow: 0 0 10px #725cff, 0 0 25px #470167, 0 0 20px #ae00ff;
-    transition-delay: 0.6s;
-  }
-
+const StyButton = styled.div`
   span {
     position: absolute;
   }
@@ -104,12 +82,17 @@ interface Content {
 }
 export const LogButton = ({ content }: Content) => {
   return (
-    <StyButton type="submit">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      {content}
+    <StyButton>
+      <a
+        type="submit"
+        className="relative px-20 sm:px-[2.5em] py-4 w-full outline-none bg-transp text-white uppercase block tracking-[2px] text-sm overflow-hidden transition-all duration-200 cursor-pointer font-bold hover:shadow-custom hover:transition hover:delay-700"
+      >
+        <span className="absolute top-0 left-[-100%] w-full h-[2px] bg-roxo duracao "></span>
+        <span className="absolute"></span>
+        <span className="absolute"></span>
+        <span className="absolute"></span>
+        {content}
+      </a>
     </StyButton>
   );
 };

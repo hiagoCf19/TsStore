@@ -17,8 +17,9 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.161);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.978);
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.978);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 8px;
   }
   .circle {
@@ -28,6 +29,7 @@ const Container = styled.div`
     border-radius: 50%;
     position: absolute;
     animation: move-up6 2s ease-in infinite alternate-reverse;
+    -webkit-animation: move-up6 2s ease-in infinite alternate-reverse;
   }
 
   .circle:nth-child(1) {
@@ -39,6 +41,7 @@ const Container = styled.div`
     bottom: 10px;
     right: 10px;
     animation-name: move-down1;
+    -webkit-animation-name: move-down1;
   }
 
   @keyframes move-up6 {

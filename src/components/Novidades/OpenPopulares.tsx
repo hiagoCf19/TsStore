@@ -20,9 +20,7 @@ export const OpenPopulares = () => {
         line={<div className="h-[1px] w-full bg-roxo"></div>}
       />
       <CoHeader />
-      <section>
-        <p>interface com todos os populares em produção...</p>
-      </section>
+      <section>developing...</section>
     </>
   );
 };
