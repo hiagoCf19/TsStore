@@ -3,7 +3,7 @@ import { LogButtonSM } from "../repetitivos/LogbuttonSM";
 import { Input } from "../ui/input";
 
 export const CadastroForm = () => {
-  const [name, setName] = useState<string>("");
+  const [name] = useState<string>("");
   return (
     <form
       onSubmit={(e) => {
