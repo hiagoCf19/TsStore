@@ -5,7 +5,7 @@ import { InputLogin } from "../repetitivos/inputLogin";
 import { LogButton } from "../repetitivos/Logbutton";
 import { DeskLeft } from "./DesktopLeft";
 
-import { AlertMsg } from "../repetitivos/AlertMensage";
+import { AlertMsg } from "../repetitivos/AlertDialog";
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -95,18 +95,15 @@ export const LoginCpn = () => {
                         Digite sua senha
                       </InputLogin>
                     </div>
-                    <div className="flex flex-col py-5 gap-3 sm:w-[130%]">
+                    <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
                       {/* Botão de entrar com mensagem */}
-                      <AlertMsg
-                        botao={<LogButton content={"Entrar"} />}
-                        title="Login"
-                        AlertMensage="No momento o sistema de login não está disponível"
-                      />
+
+                      <LogButton content={"Entrar"} />
+
                       {/* BOTÃO DE CADASTRO COM MENSAGEM */}
                       <AlertMsg
                         botao={<LogButton content={"Cadastre-se"} />}
                         title="Cadastre-se"
-                        AlertMensage="No momento o sistema de cadastro não está disponível"
                       />
                     </div>
                   </div>

@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-const StyButton = styled.a`
+const StyButtonSM = styled.button`
   position: relative;
-  padding: 1em 2.5em;
-  width: 100%;
+  padding: 1em 1em;
   outline: none;
   background: rgba(0, 0, 0, 0.61);
   color: #fff;
@@ -16,7 +15,6 @@ const StyButton = styled.a`
   cursor: pointer;
   font-weight: bold;
   @media (min-width: 640px) {
-    width: 100%;
   }
   &:hover {
     box-shadow: 0 0 10px #725cff, 0 0 25px #470167, 0 0 20px #ae00ff;
@@ -102,14 +100,14 @@ const StyButton = styled.a`
 interface Content {
   content: string;
 }
-export const LogButton = ({ content }: Content) => {
+export const LogButtonSM = ({ content }: Content) => {
   return (
-    <StyButton type="submit">
+    <StyButtonSM type="submit">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
       {content}
-    </StyButton>
+    </StyButtonSM>
   );
 };

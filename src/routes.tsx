@@ -9,7 +9,7 @@ import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
 
-import { LoginCpn } from "./components/Login/Login";
+import { LoginCpn } from "./components/Login&cadastro/Login";
 import { OpenPopulares } from "./components/Novidades/OpenPopulares";
 
 export const category: string[] = [];
