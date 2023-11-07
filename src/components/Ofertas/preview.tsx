@@ -6,7 +6,7 @@ import { CardProd } from "../repetitivos/Card";
 
 export const Preview = () => {
   const produtos = useContext(ProdutoCtx);
-  console.log(produtos);
+
   return (
     <section
       className="mx-5 flex gap-4 flex-col relative justify-center w-[95%] sm:w-[85%]"

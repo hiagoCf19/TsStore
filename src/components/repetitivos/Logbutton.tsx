@@ -79,12 +79,13 @@ const StyButton = styled.div`
 `;
 interface Content {
   content: string;
+  type: "button" | "submit" | "reset";
 }
-export const LogButton = ({ content }: Content) => {
+export const LogButton = ({ content, type }: Content) => {
   return (
     <StyButton>
       <a
-        type="submit"
+        type={type}
         className="relative px-20 sm:px-[2.5em] py-4 w-full outline-none bg-transp text-white uppercase block tracking-[2px] text-sm overflow-hidden transition-all duration-200 cursor-pointer font-bold hover:shadow-custom hover:transition hover:delay-700"
       >
         <span className="absolute top-0 left-[-100%] w-full h-[2px] bg-roxo duracao "></span>

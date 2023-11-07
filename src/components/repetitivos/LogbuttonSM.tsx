@@ -99,10 +99,11 @@ const StyButtonSM = styled.button`
 `;
 interface Content {
   content: string;
+  type: "button" | "submit" | "reset";
 }
-export const LogButtonSM = ({ content }: Content) => {
+export const LogButtonSM = ({ content, type }: Content) => {
   return (
-    <StyButtonSM type="submit">
+    <StyButtonSM type={type}>
       <span></span>
       <span></span>
       <span></span>

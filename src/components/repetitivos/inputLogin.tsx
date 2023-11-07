@@ -72,11 +72,15 @@ interface propsInputLogin {
   placeholder: string;
   type: string;
   children: ReactNode;
+  value: string;
+  onch: any;
 }
 export const InputLogin = ({
   placeholder,
   children,
   type,
+  value,
+  onch,
 }: propsInputLogin) => {
   return (
     <StyLogin className="form__group field">
@@ -84,6 +88,8 @@ export const InputLogin = ({
         type={type}
         className="form__field"
         placeholder={placeholder}
+        value={value}
+        onChange={onch}
         required
       />
       <label className="form__label">{children}</label>

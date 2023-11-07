@@ -6,6 +6,9 @@ import { LogButton } from "../repetitivos/Logbutton";
 import { DeskLeft } from "./DesktopLeft";
 
 import { AlertMsg } from "../repetitivos/AlertDialog";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -58,6 +61,33 @@ const Container = styled.div`
 `;
 
 export const LoginCpn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const aoSubm = (ev: any) => {
+    ev.preventDefault();
+    const usuario = {
+      email,
+      password,
+    };
+    axios
+      .post("http://localhost:8000/public/login", usuario)
+      .then((res) => {
+        sessionStorage.setItem("token", res.data.access_token);
+        setEmail("");
+        setPassword("");
+        navigate("/");
+        // voltar a url /home
+      })
+      .catch((erro) => {
+        if (erro.response.data.message) {
+          alert(erro.response.data.message);
+        } else {
+          alert("Erro inesperado");
+        }
+      });
+  };
+
   return (
     <>
       <Galaxy />
@@ -69,7 +99,7 @@ export const LoginCpn = () => {
             <div className="card-inner">
               <div className="flex h-full sm:mx-20 ">
                 {/* PARTE  ILUSTRATIVA APENAS DESK */}
-                <div className="flex-1 hidden sm:block h-full scale-125">
+                <div className="flex-1 hidden md:block  h-full scale-125 ">
                   <DeskLeft />
                 </div>
                 {/* PARTE DOS INPUTS */}
@@ -90,22 +120,38 @@ export const LoginCpn = () => {
                       LOGIN
                     </h1>
                     {/* inputs */}
+
                     <div className="flex flex-col gap-5 ">
-                      <InputLogin type="input" placeholder="User">
-                        Digite seu usuário
+                      <InputLogin
+                        type="email"
+                        value={email}
+                        placeholder="User"
+                        onch={(e: any) => {
+                          setEmail(e.target.value);
+                        }}
+                      >
+                        Digite seu e-mail
                       </InputLogin>
-                      <InputLogin type="password" placeholder="Senha">
+                      <InputLogin
+                        type="password"
+                        placeholder="Senha"
+                        value={password}
+                        onch={(e: any) => setPassword(e.target.value)}
+                      >
                         Digite sua senha
                       </InputLogin>
                     </div>
                     <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
                       {/* Botão de entrar com mensagem */}
-
-                      <LogButton content={"Entrar"} />
+                      <div onClick={aoSubm}>
+                        <LogButton content={"Entrar"} type="submit" />
+                      </div>
 
                       {/* BOTÃO DE CADASTRO COM MENSAGEM */}
                       <AlertMsg
-                        botao={<LogButton content={"Cadastre-se"} />}
+                        botao={
+                          <LogButton content={"Cadastre-se"} type="button" />
+                        }
                         title="Cadastre-se"
                       />
                     </div>
