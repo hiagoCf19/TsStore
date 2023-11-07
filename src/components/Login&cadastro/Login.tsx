@@ -1,13 +1,12 @@
 import { Galaxy } from "@/Styles/Galaxy";
 import styled from "styled-components";
 import { InputLogin } from "../repetitivos/inputLogin";
-
 import { LogButton } from "../repetitivos/Logbutton";
 import { DeskLeft } from "./DesktopLeft";
-
 import { AlertMsg } from "../repetitivos/AlertDialog";
 import { useState } from "react";
-import axios from "axios";
+import { auth } from "@/services/firebaseConfing";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   width: 90%;
@@ -63,30 +62,17 @@ const Container = styled.div`
 export const LoginCpn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [senhaIncorreta, setSenhaIncorreta] = useState<boolean>(false);
   const navigate = useNavigate();
-  const aoSubm = (ev: any) => {
-    ev.preventDefault();
-    const usuario = {
-      email,
-      password,
-    };
-    axios
-      .post("http://localhost:8000/public/login", usuario)
-      .then((res) => {
-        sessionStorage.setItem("token", res.data.access_token);
-        setEmail("");
-        setPassword("");
-        navigate("/");
-        // voltar a url /home
-      })
-      .catch((erro) => {
-        if (erro.response.data.message) {
-          alert(erro.response.data.message);
-        } else {
-          alert("Erro inesperado");
-        }
-      });
-  };
+  if (loading) {
+    console.log("carregando");
+  }
+  if (user) {
+    navigate("/");
+    console.log(user);
+  }
 
   return (
     <>
@@ -140,10 +126,25 @@ export const LoginCpn = () => {
                       >
                         Digite sua senha
                       </InputLogin>
+                      <span
+                        className={`text-[#D80032] ${
+                          senhaIncorreta === true ? "" : "hidden"
+                        } `}
+                      >
+                        login ou senha inválidos
+                      </span>
                     </div>
                     <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
                       {/* Botão de entrar com mensagem */}
-                      <div onClick={aoSubm}>
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          signInWithEmailAndPassword(email, password);
+                          error
+                            ? setSenhaIncorreta(true)
+                            : setSenhaIncorreta(false);
+                        }}
+                      >
                         <LogButton content={"Entrar"} type="submit" />
                       </div>
 

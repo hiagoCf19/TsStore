@@ -37,10 +37,10 @@ export const Header = ({ props, line }: PropsHeader) => {
                         to={"/login"}
                         className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2"
                       >
-                        <p className="ml-[-30px] flex items-center gap-2">
+                        <span className="ml-[-30px] flex items-center gap-2">
                           <User color="#725cff" />
                           Login
-                        </p>
+                        </span>
                       </Link>
                       {navRoutes.map((topico, i: number) => (
                         <Link

@@ -1,35 +1,42 @@
 import { useState } from "react";
 import { LogButtonSM } from "../repetitivos/LogbuttonSM";
 import { Input } from "../ui/input";
-import axios from "axios";
+
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/services/firebaseConfing";
+
 export const CadastroForm = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassWord] = useState<string>("");
   const [confirmPass, setConfirm] = useState<string>("");
-  const AoSub = (evento: React.FormEvent<HTMLFormElement>) => {
-    evento.preventDefault();
-    const user = {
-      name,
-      email,
-      password,
-      confirmPass,
-    };
-    axios
-      .post("http://localhost:8000/public/registrar", user)
-      .then(() => {
-        alert("usuario foi cadastrado");
-        setName("");
-        setEmail("");
-        setPassWord("");
-        setConfirm("");
-      })
-      .catch(() => alert("erro"));
-  };
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  function cadastro(e: any) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(email, password);
+  }
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (user) {
+    return (
+      <div>
+        <p>Registered User: {user.user.email}</p>
+      </div>
+    );
+  }
 
   return (
     <form
-      onSubmit={AoSub}
+      onSubmit={cadastro}
       className="flex justify-center flex-col items-center gap-3"
     >
       <div className="flex flex-col justify-start items-start gap-3">
