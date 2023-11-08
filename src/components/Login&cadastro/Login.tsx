@@ -5,9 +5,10 @@ import { LogButton } from "../repetitivos/Logbutton";
 import { DeskLeft } from "./DesktopLeft";
 import { AlertMsg } from "../repetitivos/AlertDialog";
 import { useState } from "react";
-import { auth } from "@/services/firebaseConfing";
+import { auth, db } from "@/services/firebaseConfing";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+
+import { getDocs, query, where, collection } from "firebase/firestore";
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -65,13 +66,31 @@ export const LoginCpn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [senhaIncorreta, setSenhaIncorreta] = useState<boolean>(false);
-  const navigate = useNavigate();
+  const [nomeDoUsuario, setNomeDoUsuario] = useState("");
+
   if (loading) {
     console.log("carregando");
   }
   if (user) {
-    navigate("/");
-    console.log(user);
+    const userUID = user.user.uid;
+    const userCollection = collection(db, "usuarios");
+    const userQuery = query(userCollection, where("uid", "==", userUID));
+    getDocs(userQuery)
+      .then((res) => {
+        if (!res.empty) {
+          const userDoc = res.docs[0];
+          const userData = userDoc.data();
+          const nomeUsuario = userData.name;
+          setNomeDoUsuario(nomeUsuario);
+          console.log(nomeDoUsuario);
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao consultar o Firestore:", error);
+      });
+  }
+  if (error) {
+    console.error(error.code);
   }
 
   return (
@@ -133,6 +152,7 @@ export const LoginCpn = () => {
                       >
                         login ou senha inválidos
                       </span>
+                      {`o nome do user é: ${nomeDoUsuario}`}
                     </div>
                     <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
                       {/* Botão de entrar com mensagem */}
