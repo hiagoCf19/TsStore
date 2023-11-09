@@ -12,7 +12,7 @@ export const CadastroForm = () => {
   {
     /* STATES */
   }
-  const { nomeDoUsuario, setNomeDoUsuario } = useContext(UserCtx);
+  const { nomeDoUsuario } = useContext(UserCtx);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassWord] = useState<string>("");
