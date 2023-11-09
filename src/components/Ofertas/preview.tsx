@@ -2,7 +2,7 @@ import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CardProd } from "../repetitivos/Card";
+import { CardProd } from "../styledElements/Card";
 
 export const Preview = () => {
   const produtos = useContext(ProdutoCtx);

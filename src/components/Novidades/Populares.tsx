@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 
 import styled from "styled-components";
 import { TitleGeneric } from "../UiVerse/title";
-import { CardProd } from "../repetitivos/Card";
+import { CardProd } from "../styledElements/Card";
 import { Link } from "react-router-dom";
 export const CardSty = styled.div`
   position: relative;

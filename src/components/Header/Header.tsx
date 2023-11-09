@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useContext } from "react";
 import { Link } from "react-router-dom";
 import { navRoutes } from "@/routes";
 import {
@@ -11,12 +11,15 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon, User } from "lucide-react";
 import { Entradas } from "./Entrada";
+import UserCtx from "@/Context/UserCOntext";
 
 interface PropsHeader {
   props: ReactNode;
   line: ReactNode;
 }
 export const Header = ({ props, line }: PropsHeader) => {
+  const { nomeDoUsuario } = useContext(UserCtx);
+  console.log(nomeDoUsuario);
   return (
     <React.Fragment>
       <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none sm:px-[50px] sm:h-10 justify-between sm:pt-2">
@@ -33,15 +36,22 @@ export const Header = ({ props, line }: PropsHeader) => {
                   <SheetHeader className="gap-8">
                     <SheetTitle>Menu</SheetTitle>
                     <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
-                      <Link
-                        to={"/login"}
-                        className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2"
-                      >
-                        <span className="ml-[-30px] flex items-center gap-2">
-                          <User color="#725cff" />
+                      {nomeDoUsuario === null ? (
+                        <Link
+                          to={"/login"}
+                          className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2"
+                        >
+                          <span className="ml-[-30px] flex items-center gap-2">
+                            <User color="#725cff" />
+                          </span>
                           Login
-                        </span>
-                      </Link>
+                        </Link>
+                      ) : (
+                        <div className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2">
+                          {nomeDoUsuario}
+                        </div>
+                      )}
+
                       {navRoutes.map((topico, i: number) => (
                         <Link
                           className="hover:text-white outline-none"

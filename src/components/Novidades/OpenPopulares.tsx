@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { CoHeader } from "../Header/CoHeader";
+
 import { Header } from "../Header/Header";
+import { LoadingAni } from "../styledElements/loading";
 
 export const OpenPopulares = () => {
   return (
@@ -19,8 +20,10 @@ export const OpenPopulares = () => {
         }
         line={<div className="h-[1px] w-full bg-roxo"></div>}
       />
-      <CoHeader />
-      <section>developing...</section>
+
+      <section>
+        <LoadingAni />
+      </section>
     </>
   );
 };

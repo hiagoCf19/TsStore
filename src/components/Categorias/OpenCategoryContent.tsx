@@ -1,6 +1,6 @@
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext } from "react";
-import { CardProd } from "../repetitivos/Card";
+import { CardProd } from "../styledElements/Card";
 
 interface PropsCategory {
   props: string;

@@ -1,19 +1,37 @@
-import { useEffect, useState } from "react";
-import { LogButtonSM } from "../repetitivos/LogbuttonSM";
+import { useContext, useEffect, useState } from "react";
+
 import { Input } from "../ui/input";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, db } from "@/services/firebaseConfing";
 import { addDoc, collection } from "firebase/firestore";
+import { LogButtonSM } from "../styledElements/LogbuttonSM";
+import { Eye, EyeOff } from "lucide-react";
+import UserCtx from "@/Context/UserCOntext";
 
 export const CadastroForm = () => {
+  {
+    /* STATES */
+  }
+  const { nomeDoUsuario, setNomeDoUsuario } = useContext(UserCtx);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassWord] = useState<string>("");
+  const [validConfirm, setValidConfirm] = useState<boolean>(false);
+  const [visiblePassword, setVisiblePassword] = useState<boolean>(false);
+  const [visibleConfirm, setVisibleConfirm] = useState<boolean>(false);
+  const [msgPass, setMsgPass] = useState<boolean>(false);
   const [confirmPass, setConfirm] = useState<string>("");
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [userUID, setUserUID] = useState(user?.user.uid);
-  console.log("UID está:", userUID);
+
+  {
+    /* mostrando UID no console quando existir */
+  }
+  userUID !== undefined ? console.info("UID está:", userUID) : null;
+  {
+    /* AUTENTICANDO USUARIO NO FIREBASE VIA LOG E SENHA E GUARDANDO SEUS DADOS NO FIRESTORE */
+  }
   function cadastro(e: any) {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password)
@@ -26,7 +44,7 @@ export const CadastroForm = () => {
           name: name,
           email: email,
         }).then(() => {
-          console.log(
+          console.info(
             "usuario cadastrado no firestore com o uid",
             userUID,
             "e nome",
@@ -39,86 +57,181 @@ export const CadastroForm = () => {
         console.log("erro ao criar o usuario:", erro.message);
       });
   }
-
+  {
+    /* SEMPRE QUE UM CADASTRO FOR BEM SUCEDIDO O ESTADO DE UID SERÁ ATUALIZADO, OU SEJA, SERÁ O UID DO USUARIO QUE ACABOU DE SE CADASTRAR */
+  }
   useEffect(() => {
     if (user) {
       setUserUID(user.user.uid); // Armazena o uid do usuário no estado
     }
   }, [user]);
-
+  {
+    /* O QUE ACONTECE QUANDO O CADASTRO É BEM SUCEDIDO: */
+  }
   if (user) {
     return (
       <div>
-        <p>Registered User: {user.user.email}</p>
+        <p>Seja bem vindo {nomeDoUsuario}</p>
       </div>
     );
   }
+  {
+    /* O QUE ACONTECE ENQUANTO SE VERIFICA SE O CADASTRO PODE SER REALIZADO */
+  }
   if (loading) {
-    console.log("Verificando dados");
+    console.info("Verificando dados");
+  }
+  {
+    /* O QUE ACONTECE EM CASO DE ERRO */
   }
   if (error) {
-    if (error.message.includes("auth/weak-password")) {
-      console.log("A senha deve ter pelo menos 6 caracteres");
-    } else if (error.message.includes("auth/invalid-email")) {
-      console.log("Email inválido");
-    } else if (error.message.includes("auth/email-already-in-use")) {
-      console.log("Email em uso");
-    } else {
-      console.log("Erro inesperado:", error.message);
-    }
+    console.log(error.message);
   }
 
   return (
     <form
-      onSubmit={cadastro}
+      onSubmit={(e) => {
+        e.preventDefault();
+        validConfirm ? cadastro(e) : setMsgPass(true);
+      }}
       className="flex justify-center flex-col items-center gap-3"
     >
       <div className="flex flex-col justify-start items-start gap-3">
-        <label htmlFor="Nome">Nome</label>
+        <label className="font-bold text-[1rem]" htmlFor="Nome">
+          Nome
+        </label>
         <Input
           placeholder="Informe seu nome"
           type="text"
           className=" bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          required
         />
       </div>
+      {/* INPUT EMAIL */}
       <div className="flex flex-col justify-start items-start gap-3">
-        <label htmlFor="Email">E-mail</label>
+        <label className="font-bold text-[1rem]" htmlFor="Email">
+          E-mail
+        </label>
         <Input
           placeholder="informe seu e-mail"
           type="text"
-          className=" bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic"
+          className={` bg-transp border-[1px] border-solid ${
+            error?.message === "Firebase: Error (auth/missing-email)." ||
+            error?.message === "Firebase: Error (auth/email-already-in-use)."
+              ? "border-[#D80032]"
+              : "border-roxo"
+          } shadow-md  w-[15.5rem] sm:w-[18.75rem] italic`}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
+        {error === undefined ? (
+          ""
+        ) : (
+          <span className="text-[#D80032]">
+            {error?.message === "Firebase: Error (auth/missing-email)." ||
+            error.message === "Firebase: Error (auth/invalid-email)."
+              ? "Insira um e-mail vido"
+              : error?.message ===
+                "Firebase: Error (auth/email-already-in-use)."
+              ? "E-mail já cadastrado"
+              : ""}
+          </span>
+        )}
+      </div>
+      {/* INPUT SENHA */}
+      <div className="flex flex-col justify-start items-start gap-3">
+        <label className="font-bold text-[1rem]" htmlFor="Email">
+          Senha
+        </label>
+        <div className="flex relative">
+          <Input
+            placeholder="Defina uma senha"
+            type={visiblePassword ? "text" : "password"}
+            className={` bg-transp border-[1px] border-solid border-roxo shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic ${
+              msgPass ? "border-[#D80032]" : "border-roxo"
+            }`}
+            value={password}
+            onChange={(e) => {
+              setPassWord(e.target.value);
+            }}
+          />
+
+          <span
+            className="absolute top-[25%] bottom-[50%] right-3"
+            onClick={() =>
+              !visiblePassword
+                ? setVisiblePassword(true)
+                : setVisiblePassword(false)
+            }
+          >
+            {visiblePassword ? (
+              <EyeOff size={20} color="#725cff" />
+            ) : (
+              <Eye size={20} color="#725cff" />
+            )}
+          </span>
+        </div>
+        {error === undefined ? (
+          ""
+        ) : (
+          <span className="text-[#D80032] text-sm sm:text-[1rem] ">
+            {error?.message === "Firebase: Error (auth/missing-password)."
+              ? "Insira uma senha"
+              : error?.message ===
+                "Firebase: Password should be at least 6 characters (auth/weak-password)."
+              ? "A senha precisa ter mais de 6 digitos"
+              : ""}
+          </span>
+        )}
       </div>
       <div className="flex flex-col justify-start items-start gap-3">
-        <label htmlFor="Email">Senha</label>
-        <Input
-          placeholder="Defina uma senha"
-          type="password"
-          className=" bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic"
-          value={password}
-          onChange={(e) => {
-            setPassWord(e.target.value);
-          }}
-        />
-      </div>
-      <div className="flex flex-col justify-start items-start gap-3">
-        <label htmlFor="Confirme sua senha">Confirme sua senha</label>
-        <Input
-          placeholder="Confirme sua senha"
-          type="password"
-          className=" bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic"
-          value={confirmPass}
-          onChange={(e) => setConfirm(e.target.value)}
-        />
+        <label className="font-bold text-[1rem]" htmlFor="Confirme sua senha">
+          Confirme sua senha
+        </label>
+        <div className="flex relative">
+          <Input
+            placeholder="Confirme sua senha"
+            type={visibleConfirm ? "text" : "password"}
+            className={` bg-transp border-[1px] border-solid  shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic  ${
+              msgPass ? "border-[#D80032]" : "border-roxo"
+            }
+            `}
+            value={confirmPass}
+            onChange={(e) => {
+              setConfirm(e.target.value);
+            }}
+          />
+          <span
+            className="absolute top-[25%] bottom-[50%] right-3"
+            onClick={() =>
+              !visibleConfirm
+                ? setVisibleConfirm(true)
+                : setVisibleConfirm(false)
+            }
+          >
+            {visibleConfirm ? (
+              <EyeOff size={20} color="#725cff" />
+            ) : (
+              <Eye size={20} color="#725cff" />
+            )}
+          </span>
+        </div>
       </div>
 
-      <div className="py-5">
+      <div
+        onClick={() =>
+          confirmPass.length >= 5 && confirmPass === password
+            ? setValidConfirm(true)
+            : null
+        }
+        className=""
+      >
         <LogButtonSM type="submit" content="Cadastrar" />
       </div>
     </form>

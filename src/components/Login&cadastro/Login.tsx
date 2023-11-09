@@ -1,14 +1,3 @@
-import { Galaxy } from "@/Styles/Galaxy";
-import styled from "styled-components";
-import { InputLogin } from "../repetitivos/inputLogin";
-import { LogButton } from "../repetitivos/Logbutton";
-import { DeskLeft } from "./DesktopLeft";
-import { AlertMsg } from "../repetitivos/AlertDialog";
-import { useState } from "react";
-import { auth, db } from "@/services/firebaseConfing";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-
-import { getDocs, query, where, collection } from "firebase/firestore";
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -59,15 +48,26 @@ const Container = styled.div`
     }
   }
 `;
-
+import { Galaxy } from "@/Styles/Galaxy";
+import styled from "styled-components";
+import { InputLogin } from "../styledElements/inputLogin";
+import { LogButton } from "../styledElements/Logbutton";
+import { DeskLeft } from "./DesktopLeft";
+import { AlertMsg } from "../styledElements/AlertDialog";
+import { useContext, useState } from "react";
+import { auth, db } from "@/services/firebaseConfing";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { getDocs, query, where, collection } from "firebase/firestore";
+import UserCtx from "@/Context/UserCOntext";
+import { useNavigate } from "react-router-dom";
 export const LoginCpn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { nomeDoUsuario, setNomeDoUsuario } = useContext(UserCtx);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const [senhaIncorreta, setSenhaIncorreta] = useState<boolean>(false);
-  const [nomeDoUsuario, setNomeDoUsuario] = useState("");
 
+  const navigate = useNavigate();
   if (loading) {
     console.log("carregando");
   }
@@ -88,9 +88,7 @@ export const LoginCpn = () => {
       .catch((error) => {
         console.error("Erro ao consultar o Firestore:", error);
       });
-  }
-  if (error) {
-    console.error(error.code);
+    navigate("/");
   }
 
   return (
@@ -146,13 +144,23 @@ export const LoginCpn = () => {
                         Digite sua senha
                       </InputLogin>
                       <span
-                        className={`text-[#D80032] ${
-                          senhaIncorreta === true ? "" : "hidden"
+                        className={`text-[#D80032] w-[300px] ${
+                          error ? "" : "hidden"
                         } `}
                       >
-                        login ou senha inválidos
+                        {error?.message ===
+                        "Firebase: Error (auth/invalid-email)."
+                          ? "Email inváido"
+                          : error?.message ===
+                              "Firebase: Error (auth/missing-password)." ||
+                            error?.message ===
+                              "Firebase: Error (auth/invalid-login-credentials)."
+                          ? "Usuário ou senha Inválidos"
+                          : error?.message ===
+                            "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+                          ? "Acesso bloqueado. Tente novamente mais tarde... "
+                          : error?.message}
                       </span>
-                      {`o nome do user é: ${nomeDoUsuario}`}
                     </div>
                     <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
                       {/* Botão de entrar com mensagem */}
@@ -160,9 +168,6 @@ export const LoginCpn = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           signInWithEmailAndPassword(email, password);
-                          error
-                            ? setSenhaIncorreta(true)
-                            : setSenhaIncorreta(false);
                         }}
                       >
                         <LogButton content={"Entrar"} type="submit" />

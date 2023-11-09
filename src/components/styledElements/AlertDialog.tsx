@@ -20,7 +20,9 @@ export const AlertMsg = ({ botao, title }: PropsAlert) => {
       <DialogTrigger>{botao}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="py-5 text-center">{title}</DialogTitle>
+          <DialogTitle className="py-3 text-center uppercase">
+            {title}
+          </DialogTitle>
           <CadastroForm />
         </DialogHeader>
       </DialogContent>
