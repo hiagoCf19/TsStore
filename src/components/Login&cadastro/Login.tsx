@@ -1,3 +1,6 @@
+{
+  /* STYLED COMPONENTS CONTAINER */
+}
 const Container = styled.div`
   width: 90%;
   height: 80%;
@@ -48,28 +51,42 @@ const Container = styled.div`
     }
   }
 `;
+{
+  /* IMPORTAÇÕES */
+}
 import { Galaxy } from "@/Styles/Galaxy";
 import styled from "styled-components";
 import { InputLogin } from "../styledElements/inputLogin";
 import { LogButton } from "../styledElements/Logbutton";
 import { DeskLeft } from "./DesktopLeft";
 import { AlertMsg } from "../styledElements/AlertDialog";
-import { useContext, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { auth, db } from "@/services/firebaseConfing";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { getDocs, query, where, collection } from "firebase/firestore";
 import UserCtx from "@/Context/UserCOntext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+{
+  /* COMPONENTE */
+}
 export const LoginCpn = () => {
+  {
+    /* STATES */
+  }
   const { nomeDoUsuario, setNomeDoUsuario } = useContext(UserCtx);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
   const navigate = useNavigate();
+  {
+    /* O QUE ACONTECE ENQUANTO CARREGA: */
+  }
   if (loading) {
     console.log("carregando");
+  }
+  {
+    /* O QUE ACONTECE QUANDO O LOGIN É BEM SUCEDIDO: */
   }
   if (user) {
     const userUID = user.user.uid;
@@ -86,8 +103,9 @@ export const LoginCpn = () => {
         }
       })
       .catch((error) => {
-        console.error("Erro ao consultar o Firestore:", error);
+        console.error("Erro ao consultar os dados:", error);
       });
+    console.log(nomeDoUsuario);
     navigate("/");
   }
 
@@ -96,6 +114,7 @@ export const LoginCpn = () => {
       <Galaxy />
       <section className="h-[100vh]">
         <div className="flex justify-center items-center h-full">
+          {/* CONTAINER QUE CONTEM A ANIMAÇÃO DE FUNDO */}
           <Container className="card">
             <div className="circle"></div>
             <div className="circle"></div>
@@ -105,9 +124,10 @@ export const LoginCpn = () => {
                 <div className="flex-1 hidden md:block  h-full scale-125 ">
                   <DeskLeft />
                 </div>
-                {/* PARTE DOS INPUTS */}
+                {/* PARTE FUNCIONAL, CADASTRO/LOGIN */}
                 <div className="flex-1 flex justify-center ">
                   <div className="  flex flex-col gap-5 h-full justify-center sm:scale-[1.25]">
+                    {/* LOGO */}
                     <div className="w-full flex items-center justify-center">
                       <img
                         src="Assets/tsStore.svg"
@@ -115,34 +135,46 @@ export const LoginCpn = () => {
                         className="w-[200px] sm:hidden "
                       />
                     </div>
-                    {/* mensagem de boas vindas mobile */}
+                    {/* WELCOME IN MOBILE */}
                     <h1 className=" text-center text-[20px] sm:hidden">
                       Seja bem-vindo
                     </h1>
+                    {/* WELCOME IN DESK */}
                     <h1 className=" text-center text-[26px] hidden sm:block sm:ml-20">
                       LOGIN
                     </h1>
-                    {/* inputs */}
-
+                    {/* INPUTS */}
                     <div className="flex flex-col gap-5 ">
+                      {/* EMAIL */}
                       <InputLogin
                         type="email"
                         value={email}
                         placeholder="User"
-                        onch={(e: any) => {
+                        onch={(e: ChangeEvent<HTMLInputElement>) => {
                           setEmail(e.target.value);
                         }}
                       >
                         Digite seu e-mail
                       </InputLogin>
+                      {/* SENHA */}
                       <InputLogin
                         type="password"
                         placeholder="Senha"
                         value={password}
-                        onch={(e: any) => setPassword(e.target.value)}
+                        onch={(e: ChangeEvent<HTMLInputElement>) =>
+                          setPassword(e.target.value)
+                        }
                       >
                         Digite sua senha
                       </InputLogin>
+                      {/* RECUPERAÇÃO DE SENHA */}
+                      <Link
+                        to={"/recuperar-Acesso"}
+                        className="text-sm underline text-[#a1a1a1e1] hover:text-roxo"
+                      >
+                        Esqueceu sua senha?
+                      </Link>
+                      {/* TRATAMENTO DE ERROS RELACIONADOS AO LOGIN */}
                       <span
                         className={`text-[#D80032] w-[300px] ${
                           error ? "" : "hidden"
@@ -158,12 +190,13 @@ export const LoginCpn = () => {
                           ? "Usuário ou senha Inválidos"
                           : error?.message ===
                             "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
-                          ? "Acesso bloqueado. Tente novamente mais tarde... "
+                          ? "Acesso bloqueado. Tente novamente mais tarde ou restaure sua senha "
                           : error?.message}
                       </span>
                     </div>
+                    {/* ÁREA DE LOGIN E CADASTRO*/}
                     <div className="flex flex-col py-5 gap-3 sm:w-[130%] text-center">
-                      {/* Botão de entrar com mensagem */}
+                      {/*BOTÃO COM LÓGICA PARA REALIZAR O LOGIN */}
                       <div
                         onClick={(e) => {
                           e.preventDefault();
@@ -172,8 +205,7 @@ export const LoginCpn = () => {
                       >
                         <LogButton content={"Entrar"} type="submit" />
                       </div>
-
-                      {/* BOTÃO DE CADASTRO COM MENSAGEM */}
+                      {/* BOTÃO DE REDIRECIONAMENTO PARA FORMULARIO DE CADASTRO */}
                       <AlertMsg
                         botao={
                           <LogButton content={"Cadastre-se"} type="button" />

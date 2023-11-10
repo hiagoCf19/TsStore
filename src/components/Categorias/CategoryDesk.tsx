@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const CategoriasDesk = () => {
   return (
     <div className="flex overflow-hidden overflow-x-scroll sm:overflow-x-hidden gap-5 ">
+      {/* RENDERIZA UM BOTAO COM ROTAS PARA CADA ITEM DO ARRAY CATEGTORY, QUE ESTÁ NO COMPONENTE ROTAS NO DESKTOP */}
       {category.map((categoria, i) => (
         <Link
           key={i}

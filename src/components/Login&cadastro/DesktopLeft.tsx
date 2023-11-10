@@ -20,16 +20,16 @@ const DeskSty = styled.div`
     margin-top: 0.25rem;
     background-image: linear-gradient(
       90deg,
-      rgb(176, 153, 205),
-      rgb(42, 11, 182),
-      rgb(176, 153, 205),
-      rgb(42, 11, 182)
+      rgb(209, 189, 232),
+      rgb(74, 5, 158),
+      rgb(209, 189, 232),
+      rgb(74, 5, 158)
     );
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 15px 10px 55px plum;
+    text-shadow: 15px 10px 25px rgb(92, 3, 201);
     text-transform: uppercase;
     letter-spacing: 1rem;
     z-index: 99;

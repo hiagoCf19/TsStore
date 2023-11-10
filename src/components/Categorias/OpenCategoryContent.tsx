@@ -7,6 +7,9 @@ interface PropsCategory {
 }
 export const ContentCategory = ({ props }: PropsCategory) => {
   const produtos = useContext(ProdutoCtx);
+  {
+    /* ESSE FILTRO SERVE PARA EXIBIR APENAS OS ITEMS QUE CORRESPONDEREM A ROTA EM QUE O USUARIO ESTÁ, SE A ROTA É IGUAL A FEMININO SÓ SERÃO EXIBIDOS FEMININOS, AQUI O PROPS REPRESENTA O ALL CATEGORY, DO COMPONENTE ALLCATEGORYS */
+  }
   const conjuntos = produtos.filter((produto) => produto.category === props);
 
   return (

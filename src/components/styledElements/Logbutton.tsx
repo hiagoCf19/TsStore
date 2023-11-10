@@ -10,7 +10,7 @@ const StyButton = styled.div`
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #725cff);
+    background: linear-gradient(90deg, transparent, #a894e8);
   }
 
   &:hover span:nth-child(1) {
@@ -23,7 +23,7 @@ const StyButton = styled.div`
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #270658);
+    background: linear-gradient(90deg, transparent, #7126eb);
   }
 
   &:hover span:nth-child(3) {
@@ -37,7 +37,7 @@ const StyButton = styled.div`
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #47058d);
+    background: linear-gradient(180deg, transparent, #a894e8);
   }
 
   &:hover span:nth-child(2) {
@@ -51,7 +51,7 @@ const StyButton = styled.div`
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #8c00ff);
+    background: linear-gradient(360deg, transparent, #7126eb);
   }
 
   &:hover span:nth-child(4) {
@@ -64,7 +64,7 @@ const StyButton = styled.div`
     background: rgba(0, 0, 0, 0.161);
     background: rgba(0, 0, 0, 0.161);
     color: #bfbfbf;
-    box-shadow: 0 0 8px #ae00ff, 0 0 8px #001eff, 0 0 8px #ae00ff;
+    box-shadow: 0 0 8px #725cff, 0 0 8px #001eff, 0 0 8px #725cff;
     transition: 0.1s;
   }
 

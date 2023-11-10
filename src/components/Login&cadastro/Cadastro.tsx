@@ -226,7 +226,7 @@ export const CadastroForm = () => {
 
       <div
         onClick={() =>
-          confirmPass.length >= 5 && confirmPass === password
+          confirmPass.length >= 1 && confirmPass === password
             ? setValidConfirm(true)
             : null
         }

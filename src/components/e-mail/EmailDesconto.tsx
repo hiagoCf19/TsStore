@@ -16,7 +16,13 @@ import { BotaoSM } from "../UiVerse/BotaoSMstyled";
 export const Cadastre = () => {
   const [userEmail, setUserEmail] = useState("");
   const [validado, setValidado] = useState(false);
+  {
+    /* REGEXP PARA CAPTAR UM EMAIL VALIDO*/
+  }
   const regTestEmail: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+  {
+    /* FAZ UM TESTE PARA VER SE AS CONDIÇÕES  DO REGEXP FORAM ATENDIDAS E SE FORAM RETORNA TRUE E SE NAO FORAM RETORNA FALSE */
+  }
   const testResult: boolean = regTestEmail.test(userEmail);
 
   return (

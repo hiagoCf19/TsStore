@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 export const Banner = () => {
   const [bannerExibido, setBannerExibido] = useState<number>(0);
+  {
+    /* LOGICA PARA ALTERAR O ESTADO A CADA 4 SEGUNDOS, FAZENDO ASSIM COM QUE O BANNER EXIBIDO SEJA DIFERENTE A CADA 4 SEGUNDOS */
+  }
   setTimeout(() => {
     bannerExibido < 3
       ? setBannerExibido(bannerExibido + 1)
@@ -10,6 +13,7 @@ export const Banner = () => {
   return (
     <React.Fragment>
       <div className=" mt-[-35px] sm:mt-0 abs sm:mb-[-40px]">
+        {/* BANNERS NO DESKTOP */}
         <img
           src={
             bannerExibido === 0
@@ -25,6 +29,7 @@ export const Banner = () => {
           alt="banner"
           className="hidden sm:block  "
         />
+        {/* BANNERS NO MOBILE */}
         <img
           src={
             bannerExibido === 0
