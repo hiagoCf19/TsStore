@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { navRoutes } from "@/routes";
 import {
@@ -11,15 +11,25 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon, User } from "lucide-react";
 import { Entradas } from "./Entrada";
+import ControlLog from "@/Context/loginControl";
 import UserCtx from "@/Context/UserCOntext";
+import { UserArea } from "./UserArea";
 
 interface PropsHeader {
   props: ReactNode;
   line: ReactNode;
 }
 export const Header = ({ props, line }: PropsHeader) => {
+  const { userLogado, setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario } = useContext(UserCtx);
-  console.log(nomeDoUsuario);
+  nomeDoUsuario != null
+    ? sessionStorage.setItem("userName", nomeDoUsuario)
+    : null;
+  useEffect(() => {
+    if (nomeDoUsuario != null) {
+      setUserLogado(true);
+    }
+  }, [nomeDoUsuario]);
   return (
     <React.Fragment>
       <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none sm:px-[50px] sm:h-10 justify-between sm:pt-2">
@@ -36,7 +46,9 @@ export const Header = ({ props, line }: PropsHeader) => {
                   <SheetHeader className="gap-8">
                     <SheetTitle>Menu</SheetTitle>
                     <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
-                      {nomeDoUsuario === null ? (
+                      {userLogado ? (
+                        <UserArea />
+                      ) : (
                         <Link
                           to={"/login"}
                           className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2"
@@ -46,10 +58,6 @@ export const Header = ({ props, line }: PropsHeader) => {
                           </span>
                           Login
                         </Link>
-                      ) : (
-                        <div className="flex items-center gap-3 font-semibold border-b border-solid justify-center py-2">
-                          {nomeDoUsuario}
-                        </div>
                       )}
 
                       {navRoutes.map((topico, i: number) => (
@@ -83,7 +91,7 @@ export const Header = ({ props, line }: PropsHeader) => {
             </div>
           </nav>
         </div>
-        <Entradas />
+        {userLogado ? <UserArea /> : <Entradas />}
       </header>
       <div className="sm:hidden">{line}</div>
 

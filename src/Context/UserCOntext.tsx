@@ -6,7 +6,8 @@ interface Children {
 const UserCtx = createContext<any>({});
 
 export function UserProvider({ children }: Children) {
-  const [nomeDoUsuario, setNomeDoUsuario] = useState(null);
+  const userName = sessionStorage.getItem("userName");
+  const [nomeDoUsuario, setNomeDoUsuario] = useState(userName);
 
   return (
     <UserCtx.Provider value={{ nomeDoUsuario, setNomeDoUsuario }}>

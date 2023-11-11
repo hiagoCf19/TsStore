@@ -8,8 +8,12 @@ import { Header } from "./components/Header/Header";
 import { Preview } from "./components/Ofertas/preview";
 import "./global.css";
 import { CoHeader } from "./components/Header/CoHeader";
-
+import { useContext } from "react";
+import ControlLog from "./Context/loginControl";
 function App() {
+  const { userLogado } = useContext(ControlLog);
+  console.log(userLogado);
+
   return (
     <>
       <div className="fixed bg-background w-full z-50">

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Input } from "../ui/input";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -6,13 +6,12 @@ import { auth, db } from "@/services/firebaseConfing";
 import { addDoc, collection } from "firebase/firestore";
 import { LogButtonSM } from "../styledElements/LogbuttonSM";
 import { Eye, EyeOff } from "lucide-react";
-import UserCtx from "@/Context/UserCOntext";
 
 export const CadastroForm = () => {
   {
     /* STATES */
   }
-  const { nomeDoUsuario } = useContext(UserCtx);
+
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassWord] = useState<string>("");
@@ -71,7 +70,7 @@ export const CadastroForm = () => {
   if (user) {
     return (
       <div>
-        <p>Seja bem vindo {nomeDoUsuario}</p>
+        <p>Seja bem vindo {name}</p>
       </div>
     );
   }

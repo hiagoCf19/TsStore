@@ -66,6 +66,8 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { getDocs, query, where, collection } from "firebase/firestore";
 import UserCtx from "@/Context/UserCOntext";
 import { Link, useNavigate } from "react-router-dom";
+import ControlLog from "@/Context/loginControl";
+
 {
   /* COMPONENTE */
 }
@@ -73,12 +75,15 @@ export const LoginCpn = () => {
   {
     /* STATES */
   }
+  const { setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario, setNomeDoUsuario } = useContext(UserCtx);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
+
   {
     /* O QUE ACONTECE ENQUANTO CARREGA: */
   }
@@ -90,6 +95,7 @@ export const LoginCpn = () => {
   }
   if (user) {
     const userUID = user.user.uid;
+
     const userCollection = collection(db, "usuarios");
     const userQuery = query(userCollection, where("uid", "==", userUID));
     getDocs(userQuery)
@@ -98,13 +104,17 @@ export const LoginCpn = () => {
           const userDoc = res.docs[0];
           const userData = userDoc.data();
           const nomeUsuario = userData.name;
+          sessionStorage.setItem("userUid", userUID);
+
           setNomeDoUsuario(nomeUsuario);
-          console.log(nomeDoUsuario);
+
+          nomeDoUsuario != null ? setUserLogado(true) : null;
         }
       })
       .catch((error) => {
         console.error("Erro ao consultar os dados:", error);
       });
+
     console.log(nomeDoUsuario);
     navigate("/");
   }
