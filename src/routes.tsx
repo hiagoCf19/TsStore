@@ -11,6 +11,7 @@ import { ResetCSS } from "./Styles/Reset";
 
 import { LoginCpn } from "./components/Login&cadastro/Login";
 import { OpenPopulares } from "./components/Novidades/OpenPopulares";
+import { ResetPassword } from "./components/Login&cadastro/resetPassword";
 
 export const category: string[] = [];
 export const navRoutes = [
@@ -90,7 +91,7 @@ const RoutesApp = () => {
         ))}
 
         <Route path="/login" element={<LoginCpn />} />
-
+        <Route path="/login/recuperar-acesso" element={<ResetPassword />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

@@ -1,7 +1,7 @@
 {
   /* STYLED COMPONENTS CONTAINER */
 }
-const Container = styled.div`
+export const Container = styled.div`
   width: 90%;
   height: 80%;
   transition: all 0.2s;
@@ -169,7 +169,7 @@ export const LoginCpn = () => {
                       </InputLogin>
                       {/* RECUPERAÇÃO DE SENHA */}
                       <Link
-                        to={"/recuperar-Acesso"}
+                        to={"/login/recuperar-acesso"}
                         className="text-sm underline text-[#a1a1a1e1] hover:text-roxo"
                       >
                         Esqueceu sua senha?
