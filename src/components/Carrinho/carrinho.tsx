@@ -18,9 +18,13 @@ export const Carrinho = () => {
       />
 
       <div className="w-full flex justify-center flex-col">
-        <div className="flex justify-center py-12 h-[50vh] gap-10 mx-5">
-          <div className=" w-[50%] bg-transp rounded-lg">area dos produtos</div>
-          <div className=" w-[30%] border border-solid border-roxo">resumo</div>
+        <div className="flex justify-center py-12 sm:h-[50vh] h-[80vh]  gap-10 mx-5 flex-col sm:flex-row">
+          <div className=" sm:w-[50%] bg-transp rounded-lg h-full sm:h-auto">
+            area dos produtos
+          </div>
+          <div className=" sm:w-[30%] border border-solid border-roxo h-[50%]">
+            resumo
+          </div>
         </div>
         <div className="flex justify-center">recomendados</div>
       </div>

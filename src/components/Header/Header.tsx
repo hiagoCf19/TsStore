@@ -12,9 +12,11 @@ import {
 import {
   ChevronRight,
   Home,
+  LogOut,
   MenuIcon,
-  Percent,
-  Sparkles,
+  Repeat,
+  ShoppingBag,
+  Ticket,
   User,
 } from "lucide-react";
 import { Entradas } from "./Entrada";
@@ -30,7 +32,7 @@ interface PropsHeader {
 export const Header = ({ props, line }: PropsHeader) => {
   const { userLogado, setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario } = useContext(UserCtx);
-  const icons = [<Home />, <Percent />, <Sparkles />];
+
   nomeDoUsuario != null
     ? sessionStorage.setItem("userName", nomeDoUsuario)
     : null;
@@ -93,17 +95,36 @@ export const Header = ({ props, line }: PropsHeader) => {
                         </Link>
                       )}
 
-                      {navRoutes.map((topico, i: number) => (
-                        <Link
-                          className="hover:text-white outline-none flex items-center gap-2"
-                          key={i}
-                          to={topico.link}
-                        >
-                          {" "}
-                          {icons[i]}
-                          {topico.title}
+                      <div className="flex flex-col gap-3 ">
+                        <Link className="flex items-center gap-3" to={"/"}>
+                          <Home />
+                          Home
                         </Link>
-                      ))}
+                        <Link
+                          to={"/meu-carrinho"}
+                          className="flex items-center gap-3"
+                        >
+                          <ShoppingBag /> Meu carrinho{" "}
+                        </Link>
+                        <Link
+                          to={"/minhas-trocas"}
+                          className="flex items-center gap-3"
+                        >
+                          <Repeat />
+                          Minhas trocas
+                        </Link>
+                        <Link
+                          to={"/cupons-de-desconto"}
+                          className="flex items-center gap-3"
+                        >
+                          <Ticket />
+                          Cupons
+                        </Link>
+                        <p className="flex items-center gap-3">
+                          {" "}
+                          <LogOut /> Sair{" "}
+                        </p>
+                      </div>
                     </SheetDescription>
                   </SheetHeader>
                 </SheetContent>
