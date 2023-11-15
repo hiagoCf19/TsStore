@@ -1,8 +1,9 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../Header/Header";
 import { category } from "@/routes";
 import { ContentCategory } from "./OpenCategoryContent";
+import { BackGrad } from "@/Styles/Background";
 
 interface PropsCategory {
   propsCategory: string;
@@ -37,7 +38,7 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
   );
 
   return (
-    <React.Fragment>
+    <BackGrad>
       <Header
         props={
           <Link to={"/"}>
@@ -81,6 +82,6 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
           <ContentCategory props={propsCategory} />
         </div>
       </section>
-    </React.Fragment>
+    </BackGrad>
   );
 };

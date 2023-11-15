@@ -6,12 +6,13 @@ import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import MudaCorCtx from "./Context/StateColorContext";
 import { AllOferts } from "./components/Ofertas/AllOferts";
 import { AllCategorys } from "./components/Categorias/OpenCategory";
-import { ProdutoExibido } from "./components/Novidades/OpenProduct/Produto";
+import { ProdutoExibido } from "./components/Populares/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
 
 import { LoginCpn } from "./components/Login&cadastro/Login";
-import { OpenPopulares } from "./components/Novidades/OpenPopulares";
+import { OpenPopulares } from "./components/Populares/OpenPopulares";
 import { ResetPassword } from "./components/Login&cadastro/resetPassword";
+import { Carrinho } from "./components/Carrinho/carrinho";
 
 export const category: string[] = [];
 export const navRoutes = [
@@ -92,6 +93,7 @@ const RoutesApp = () => {
 
         <Route path="/login" element={<LoginCpn />} />
         <Route path="/login/recuperar-acesso" element={<ResetPassword />} />
+        <Route path="/meu-carrinho" element={<Carrinho />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

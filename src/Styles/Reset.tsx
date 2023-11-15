@@ -64,7 +64,7 @@ table {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #aa8a8a27;
+  background-color: #f4f4f41c;
 	border-radius: 100px;
 }
  }
@@ -72,7 +72,6 @@ table {
 
 
 body{
-	background-color: #1b1b1b;
 	color: #FFF;
 	font-family: 'Inter', sans-serif;
 	
@@ -80,6 +79,11 @@ body{
 .bg-transp{
 	background: rgba(0, 0, 0, 0.61);
 	backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+}
+.bg-transp2{
+	background: rgba(0, 0, 0, 0.61);
+	backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(15px);
 }
 .bg-gradRoxo{

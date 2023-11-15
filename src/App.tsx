@@ -1,5 +1,5 @@
 import { Banner } from "./components/Banner/Banner";
-import { Bombando } from "./components/Novidades/Populares";
+import { Bombando } from "./components/Populares/Populares";
 import { Cadastre } from "./components/e-mail/EmailDesconto";
 import { CategoriasMob } from "./components/Categorias/CategoriasMob";
 import { Facilidades } from "./components/Facilidades/Facilidades";
@@ -10,12 +10,14 @@ import "./global.css";
 import { CoHeader } from "./components/Header/CoHeader";
 import { useContext } from "react";
 import ControlLog from "./Context/loginControl";
+import { Galaxy } from "./Styles/Galaxy";
 function App() {
   const { userLogado } = useContext(ControlLog);
   console.log(userLogado);
 
   return (
     <>
+      <Galaxy />
       <div className="fixed bg-background w-full z-50">
         <Header
           line={""}
@@ -38,7 +40,8 @@ function App() {
         <CategoriasMob />
         <Bombando />
         <Facilidades />
-        <Cadastre />
+        {userLogado ? null : <Cadastre />}
+
         <Footer />
       </div>
     </>

@@ -1,8 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-export const Galaxy = createGlobalStyle`
- :root{
-  --bg-col: #000;
+export const BackGrad = styled.div`
+  --bg-col: #000000;
   --space-col: #180977;
   --galaxy-col: #3c2ba8;
   --space-gradient: radial-gradient(ellipse at top, var(--bg-col), transparent),
@@ -140,21 +139,15 @@ export const Galaxy = createGlobalStyle`
       rgba(255, 255, 255, 0.336) 2px,
       transparent 6px
     );
- }
-  
-body{
 
   background-color: #010101;
   background-image: var(--space-gradient), var(--stars);
   background-size: 175% 200%;
   background-repeat: no-repeat;
   box-shadow: 5px 7px 20px var(--bg-col);
- 
-  animation: space-drift 180s ease-in-out infinite;;
-  -webkit-animation: space-drift 180s ease-in-out infinite ;
-  
-}
-  
+  height: 100vh;
+  animation: space-drift 180s ease-in-out infinite;
+  -webkit-animation: space-drift 180s ease-in-out infinite;
 
   /*
     ANIMATION: SPACE

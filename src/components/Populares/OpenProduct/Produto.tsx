@@ -1,5 +1,5 @@
 import { ProdutosInterface } from "@/Context/contextProdutos";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
 import { Colors } from "./Color";
 import { ResetCSS } from "@/Styles/Reset";
@@ -7,8 +7,9 @@ import styled from "styled-components";
 import { BotaoStyled } from "../../UiVerse/BotaoStyled";
 import { InputRadio } from "./InputRadio";
 import { Header } from "@/components/Header/Header";
+import { BackGrad } from "@/Styles/Background";
 
-const Linha = styled.div`
+export const Linha = styled.div`
   width: max;
   height: 1px;
   background-color: var(--roxo);
@@ -25,7 +26,7 @@ export const ProdutoExibido = ({
   finalPrice,
 }: ProdutosInterface) => {
   return (
-    <React.Fragment>
+    <BackGrad>
       <ResetCSS />
       <div className="flex flex-col gap-4">
         <Header
@@ -122,6 +123,6 @@ export const ProdutoExibido = ({
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </BackGrad>
   );
 };

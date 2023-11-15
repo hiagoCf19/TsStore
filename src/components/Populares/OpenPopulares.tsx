@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 
 import { Header } from "../Header/Header";
 import { LoadingAni } from "../styledElements/loading";
+import { BackGrad } from "@/Styles/Background";
 
 export const OpenPopulares = () => {
   return (
-    <>
+    <BackGrad>
       <Header
         props={
           <Link to={"/"}>
@@ -22,8 +23,11 @@ export const OpenPopulares = () => {
       />
 
       <section>
-        <LoadingAni />
+        <div className="flex justify-center items-center flex-col-reverse gap-4 w-full h-[80vh] ">
+          Em desenvolvimento...
+          <LoadingAni />
+        </div>
       </section>
-    </>
+    </BackGrad>
   );
 };

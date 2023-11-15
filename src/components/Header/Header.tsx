@@ -9,11 +9,19 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuIcon, User } from "lucide-react";
+import {
+  ChevronRight,
+  Home,
+  MenuIcon,
+  Percent,
+  Sparkles,
+  User,
+} from "lucide-react";
 import { Entradas } from "./Entrada";
 import ControlLog from "@/Context/loginControl";
 import UserCtx from "@/Context/UserCOntext";
-import { UserArea } from "./UserArea";
+import { UserArea } from "../UserArea/UserArea";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface PropsHeader {
   props: ReactNode;
@@ -22,6 +30,7 @@ interface PropsHeader {
 export const Header = ({ props, line }: PropsHeader) => {
   const { userLogado, setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario } = useContext(UserCtx);
+  const icons = [<Home />, <Percent />, <Sparkles />];
   nomeDoUsuario != null
     ? sessionStorage.setItem("userName", nomeDoUsuario)
     : null;
@@ -32,7 +41,7 @@ export const Header = ({ props, line }: PropsHeader) => {
   }, [nomeDoUsuario]);
   return (
     <React.Fragment>
-      <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full bg-background border-b-[1px] border-solid border-roxo sm:border-none sm:px-[50px] sm:h-10 justify-between sm:pt-2">
+      <header className=" sm:relative fixed z-50 sm:bg-transparent flex flex-col sm:flex-row  sm:items-center w-full border-b-[1px] border-solid border-roxo sm:border-none sm:px-[50px] sm:h-10 justify-between sm:pt-2">
         <div className="flex items-center">
           <div className="flex  sm:justify-normal items-center h-[3.625rem] px-4 bg-transparent w-full justify-between ">
             {props}
@@ -45,9 +54,33 @@ export const Header = ({ props, line }: PropsHeader) => {
                 <SheetContent>
                   <SheetHeader className="gap-8">
                     <SheetTitle>Menu</SheetTitle>
-                    <SheetDescription className="flex flex-col gap-14 font-medium text-[1rem]  ">
+                    <SheetDescription className="flex flex-col gap-5 font-medium text-[1rem]  ">
                       {userLogado ? (
-                        <UserArea />
+                        <div className="pb-5">
+                          <div className="flex items-center gap-2">
+                            <div>
+                              <Avatar>
+                                {/* Avatar image para quandop eu mpedir imagem para o usuario */}
+                                <AvatarImage src="" />
+                                <AvatarFallback className="bg-background border border-solid border-roxo">
+                                  {nomeDoUsuario.substring(0, 2).toUpperCase()}
+                                </AvatarFallback>
+                              </Avatar>
+                            </div>
+                            <div className="flex flex-col">
+                              <h1 className="text-lg font-semibold">
+                                {nomeDoUsuario}
+                              </h1>
+                              <Link
+                                to={`/${nomeDoUsuario.toLowerCase()}-perfil`}
+                                className="text-sm mt-[-3px] flex items-center gap-1 text-[#a7a7a7] hover:underline cursor-pointer"
+                              >
+                                Minha conta
+                                <ChevronRight size={16} />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
                       ) : (
                         <Link
                           to={"/login"}
@@ -62,10 +95,12 @@ export const Header = ({ props, line }: PropsHeader) => {
 
                       {navRoutes.map((topico, i: number) => (
                         <Link
-                          className="hover:text-white outline-none"
+                          className="hover:text-white outline-none flex items-center gap-2"
                           key={i}
                           to={topico.link}
                         >
+                          {" "}
+                          {icons[i]}
                           {topico.title}
                         </Link>
                       ))}
@@ -91,11 +126,17 @@ export const Header = ({ props, line }: PropsHeader) => {
             </div>
           </nav>
         </div>
-        {userLogado ? <UserArea /> : <Entradas />}
+        {userLogado ? (
+          <div className="hidden sm:block">
+            <UserArea />
+          </div>
+        ) : (
+          <Entradas />
+        )}
       </header>
       <div className="sm:hidden">{line}</div>
 
-      <div className="h-[40px] w-full sm:hidden mb-7"></div>
+      <div className="h-[30px] w-full sm:hidden mb-7"></div>
     </React.Fragment>
   );
 };
