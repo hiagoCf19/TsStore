@@ -1,8 +1,7 @@
 import { BackGrad } from "@/Styles/Background";
 import { Header } from "../Header/Header";
 import { Link } from "react-router-dom";
-import { Resumo } from "./resumo";
-import { LogButton } from "../styledElements/Logbutton";
+import { ResumoComItem } from "./resumoComItem";
 import { CardProd } from "../styledElements/Card";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext, useState } from "react";
@@ -10,6 +9,7 @@ import CarCtx from "@/Context/contextCar";
 import { Footer } from "../Footer/Footer";
 import { CarrinhoVazio } from "./carrinhoVazio";
 import { CarrinhoComItem } from "./carrinhoComItem";
+import { ResumoVazio } from "./ResumoVazio";
 
 export const Carrinho = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
@@ -38,22 +38,9 @@ export const Carrinho = () => {
         </div>
         <div className="h-[50px] w-full"></div>
         <div className="w-full flex justify-center flex-col ">
-          <div className="flex justify-center sm:pt-16  sm:h-[50vh] h-[85vh]  sm:gap-10 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row ">
-            <div className=" sm:w-[50%]  bg-transp  rounded-lg h-[45vh] sm:h-auto overflow-hidden">
-              {cheio ? <CarrinhoComItem /> : <CarrinhoVazio />}
-            </div>
-            {/* RESUMO DO PEDIDO */}
-            <div className=" sm:w-[25%] bg-transp overflow-w-hidden overflow-y-scroll rounded-lg h-min ">
-              <h1 className="p-4 text-lg font-semibold border-b border-solid border-roxo hidden sm:block">
-                Resumo do pedido
-              </h1>
-              <div className="sm:p-4 p-2">
-                <Resumo />
-              </div>
-              <div className="flex justify-center py-5">
-                <LogButton content="Continuar a compra" type="button" />
-              </div>
-            </div>
+          <div className="flex justify-center sm:pt-16  sm:h-[50vh] h-[85vh]  sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row ">
+            {cheio ? <CarrinhoComItem /> : <CarrinhoVazio />}
+            {cheio ? <ResumoComItem /> : <ResumoVazio />}
           </div>
           <div className={`${cheio ? "" : "hidden"} `}>
             <h1 className="text-center flex justify-center  text-xl uppercase tracking-[5px] text-semibold pb-8 ">

@@ -1,15 +1,9 @@
 import { ProdutoNoCarrinho } from "./produto";
 import { Link } from "react-router-dom";
 
-import React, { useContext } from "react";
-import CarCtx from "@/Context/contextCar";
-
 export const CarrinhoComItem = () => {
-  const { car } = useContext(CarCtx);
-
-  console.log(car);
   return (
-    <React.Fragment>
+    <div className=" sm:w-[50%]  bg-transp  rounded-lg h-[45vh] sm:h-auto overflow-hidden">
       <h1 className="p-4 text-lg font-semibold border-b border-solid border-roxo ">
         Meu carrinho
       </h1>
@@ -25,6 +19,6 @@ export const CarrinhoComItem = () => {
           </Link>
         </span>
       </div>
-    </React.Fragment>
+    </div>
   );
 };

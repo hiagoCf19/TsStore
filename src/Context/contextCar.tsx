@@ -6,7 +6,7 @@ interface Children {
 const CarCtx = createContext<any>({});
 
 export function CarrinhoProvider({ children }: Children) {
-  const [car, setCar] = useState([1]);
+  const [car, setCar] = useState([]);
 
   return <CarCtx.Provider value={{ car, setCar }}>{children}</CarCtx.Provider>;
 }

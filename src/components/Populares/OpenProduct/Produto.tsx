@@ -1,5 +1,5 @@
 import { ProdutosInterface } from "@/Context/contextProdutos";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 
 import { Colors } from "./Color";
 import { ResetCSS } from "@/Styles/Reset";
@@ -8,6 +8,7 @@ import { BotaoStyled } from "../../styledElements/BotaoStyled";
 import { InputRadio } from "./InputRadio";
 import { Header } from "@/components/Header/Header";
 import { BackGrad } from "@/Styles/Background";
+import CarCtx from "@/Context/contextCar";
 
 export const Linha = styled.div`
   width: max;
@@ -25,6 +26,8 @@ export const ProdutoExibido = ({
   PorcentagemDeDesconto,
   finalPrice,
 }: ProdutosInterface) => {
+  const { car, setCar } = useContext(CarCtx);
+
   return (
     <BackGrad>
       <ResetCSS />
@@ -42,7 +45,7 @@ export const ProdutoExibido = ({
           }
         />
         <div className=" flex justify-center items-center  sm:mt-12">
-          <div className="sm:shadow-none shadow-lg shadow-roxo border border-solid border-roxo flex justify-center flex-col sm:flex-row mx-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[3px]  sm:mx-[200px] overflow-y-hidden">
+          <div className="sm:shadow-none shadow-lg shadow-roxo border border-solid border-roxo flex justify-center flex-col sm:flex-row mx-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[3px]  sm:mx-[200px] overflow-y-hidden bg-transp sm:bg-transparent">
             <div className="flex-1 w-full">
               <img
                 src={image}
@@ -117,8 +120,14 @@ export const ProdutoExibido = ({
                 <InputRadio />
               </Fragment>
               {/* Botão */}
-
-              <BotaoStyled content="Adicionar" />
+              <div
+                onClick={() => {
+                  setCar([1]);
+                  console.log(car);
+                }}
+              >
+                <BotaoStyled content="Adicionar" />
+              </div>
             </div>
           </div>
         </div>
