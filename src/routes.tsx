@@ -6,7 +6,7 @@ import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import MudaCorCtx from "./Context/StateColorContext";
 import { AllOferts } from "./components/Ofertas/AllOferts";
 import { AllCategorys } from "./components/Categorias/OpenCategory";
-import { ProdutoExibido } from "./components/Populares/OpenProduct/Produto";
+import { ProdutoExibido } from "./components/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
 
 import { LoginCpn } from "./components/Login&cadastro/Login";

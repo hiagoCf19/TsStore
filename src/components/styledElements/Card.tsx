@@ -22,7 +22,7 @@ export const CardSty = styled.div`
     width: 170px;
     height: 290px;
     z-index: 2;
-    background: #030111;
+    background: #030114;
     backdrop-filter: blur(24px);
     border-radius: 8px;
     overflow: hidden;

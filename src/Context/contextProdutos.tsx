@@ -1,5 +1,5 @@
 import { ReactNode, createContext } from "react";
-interface Children {
+export interface Children {
   children: ReactNode;
 }
 export interface ProdutosInterface {

@@ -145,7 +145,7 @@ export const Galaxy = createGlobalStyle`
 body{
 
   background-color: #010101;
-  background-image: var(--space-gradient), var(--stars);
+  background-image: var(--space-gradient);
   background-size: 175% 200%;
   background-repeat: no-repeat;
   box-shadow: 5px 7px 20px var(--bg-col);

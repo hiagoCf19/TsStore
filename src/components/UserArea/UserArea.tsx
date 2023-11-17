@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
-import { Linha } from "../Populares/OpenProduct/Produto";
+import { Linha } from "../OpenProduct/Produto";
 
 export const UserArea = () => {
   const { nomeDoUsuario } = useContext(UserCtx);

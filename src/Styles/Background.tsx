@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BackGrad = styled.div`
   --bg-col: #000000;
   --space-col: #180977;
-  --galaxy-col: #3c2ba8;
+  --galaxy-col: #4836ba;
   --space-gradient: radial-gradient(ellipse at top, var(--bg-col), transparent),
     radial-gradient(ellipse at bottom, var(--galaxy-col) 10%, transparent 60%),
     radial-gradient(ellipse at bottom right, var(--space-col), transparent);
@@ -141,7 +141,7 @@ export const BackGrad = styled.div`
     );
 
   background-color: #010101;
-  background-image: var(--space-gradient), var(--stars);
+  background-image: var(--space-gradient);
   background-size: 175% 200%;
   background-repeat: no-repeat;
   box-shadow: 5px 7px 20px var(--bg-col);

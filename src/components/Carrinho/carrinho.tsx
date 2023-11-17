@@ -59,6 +59,7 @@ export const Carrinho = () => {
             </Link>
           </div>
         </div>
+
         <div className={`${cheio ? "" : "absolute bottom-0 w-full"}`}>
           <Footer />
         </div>

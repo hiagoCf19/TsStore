@@ -1,7 +1,20 @@
 import { Ticket } from "lucide-react";
 import { LogButton } from "../styledElements/Logbutton";
+import CarCtx from "@/Context/contextCar";
+import { useContext } from "react";
+import { ProdutosInterface } from "@/Context/contextProdutos";
 
 export const ResumoComItem = () => {
+  const { car } = useContext(CarCtx);
+  const precoSomado = car.map((produto: ProdutosInterface) => {
+    return produto.finalPrice;
+  });
+  const valor = precoSomado.reduce(
+    (total: number, preco: number) => total + preco,
+    0
+  );
+  const descontoPIX = valor - (valor / 100) * 10;
+
   return (
     <div
       className={` sm:w-[25%] bg-transp overflow-w-hidden overflow-y-scroll rounded-lg h-min  `}
@@ -12,8 +25,8 @@ export const ResumoComItem = () => {
       <div className={`  sm:p-4 p-2`}>
         <div className="flex flex-col sm:gap-4 gap-2 text-sm sm:text-[16px]">
           <div className="flex justify-between">
-            <p>Produtos (2)</p>
-            <p>price</p>
+            <p>Produtos ({car.length})</p>
+            <p>R$ {valor.toFixed(2).replace(".", ",")}</p>
           </div>
           <div className="flex justify-between">
             <p>Frete</p>
@@ -25,10 +38,10 @@ export const ResumoComItem = () => {
           </div>
           <div className="flex justify-between">
             <p> Total</p>
-            <span> price</span>
+            <span>R$ {valor.toFixed(2).replace(".", ",")} </span>
           </div>
           <span className="flex justify-end text-[12px] text-roxo mt-[-6px]">
-            ou R$ XX,XX no Pix
+            ou R$ {descontoPIX.toFixed(2).replace(".", ",")} no Pix
           </span>
         </div>
       </div>
