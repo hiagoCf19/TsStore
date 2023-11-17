@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { Colors } from "./Color";
 import { ResetCSS } from "@/Styles/Reset";
 import styled from "styled-components";
-import { BotaoStyled } from "../../UiVerse/BotaoStyled";
+import { BotaoStyled } from "../../styledElements/BotaoStyled";
 import { InputRadio } from "./InputRadio";
 import { Header } from "@/components/Header/Header";
 import { BackGrad } from "@/Styles/Background";

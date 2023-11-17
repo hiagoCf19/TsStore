@@ -9,7 +9,7 @@ export const CardSty = styled.div`
   width: 180px;
   height: 300px;
   border-radius: 8px;
-  z-index: 1111;
+  z-index: 49;
   overflow: hidden;
   display: flex;
   flex-direction: column;

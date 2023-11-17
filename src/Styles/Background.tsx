@@ -145,7 +145,7 @@ export const BackGrad = styled.div`
   background-size: 175% 200%;
   background-repeat: no-repeat;
   box-shadow: 5px 7px 20px var(--bg-col);
-  height: 100vh;
+  min-height: 100vh;
   animation: space-drift 180s ease-in-out infinite;
   -webkit-animation: space-drift 180s ease-in-out infinite;
 

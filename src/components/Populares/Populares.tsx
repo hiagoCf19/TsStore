@@ -1,7 +1,7 @@
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import React, { useContext } from "react";
 
-import { TitleGeneric } from "../UiVerse/title";
+import { TitleGeneric } from "../styledElements/title";
 import { CardProd } from "../styledElements/Card";
 import { Link } from "react-router-dom";
 

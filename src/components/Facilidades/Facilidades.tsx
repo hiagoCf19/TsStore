@@ -2,7 +2,7 @@ import { MdPix } from "react-icons/md";
 import { Topico } from "./Topicos";
 import { MdForest } from "react-icons/md";
 import { RiReplay30Fill } from "react-icons/ri";
-import { TitleGeneric } from "../UiVerse/title";
+import { TitleGeneric } from "../styledElements/title";
 export const Facilidades: React.FC = () => {
   return (
     <section className="bg-primary">

@@ -5,17 +5,20 @@ import { ProdutoProvider } from "./Context/contextProdutos.tsx";
 import { MudaCorProvider } from "./Context/StateColorContext.tsx";
 import { UserProvider } from "./Context/UserCOntext.tsx";
 import { LogadoProvider } from "./Context/loginControl.tsx";
+import { CarrinhoProvider } from "./Context/contextCar.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <LogadoProvider>
-      <UserProvider>
-        <ProdutoProvider>
-          <MudaCorProvider>
-            <RoutesApp />
-          </MudaCorProvider>
-        </ProdutoProvider>
-      </UserProvider>
+      <CarrinhoProvider>
+        <UserProvider>
+          <ProdutoProvider>
+            <MudaCorProvider>
+              <RoutesApp />
+            </MudaCorProvider>
+          </ProdutoProvider>
+        </UserProvider>
+      </CarrinhoProvider>
     </LogadoProvider>
   </React.StrictMode>
 );

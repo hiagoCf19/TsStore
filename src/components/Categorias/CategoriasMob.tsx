@@ -1,6 +1,6 @@
 import { category } from "@/routes";
 import { Link } from "react-router-dom";
-import { TitleGeneric } from "../UiVerse/title";
+import { TitleGeneric } from "../styledElements/title";
 
 export const CategoriasMob = () => {
   return (

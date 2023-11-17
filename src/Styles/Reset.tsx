@@ -73,7 +73,7 @@ table {
 
 body{
 	color: #FFF;
-	font-family: 'Inter', sans-serif;
+	font-family: 'Lato', sans-serif;
 	
 }	
 .bg-transp{

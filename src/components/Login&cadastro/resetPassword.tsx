@@ -5,7 +5,7 @@ import { app } from "@/services/firebaseConfing";
 
 import { Galaxy } from "@/Styles/Galaxy";
 import { InputLogin } from "../styledElements/inputLogin";
-import { BotaoStyled } from "../UiVerse/BotaoStyled";
+import { BotaoStyled } from "../styledElements/BotaoStyled";
 
 export const ResetPassword = () => {
   const firebase = app;
