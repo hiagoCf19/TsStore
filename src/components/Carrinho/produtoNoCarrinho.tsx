@@ -1,15 +1,47 @@
 import { ProdutosInterface } from "@/Context/contextProdutos";
 import { Minus, Plus } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Excluir } from "../styledElements/delete";
 import CarCtx from "@/Context/contextCar";
 
 export const ProdutoNoCarrinho = () => {
-  const { car } = useContext(CarCtx);
+  const { car, setCar } = useContext(CarCtx);
+  const [itensExibidos, setItensExibidos] = useState(car);
+
+  const novosItensExibidos = [...itensExibidos];
+  const novoCarrinho = [...car];
+  const AttDados = (i: number, newQtd: any) => {
+    const { price, PorcentagemDeDesconto } = novosItensExibidos[i];
+    const novaQuant = newQtd;
+
+    const descontoTotal = (PorcentagemDeDesconto / 100) * price;
+
+    const novoPreco = novaQuant * (price - descontoTotal);
+
+    novosItensExibidos[i] = {
+      ...novosItensExibidos[i],
+      quantidade: novaQuant,
+      finalPrice: novoPreco,
+    };
+    setItensExibidos([...novosItensExibidos]);
+
+    const atualizaItens = {
+      finalPrice: price - descontoTotal,
+      quantidade: novaQuant,
+    };
+
+    novoCarrinho[i] = { ...novoCarrinho[i], ...atualizaItens };
+    setCar([...novoCarrinho]);
+  };
+  const remover = (i: number) => {
+    car.splice(i, 1);
+    setItensExibidos([...car]);
+  };
+  console.log(car);
   return (
     <div className="border-b border-solid border-roxo h-[67%] overflow-hidden overflow-y-scroll">
       {/* PRODUTO 1 */}
-      {car.map((produto: ProdutosInterface, i: number) => (
+      {novosItensExibidos.map((produto: ProdutosInterface, i: number) => (
         <div
           className="sm:px-4 px-2 py-2 border-t border-solid border-[#725cff31]  flex sm:gap-4 justify-between w-full items-center "
           key={i}
@@ -22,63 +54,98 @@ export const ProdutoNoCarrinho = () => {
                 className=" w-20 h-20 rounded-lg"
               />
             </div>{" "}
-            <div className="flex flex-col sm:gap-1 gap-4 justify-center sm:justify-normal">
-              <p className="sm:text-lg font-medium">{produto.nome}</p>
+            <div className="flex flex-col gap-1 justify-center sm:justify-normal">
+              <p className="sm:text-lg font-medium hidden sm:block">
+                {produto.nome}
+              </p>
+              <p className="sm:text-lg font-medium sm:hidden flex flex-col">
+                <p>{produto.nome}</p>
+                <span className="text-[#a7a7a7c8] text-sm">
+                  {produto.cor} ({produto.tamanho})
+                </span>
+              </p>
               <div className="flex flex-col  text-[#a7a7a7] sm:text-base text-sm ">
-                <span className="hidden sm:block">Tamanho: p</span>
-                <span className="hidden sm:block">Variação: Verde</span>
-                {/* CONTROLE DE QUANTIDADE */}
+                <span className="hidden sm:block">
+                  Tamanho: {produto.tamanho}
+                </span>
+                <span className="hidden sm:block">Variação: {produto.cor}</span>
+                {/* CONTROLE DE QUANTIDADE MOBILE */}
                 <div className="sm:hidden">
                   <div className=" flex items-center gap-2 ">
                     <div className="flex items-center gap-2 border border-solid border-roxo p-1 px-1 rounded-md">
                       <button
                         title="Add New"
                         className="group cursor-pointer outline-none hover:rotate-90 duration-300"
+                        onClick={() =>
+                          AttDados(i, novosItensExibidos[i].quantidade + 1)
+                        }
                       >
                         <Plus color="#725cff" />
                       </button>
-                      0
+                      {produto.quantidade}
                       <button
                         title="Add New"
                         className="group cursor-pointer outline-none hover:rotate-180 duration-300"
+                        onClick={() => {
+                          AttDados(i, novosItensExibidos[i].quantidade - 1);
+                        }}
                       >
                         <Minus color="#725cff" />
                       </button>
                     </div>
-                    <div>
-                      <Excluir />
-                    </div>
+
+                    <Excluir
+                      remov={() => {
+                        remover(i);
+                        console.log("removido");
+                      }}
+                    />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* CONTROLE DE QUANTIDADE */}
+          {/* CONTROLE DE QUANTIDADE DESKTOP*/}
           <div className="hidden sm:block">
             <div className=" flex items-center gap-1 ">
               <div className="flex items-center gap-4 border border-solid border-roxo p-1 px-3 rounded-md">
                 <button
                   title="Add New"
                   className="group cursor-pointer outline-none hover:rotate-90 duration-300"
+                  onClick={() =>
+                    AttDados(i, novosItensExibidos[i].quantidade + 1)
+                  }
                 >
                   <Plus color="#725cff" />
                 </button>
-                0
+                {produto.quantidade}
                 <button
                   title="Add New"
                   className="group cursor-pointer outline-none hover:rotate-180 duration-300"
+                  onClick={() => {
+                    AttDados(i, novosItensExibidos[i].quantidade - 1);
+                  }}
                 >
                   <Minus color="#725cff" />
                 </button>
               </div>
               <div>
-                <Excluir />
+                <Excluir
+                  remov={() => {
+                    remover(i);
+                    console.log("removido");
+                  }}
+                />
               </div>
             </div>
           </div>
 
           <div className="flex items-center flex-col justify-center gap-1 ">
-            <div className=" flex gap-1 justify-end w-full">
+            <div
+              className={`${
+                produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+              } flex gap-1 justify-end w-full`}
+            >
               <span className="text-[10px] text-roxo">
                 {" "}
                 -{produto.PorcentagemDeDesconto}%

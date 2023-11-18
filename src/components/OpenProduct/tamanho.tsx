@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { Fragment, useState } from "react";
+import { Fragment, useContext } from "react";
 import { Label } from "@radix-ui/react-label";
+import MudaCorCtx from "@/Context/VariacaoContext";
 export const RadioStyled = styled.div`
   display: flex;
 
@@ -62,9 +63,10 @@ export const RadioStyled = styled.div`
     background-position: 20px 0; /* Ajuste para a direita */
   }
 `;
-export const InputRadio = () => {
-  const tamanhos: string[] = ["PP", "P", "M", "G", "GG"];
-  const [selectedTamanho, setSelectedTamanho] = useState(tamanhos[0]);
+export const Tamanho = () => {
+  const { tamanhos, selectedTamanho, setSelectedTamanho }: any =
+    useContext(MudaCorCtx);
+
   const handleTamanhoChange = (tamanho: string) => {
     setSelectedTamanho(tamanho);
   };
@@ -81,7 +83,9 @@ export const InputRadio = () => {
                 className="input"
                 id={tamanho}
                 checked={selectedTamanho === tamanho}
-                onChange={() => handleTamanhoChange(tamanho)}
+                onChange={() => {
+                  handleTamanhoChange(tamanho);
+                }}
               />
             </RadioStyled>
           </div>

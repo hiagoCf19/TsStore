@@ -1,14 +1,18 @@
-import { ProdutosInterface } from "@/Context/contextProdutos";
+import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { Fragment, useContext } from "react";
 
 import { Colors } from "./Color";
-import { ResetCSS } from "@/Styles/Reset";
+
 import styled from "styled-components";
-import { BotaoStyled } from "../styledElements/BotaoStyled";
-import { InputRadio } from "./InputRadio";
+import { Tamanho } from "./tamanho";
 import { Header } from "@/components/Header/Header";
 import { BackGrad } from "@/Styles/Background";
 import CarCtx from "@/Context/contextCar";
+import MudaCorCtx from "@/Context/VariacaoContext";
+import { LogButton } from "../styledElements/Logbutton";
+import { Footer } from "../Footer/Footer";
+import { CardProd } from "../styledElements/Card";
+import { TitleGeneric } from "../styledElements/title";
 
 export const Linha = styled.div`
   width: max;
@@ -25,36 +29,54 @@ export const ProdutoExibido = ({
   terceiraCor,
   PorcentagemDeDesconto,
   finalPrice,
+  quantidade,
+  category,
 }: ProdutosInterface) => {
   const { car, adicionarItemAoCarrinho } = useContext(CarCtx);
+  const { mudaCor, selectedTamanho }: any = useContext(MudaCorCtx);
+  const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
+  const MesmaCategoria = produtos.filter((produtos) => {
+    return produtos.category === category;
+  });
   return (
     <BackGrad>
-      <ResetCSS />
       <div className="flex flex-col gap-4">
-        <Header
-          line={""}
-          props={
-            <div className="sm:bg-background px-2 sm:h-10 flex items-center justify-between w-full">
-              <img
-                src="Assets/tsStore.svg"
-                alt="logo"
-                className=" w-[90px] sm:w-[110px] "
-              />
-            </div>
-          }
-        />
-        <div className=" flex justify-center items-center  sm:mt-12">
+        {/* header Mobile */}
+        <div className="fixed bg-transp2 w-full z-50 ">
+          <Header
+            line={""}
+            props={
+              <div className=" px-2 sm:h-10 flex items-center justify-between w-full">
+                <img
+                  src="Assets/tsStore.svg"
+                  alt="logo"
+                  className=" w-[90px] sm:w-[110px] "
+                />
+              </div>
+            }
+          />
+        </div>
+
+        <div className="h-[50px] w-full"></div>
+        <div className=" pb-5 pt-2 flex justify-center items-center  sm:mt-12">
           <div className="sm:shadow-none shadow-lg shadow-roxo border border-solid border-roxo flex justify-center flex-col sm:flex-row mx-4 gap-4 pb-4 sm:m-0 sm:border-none sm:items-center   rounded-[3px]  sm:mx-[200px] overflow-y-hidden ">
             <div className="flex-1 w-full">
               <img
                 src={image}
                 alt={nome}
-                className=" sm:rounded-[8px] max-h-[20.125rem] w-full sm:max-h-[500px] "
+                className=" sm:rounded-[8px] max-h-[20.125rem] w-full sm:max-h-[500px] hidden sm:block "
               />
             </div>
 
             <div className=" flex-1 flex flex-col px-3  gap-4 sm:gap-4 sm:py-6 py-2">
               <p className=" font-bold text-[18px] sm:text-2xl">{nome}</p>
+              <div className="flex-1 w-full">
+                <img
+                  src={image}
+                  alt={nome}
+                  className=" rounded-[8px] max-h-[20.125rem] w-full sm:max-h-[500px]  sm:hidden "
+                />
+              </div>
               <p className=" sm:text-lg">{descricao}</p>
               <Linha />
               <div className="text-xl font-medium sm:text-2xl flex gap-1 items-center ">
@@ -116,7 +138,7 @@ export const ProdutoExibido = ({
               {/* TAMANHOS */}
               <Fragment>
                 <p className="font-bold sm:text-xl">Tamanhos:</p>
-                <InputRadio />
+                <Tamanho />
               </Fragment>
               {/* Botão */}
               <div
@@ -127,24 +149,42 @@ export const ProdutoExibido = ({
                 <div
                   onClick={() => {
                     adicionarItemAoCarrinho(
-                      "camisa",
+                      category,
                       nome,
                       price,
                       image,
-                      primeiraCor,
-                      segundaCor,
-                      terceiraCor,
                       PorcentagemDeDesconto,
-                      finalPrice
+                      finalPrice,
+                      mudaCor,
+                      selectedTamanho,
+                      quantidade
                     );
+                    console.log(car);
                   }}
+                  className="mx-8 sm:mx-10"
                 >
-                  <BotaoStyled content="Adicionar" />
+                  <LogButton type="button" content="Adicionar" />
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className={`mx-2 py-5 flex flex-col sm:justify-center gap-5 ${
+          MesmaCategoria.length < 5 ? "sm:mx-[200px]" : ""
+        } `}
+      >
+        <TitleGeneric title={"Compras relacioadas"} />
+        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-2 ">
+          {MesmaCategoria.map((produto: ProdutosInterface, i: number) => (
+            <CardProd item={produto} i={i} key={i} />
+          ))}
+        </div>
+      </div>
+
+      <div className=" w-full">
+        <Footer />
       </div>
     </BackGrad>
   );

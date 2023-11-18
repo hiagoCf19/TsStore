@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyButton = styled.div`
+  text-align: center;
   span {
     position: absolute;
   }

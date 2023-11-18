@@ -1,4 +1,4 @@
-import MudaCorCtx from "@/Context/StateColorContext";
+import MudaCorCtx from "@/Context/VariacaoContext";
 import { ProdutosInterface } from "@/Context/contextProdutos";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";

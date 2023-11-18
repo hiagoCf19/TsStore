@@ -16,6 +16,9 @@ export interface ProdutosInterface {
   terceiraCor?: string;
   PorcentagemDeDesconto: number;
   finalPrice?: number;
+  quantidade: number;
+  cor?: string;
+  tamanho?: string;
 }
 const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 
@@ -28,13 +31,14 @@ export function ProdutoProvider({ children }: Children) {
         "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
       price: 45,
       PorcentagemDeDesconto: 10,
-      finalPrice: 0,
       image: "Assets/Produtos/Camisas/casualWear/ParisVerde.png",
       imageTwo: "Assets/Produtos/Camisas/casualWear/ParisBranca.png",
       imageThree: "Assets/Produtos/Camisas/casualWear/casualWearCaramelo.png",
       primeiraCor: "Verde",
       segundaCor: "Preto",
+
       terceiraCor: "Caramelo",
+      quantidade: 1,
     },
 
     {
@@ -49,7 +53,9 @@ export function ProdutoProvider({ children }: Children) {
       imageThree: "Assets/Produtos/Feminino/conjuntoFeminino/CjtBlack.png",
       primeiraCor: "Rosa",
       segundaCor: "Amarelo",
+
       terceiraCor: "Preto",
+      quantidade: 1,
     },
     {
       category: "Acessorios",
@@ -61,6 +67,7 @@ export function ProdutoProvider({ children }: Children) {
       imageTwo: "Assets/Produtos/Acessorios/Oculos/gold.jpeg",
       primeiraCor: "Rose",
       segundaCor: "Gold",
+      quantidade: 1,
     },
     {
       category: "Masculino",
@@ -74,7 +81,9 @@ export function ProdutoProvider({ children }: Children) {
         "Assets/Produtos/Masculino/conjuntoManfinity/moletomBlack.png",
       primeiraCor: "Azul",
       segundaCor: "Marfim",
+
       terceiraCor: "Preto",
+      quantidade: 1,
     },
     {
       category: "Tênis",
@@ -88,7 +97,9 @@ export function ProdutoProvider({ children }: Children) {
       imageThree: "Assets/Produtos/Calcados/TenisCorrida/tenisBlue.png",
       primeiraCor: "Branco",
       segundaCor: "Preto",
+
       terceiraCor: "Azul",
+      quantidade: 1,
     },
     {
       category: "Feminino",
@@ -98,6 +109,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 0,
       image: "",
       primeiraCor: "",
+      quantidade: 1,
     },
     {
       category: "Infantil",
@@ -108,6 +120,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 0,
       image: "Assets/Produtos/infantil/InfantilBolsa/infantilBolsa.jpeg",
       primeiraCor: "Rosa",
+      quantidade: 1,
     },
     {
       category: "Infantil",
@@ -119,6 +132,7 @@ export function ProdutoProvider({ children }: Children) {
       imageTwo: "Assets/Produtos/infantil/bowPlis/bodyRed.png",
       primeiraCor: "Rosa",
       segundaCor: "vermelho",
+      quantidade: 1,
     },
     {
       category: "Masculino",
@@ -130,6 +144,7 @@ export function ProdutoProvider({ children }: Children) {
 
       image: "Assets/Produtos/Masculino/Longline Masc/black.jpeg",
       primeiraCor: "Preto",
+      quantidade: 1,
     },
     {
       category: "Perfume",
@@ -141,6 +156,7 @@ export function ProdutoProvider({ children }: Children) {
 
       image: "Assets/Produtos/Perfumes/PerfumeLily/perfumeLily.jpeg",
       primeiraCor: "Gold",
+      quantidade: 1,
     },
     {
       category: "Eletrônicos",
@@ -151,6 +167,7 @@ export function ProdutoProvider({ children }: Children) {
       PorcentagemDeDesconto: 51,
       image: "Assets/Produtos/Eletronicos/Teclado/tecladoFt1.jpeg",
       primeiraCor: "Cinza",
+      quantidade: 1,
     },
     {
       category: "Acessorios",
@@ -162,6 +179,7 @@ export function ProdutoProvider({ children }: Children) {
       imageTwo: "Assets/Produtos/Acessorios/Corrente/gold.jpeg",
       primeiraCor: "Silver",
       segundaCor: "Gold",
+      quantidade: 1,
     },
   ];
   const produtosComPrecoFinal = catalogados.map((produto) => {

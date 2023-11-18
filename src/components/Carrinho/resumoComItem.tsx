@@ -7,7 +7,9 @@ import { ProdutosInterface } from "@/Context/contextProdutos";
 export const ResumoComItem = () => {
   const { car } = useContext(CarCtx);
   const precoSomado = car.map((produto: ProdutosInterface) => {
-    return produto.finalPrice;
+    return produto.finalPrice != undefined
+      ? produto.finalPrice * produto.quantidade
+      : null;
   });
   const valor = precoSomado.reduce(
     (total: number, preco: number) => total + preco,

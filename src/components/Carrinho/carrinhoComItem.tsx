@@ -1,4 +1,4 @@
-import { ProdutoNoCarrinho } from "./produto";
+import { ProdutoNoCarrinho } from "./produtoNoCarrinho";
 import { Link } from "react-router-dom";
 
 export const CarrinhoComItem = () => {

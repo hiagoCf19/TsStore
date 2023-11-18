@@ -8,32 +8,35 @@ const CarCtx = createContext<any>({});
 
 export function CarrinhoProvider({ children }: Children) {
   const [car, setCar] = useState<any>([]);
+
   const adicionarItemAoCarrinho = (
     category: ProdutosInterface,
     nome: ProdutosInterface,
     price: ProdutosInterface,
     image: ProdutosInterface,
-    primeiraCor: ProdutosInterface,
-    segundaCor: ProdutosInterface,
-    terceiraCor: ProdutosInterface,
+
     PorcentagemDeDesconto: ProdutosInterface,
-    finalPrice: ProdutosInterface
+    finalPrice: ProdutosInterface,
+    cor: string,
+    tamanho: string,
+    quantidade: ProdutosInterface
   ) => {
     const ItemCarrinho = {
       category,
       nome,
       price,
       image,
-      primeiraCor,
-      segundaCor,
-      terceiraCor,
+
       PorcentagemDeDesconto,
       finalPrice,
+      cor,
+      tamanho,
+      quantidade,
     };
     setCar([...car, ItemCarrinho]);
   };
   return (
-    <CarCtx.Provider value={{ car, adicionarItemAoCarrinho }}>
+    <CarCtx.Provider value={{ car, setCar, adicionarItemAoCarrinho }}>
       {children}
     </CarCtx.Provider>
   );

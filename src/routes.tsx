@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useContext } from "react";
 import Erro404 from "./components/ERROR/Error404";
 import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
-import MudaCorCtx from "./Context/StateColorContext";
+import MudaCorCtx from "./Context/VariacaoContext";
 import { AllOferts } from "./components/Ofertas/AllOferts";
 import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/OpenProduct/Produto";
@@ -64,6 +64,7 @@ const RoutesApp = () => {
                   category={item.category}
                   PorcentagemDeDesconto={item.PorcentagemDeDesconto}
                   finalPrice={item.finalPrice}
+                  quantidade={item.quantidade}
                   image={`${
                     mudaCor === item.primeiraCor
                       ? item.image
