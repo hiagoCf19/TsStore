@@ -5,6 +5,7 @@ const StyLogin = styled.div`
   position: relative;
   padding: 15px 0 0;
   display: flex;
+  width: 100%;
   @media (min-width: 640px) {
     width: 130%;
   }

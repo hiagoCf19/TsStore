@@ -6,6 +6,7 @@ import { app } from "@/services/firebaseConfing";
 import { Galaxy } from "@/Styles/Galaxy";
 import { InputLogin } from "../styledElements/inputLogin";
 import { BotaoStyled } from "../styledElements/BotaoStyled";
+import { Link } from "react-router-dom";
 
 export const ResetPassword = () => {
   const firebase = app;
@@ -39,7 +40,7 @@ export const ResetPassword = () => {
           <h2 className="text-center uppercase font-bold mb-5">
             Recuperação de Senha
           </h2>
-          <div className="flex">
+          <div className="flex w-full">
             <InputLogin
               type="email"
               value={email}
@@ -59,9 +60,13 @@ export const ResetPassword = () => {
           </div>
 
           {resetEmailSent && (
-            <p className=" text-[#43d33b]">
-              E-mail de recuperação enviado com sucesso.
-            </p>
+            <div className=" text-[#43d33b]">
+              E-mail de recuperação enviado com sucesso. Redefina sua senha e
+              <Link to={"/login"}>
+                {" "}
+                faça <strong className="underline ">Login</strong>
+              </Link>
+            </div>
           )}
           {error && <p className="text-center text-[#D80032]">{error}</p>}
         </div>
