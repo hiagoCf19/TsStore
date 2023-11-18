@@ -77,7 +77,7 @@ export const ProdutoExibido = ({
                   className=" rounded-[8px] max-h-[20.125rem] w-full sm:max-h-[500px]  sm:hidden "
                 />
               </div>
-              <p className=" sm:text-lg">{descricao}</p>
+              <p className=" sm:text-lg text-[#a7a7a7]">{descricao}</p>
               <Linha />
               <div className="text-xl font-medium sm:text-2xl flex gap-1 items-center ">
                 <p className=" font-bold text-white">

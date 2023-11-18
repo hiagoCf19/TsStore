@@ -136,7 +136,7 @@ export const LoginCpn = () => {
                 </div>
                 {/* PARTE FUNCIONAL, CADASTRO/LOGIN */}
                 <div className="flex-1 flex justify-center ">
-                  <div className="  flex flex-col gap-5 h-full justify-center w-[300px] scale-125">
+                  <div className="  flex flex-col gap-5 h-full justify-center sm:scale-[1.25] sm:w-[300px]">
                     {/* LOGO */}
                     <div className="w-full flex items-center justify-center">
                       <img
@@ -186,7 +186,7 @@ export const LoginCpn = () => {
                       </Link>
                       {/* TRATAMENTO DE ERROS RELACIONADOS AO LOGIN */}
                       <span
-                        className={`text-[#D80032] w-[300px] ${
+                        className={`text-[#D80032] sm:w-[300px] ${
                           error ? "" : "hidden"
                         } `}
                       >
