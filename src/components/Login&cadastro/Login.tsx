@@ -115,7 +115,6 @@ export const LoginCpn = () => {
         console.error("Erro ao consultar os dados:", error);
       });
 
-    console.log(nomeDoUsuario);
     navigate("/");
   }
 

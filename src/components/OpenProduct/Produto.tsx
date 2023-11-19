@@ -1,5 +1,5 @@
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 
 import { Colors } from "./Color";
 
@@ -31,12 +31,15 @@ export const ProdutoExibido = ({
   finalPrice,
   quantidade,
   category,
+  destiny,
 }: ProdutosInterface) => {
   const { car, adicionarItemAoCarrinho } = useContext(CarCtx);
   const { mudaCor, selectedTamanho }: any = useContext(MudaCorCtx);
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const MesmaCategoria = produtos.filter((produtos) => {
-    return produtos.category === category;
+    const semelhantes =
+      produtos.destiny === destiny || produtos.category === category;
+    return semelhantes;
   });
   return (
     <BackGrad>
@@ -136,10 +139,19 @@ export const ProdutoExibido = ({
                 )}
               </div>
               {/* TAMANHOS */}
-              <Fragment>
-                <p className="font-bold sm:text-xl">Tamanhos:</p>
+              <div
+                className={`${
+                  category === "Tênis" ||
+                  category === "Eletrônicos" ||
+                  category === "Acessorios" ||
+                  category === "Perfume"
+                    ? "hidden"
+                    : ""
+                }  font-bold sm:text-xl flex flex-col gap-3`}
+              >
+                <p>Tamanhos:</p>
                 <Tamanho />
-              </Fragment>
+              </div>
               {/* Botão */}
               <div
                 onClick={() => {
@@ -176,7 +188,7 @@ export const ProdutoExibido = ({
         } `}
       >
         <TitleGeneric title={"Compras relacioadas"} />
-        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-2 ">
+        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-2 sm:justify-center ">
           {MesmaCategoria.map((produto: ProdutosInterface, i: number) => (
             <CardProd item={produto} i={i} key={i} />
           ))}

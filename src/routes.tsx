@@ -65,6 +65,7 @@ const RoutesApp = () => {
                   PorcentagemDeDesconto={item.PorcentagemDeDesconto}
                   finalPrice={item.finalPrice}
                   quantidade={item.quantidade}
+                  destiny={item.destiny}
                   image={`${
                     mudaCor === item.primeiraCor
                       ? item.image

@@ -3,6 +3,7 @@ export interface Children {
   children: ReactNode;
 }
 export interface ProdutosInterface {
+  destiny: string;
   category: string;
   nome: string;
   descricao: string;
@@ -25,7 +26,8 @@ const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 export function ProdutoProvider({ children }: Children) {
   const catalogados: ProdutosInterface[] = [
     {
-      category: "Camisa",
+      destiny: "Masculino",
+      category: "Camisa" && "Masculino",
       nome: "Camiseta Casual Wear",
       descricao:
         "Multicores e tamanhos. Tecido de algodão 100% Modelagem unissex.",
@@ -36,13 +38,13 @@ export function ProdutoProvider({ children }: Children) {
       imageThree: "Assets/Produtos/Camisas/casualWear/casualWearCaramelo.png",
       primeiraCor: "Verde",
       segundaCor: "Preto",
-
       terceiraCor: "Caramelo",
       quantidade: 1,
     },
 
     {
-      category: "Feminino",
+      destiny: "Feminino",
+      category: "Camisa" && "Feminino",
       nome: "Essence Split",
       descricao:
         "Modelo unissex oversized gola de camurça. Atemporal e autêntica. ",
@@ -58,6 +60,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Masculino" && "Feminino",
       category: "Acessorios",
       nome: "Óculos Redondo",
       descricao: "Armação metálica com lentes arredondadas",
@@ -70,6 +73,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Masculino",
       category: "Masculino",
       nome: "Conjunto Manfinity",
       descricao: "Conjunto com moletom & short para o inverno",
@@ -86,6 +90,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Masculino",
       category: "Tênis",
       nome: "Tênis Chunky",
       descricao:
@@ -102,16 +107,21 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
-      category: "Feminino",
-      nome: "",
-      descricao: "",
-      price: 0,
-      PorcentagemDeDesconto: 0,
-      image: "",
-      primeiraCor: "",
+      destiny: "Masculino" && "Feminino",
+      category: "Tênis",
+      nome: "Air Force 1 '07",
+      descricao:
+        "O brilho perdura no Nike Air Force 1 '07, o tênis original do basquete que dá um toque de inovação naquilo que você conhece bem.",
+      price: 699,
+      PorcentagemDeDesconto: 35,
+      image: "Assets/Produtos/Calcados//nikeAir1/preto.jpeg",
+      imageTwo: "Assets/Produtos/Calcados/nikeAir1/branco.jpeg",
+      primeiraCor: "Preto",
+      segundaCor: "Branco",
       quantidade: 1,
     },
     {
+      destiny: "Infantil",
       category: "Infantil",
       nome: "Bolsa Infantil Delicada",
       descricao:
@@ -123,6 +133,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Infantil",
       category: "Infantil",
       nome: "Bow Plissado",
       descricao: "Bow Plissado Malhado Floral Fofo Vestido Para Bebê",
@@ -135,10 +146,11 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Masculino",
       category: "Masculino",
       nome: "Camisa Longline",
       descricao:
-        "Camiseta Verão 2023 Masculina Novo Estilo Ice Silk Impressão Xadrez Com Manga Curta",
+        "Camiseta Verão 2023 Masculino Novo Estilo Ice Silk Impressão Xadrez Com Manga Curta",
       price: 60,
       PorcentagemDeDesconto: 5,
 
@@ -147,6 +159,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Feminino",
       category: "Perfume",
       nome: "Perfume Feminino Lili",
       descricao:
@@ -159,6 +172,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Tec",
       category: "Eletrônicos",
       nome: "Teclado Mecânico Led",
       descricao:
@@ -170,6 +184,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      destiny: "Masculino",
       category: "Acessorios",
       nome: "Corrente com pingente",
       descricao: "Corrente Colar de Pingente Cruz Para Homens Mulheres",
@@ -179,6 +194,46 @@ export function ProdutoProvider({ children }: Children) {
       imageTwo: "Assets/Produtos/Acessorios/Corrente/gold.jpeg",
       primeiraCor: "Silver",
       segundaCor: "Gold",
+      quantidade: 1,
+    },
+    {
+      destiny: "Masculino" && "Feminino",
+      category: "Tênis",
+      nome: "Jordan Dunk Low",
+      descricao:
+        "Este Dunk Low faz uma declaração suave, adicionando o polimento perfeito à sua roupa. Com seu estilo retrô e gola decotada e confortável, mantivemos tudo o que você ama neste básico de estilo moderno",
+      price: 489,
+      image: "Assets/Produtos/Calcados/Jordan Dunk/preto&branco.jpeg",
+      imageTwo: "Assets/Produtos/Calcados/Jordan Dunk/rosa&branco.jpeg",
+      imageThree: "Assets/Produtos/Calcados/Jordan Dunk/azul&branco.jpeg",
+      primeiraCor: "Preto e branco",
+      segundaCor: "Rosa e branco",
+      terceiraCor: "Azul e branco",
+      PorcentagemDeDesconto: 25,
+      quantidade: 1,
+    },
+    {
+      destiny: "Tec",
+      category: "Eletrônicos",
+      nome: "Headset G2000",
+      descricao: `Características: 7.1 Canais virtuais, Almofadas super confortáveis, Design com LEDS, Controle de volume e funções, Microfone de alta qualidade, Compatibilidade com Windows / Mac`,
+      price: 149,
+      PorcentagemDeDesconto: 11,
+      image: "Assets/Produtos/Eletronicos/Headset/red.jpeg",
+      primeiraCor: "Red",
+      quantidade: 1,
+    },
+    {
+      destiny: "Masculino",
+      category: "Masculino",
+      nome: "Camiseta Polo",
+      descricao: "Camisa polo masculino 100% poliéster ",
+      price: 84,
+      PorcentagemDeDesconto: 0,
+      image: "Assets/Produtos/Camisas/PoloStyle/branco.jpeg",
+      imageTwo: "Assets/Produtos/Camisas/PoloStyle/preto.jpeg",
+      primeiraCor: "Branco",
+      segundaCor: "Preto",
       quantidade: 1,
     },
   ];

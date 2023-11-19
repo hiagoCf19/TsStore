@@ -15,8 +15,8 @@ export const Carrinho = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const { car } = useContext(CarCtx);
   const [cheio] = useState(car.length >= 1 ? true : false);
-  const recomendado = produtos.filter((produto) => {
-    return produto.PorcentagemDeDesconto > 0;
+  const recomendado = produtos.filter((produto: ProdutosInterface) => {
+    return produto.PorcentagemDeDesconto > 10;
   });
 
   return (
@@ -43,8 +43,8 @@ export const Carrinho = () => {
             {cheio ? <ResumoComItem /> : <ResumoVazio />}
           </div>
           <div className={`${cheio ? "" : "hidden"} `}>
-            <h1 className="text-center flex justify-center  text-xl uppercase tracking-[5px] text-semibold pb-8 ">
-              Recomendados
+            <h1 className="text-center flex justify-center  text-xl uppercase tracking-[5px] text-semibold py-8 ">
+              Ofertas do dia
             </h1>
             <div className=" flex flex-wrap sm:flex-nowrap justify-center overflow-hidden  gap-2 ">
               {recomendado.slice(0, 7).map((recomendado, i) => (

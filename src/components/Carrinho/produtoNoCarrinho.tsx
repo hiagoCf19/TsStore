@@ -37,7 +37,7 @@ export const ProdutoNoCarrinho = () => {
     car.splice(i, 1);
     setItensExibidos([...car]);
   };
-  console.log(car);
+
   return (
     <div className="border-b border-solid border-roxo h-[67%] overflow-hidden overflow-y-scroll">
       {/* PRODUTO 1 */}
@@ -59,14 +59,32 @@ export const ProdutoNoCarrinho = () => {
                 {produto.nome}
               </p>
               <p className="sm:text-lg font-medium sm:hidden flex flex-col">
-                <p>{produto.nome}</p>
+                <span>{produto.nome}</span>
+                {/* mobile */}
                 <span className="text-[#a7a7a7c8] text-sm">
-                  {produto.cor} ({produto.tamanho})
+                  {produto.cor} {""}
+                  {produto.category === "Tênis" ||
+                  produto.category === "Eletrônicos" ||
+                  produto.category === "Acessorios" ||
+                  produto.category === "Perfume" ? (
+                    ""
+                  ) : (
+                    <i>({produto.tamanho})</i>
+                  )}
                 </span>
               </p>
-              <div className="flex flex-col  text-[#a7a7a7] sm:text-base text-sm ">
-                <span className="hidden sm:block">
-                  Tamanho: {produto.tamanho}
+              <div
+                className={`flex flex-col  text-[#a7a7a7] sm:text-base text-sm  `}
+              >
+                <span className=" hidden sm:block ">
+                  {produto.category === "Tênis" ||
+                  produto.category === "Eletrônicos" ||
+                  produto.category === "Acessorios" ||
+                  produto.category === "Perfume" ? (
+                    ""
+                  ) : (
+                    <span> Tamanho: {produto.tamanho} </span>
+                  )}
                 </span>
                 <span className="hidden sm:block">Variação: {produto.cor}</span>
                 {/* CONTROLE DE QUANTIDADE MOBILE */}
