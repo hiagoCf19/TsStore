@@ -3,8 +3,11 @@ import { LogButton } from "../styledElements/Logbutton";
 import CarCtx from "@/Context/contextCar";
 import { useContext } from "react";
 import { ProdutosInterface } from "@/Context/contextProdutos";
-
-export const ResumoComItem = () => {
+import { Link } from "react-router-dom";
+interface PropsRoute {
+  rotaDoContinue: string;
+}
+export const ResumoComItem = ({ rotaDoContinue }: PropsRoute) => {
   const { car } = useContext(CarCtx);
   const precoSomado = car.map((produto: ProdutosInterface) => {
     return produto.finalPrice != undefined
@@ -47,9 +50,9 @@ export const ResumoComItem = () => {
           </span>
         </div>
       </div>
-      <div className="flex justify-center py-5">
-        <LogButton content="Continuar a compra" type="button" />
-      </div>
+      <Link to={rotaDoContinue} className="flex justify-center py-5">
+        <LogButton content="Continuar " type="button" />
+      </Link>
     </div>
   );
 };

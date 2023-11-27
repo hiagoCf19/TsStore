@@ -10,11 +10,11 @@ export function CarrinhoProvider({ children }: Children) {
   const [car, setCar] = useState<any>([]);
 
   const adicionarItemAoCarrinho = (
+    id: ProdutosInterface,
     category: ProdutosInterface,
     nome: ProdutosInterface,
     price: ProdutosInterface,
     image: ProdutosInterface,
-
     PorcentagemDeDesconto: ProdutosInterface,
     finalPrice: ProdutosInterface,
     cor: string,
@@ -22,11 +22,11 @@ export function CarrinhoProvider({ children }: Children) {
     quantidade: ProdutosInterface
   ) => {
     const ItemCarrinho = {
+      id,
       category,
       nome,
       price,
       image,
-
       PorcentagemDeDesconto,
       finalPrice,
       cor,

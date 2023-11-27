@@ -3,6 +3,7 @@ export interface Children {
   children: ReactNode;
 }
 export interface ProdutosInterface {
+  id: number;
   destiny: string;
   category: string;
   nome: string;
@@ -26,6 +27,7 @@ const ProdutoCtx = createContext<ProdutosInterface[]>([]);
 export function ProdutoProvider({ children }: Children) {
   const catalogados: ProdutosInterface[] = [
     {
+      id: 1,
       destiny: "Masculino",
       category: "Camisa" && "Masculino",
       nome: "Camiseta Casual Wear",
@@ -43,6 +45,7 @@ export function ProdutoProvider({ children }: Children) {
     },
 
     {
+      id: 2,
       destiny: "Feminino",
       category: "Camisa" && "Feminino",
       nome: "Essence Split",
@@ -60,6 +63,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 3,
       destiny: "Masculino" && "Feminino",
       category: "Acessorios",
       nome: "Óculos Redondo",
@@ -73,6 +77,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 4,
       destiny: "Masculino",
       category: "Masculino",
       nome: "Conjunto Manfinity",
@@ -90,6 +95,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 5,
       destiny: "Masculino",
       category: "Tênis",
       nome: "Tênis Chunky",
@@ -107,6 +113,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 6,
       destiny: "Masculino" && "Feminino",
       category: "Tênis",
       nome: "Air Force 1 '07",
@@ -121,6 +128,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 7,
       destiny: "Infantil",
       category: "Infantil",
       nome: "Bolsa Infantil Delicada",
@@ -133,6 +141,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 8,
       destiny: "Infantil",
       category: "Infantil",
       nome: "Bow Plissado",
@@ -146,6 +155,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 9,
       destiny: "Masculino",
       category: "Masculino",
       nome: "Camisa Longline",
@@ -159,6 +169,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 10,
       destiny: "Feminino",
       category: "Perfume",
       nome: "Perfume Feminino Lili",
@@ -172,6 +183,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 11,
       destiny: "Tec",
       category: "Eletrônicos",
       nome: "Teclado Mecânico Led",
@@ -184,6 +196,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 12,
       destiny: "Masculino",
       category: "Acessorios",
       nome: "Corrente com pingente",
@@ -197,6 +210,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 13,
       destiny: "Masculino" && "Feminino",
       category: "Tênis",
       nome: "Jordan Dunk Low",
@@ -213,6 +227,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 14,
       destiny: "Tec",
       category: "Eletrônicos",
       nome: "Headset G2000",
@@ -224,6 +239,7 @@ export function ProdutoProvider({ children }: Children) {
       quantidade: 1,
     },
     {
+      id: 15,
       destiny: "Masculino",
       category: "Masculino",
       nome: "Camiseta Polo",

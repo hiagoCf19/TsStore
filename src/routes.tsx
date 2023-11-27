@@ -15,6 +15,10 @@ import { ResetPassword } from "./components/Login&cadastro/resetPassword";
 import { Carrinho } from "./components/Carrinho/carrinho";
 import { Trocas } from "./components/trocas/Trocas";
 
+import { VisualizaEnd } from "./components/Carrinho/Endereco/HomeAdress";
+import { Endereco } from "./components/Carrinho/Endereco/EditarAdress/Endereco";
+import { HomePay } from "./components/Carrinho/pagamento/homePay";
+
 export const category: string[] = [];
 export const navRoutes = [
   {
@@ -55,6 +59,7 @@ const RoutesApp = () => {
               path={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
               element={
                 <ProdutoExibido
+                  id={item.id}
                   nome={item.nome}
                   descricao={item.descricao}
                   price={item.price}
@@ -98,7 +103,9 @@ const RoutesApp = () => {
         <Route path="/login/recuperar-acesso" element={<ResetPassword />} />
         <Route path="/meu-carrinho" element={<Carrinho />} />
         <Route path="/minhas-trocas" element={<Trocas />} />
-
+        <Route path="/endereco-para-entrega" element={<VisualizaEnd />} />
+        <Route path="/cadastre-seu-endereco" element={<Endereco />} />
+        <Route path="/metodos-de-pagamento" element={<HomePay />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, db } from "@/services/firebaseConfing";
-import { addDoc, collection } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { LogButtonSM } from "../styledElements/LogbuttonSM";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -38,7 +38,8 @@ export const CadastroForm = () => {
         const userUID = userCRED?.user.uid;
 
         const userCollection = collection(db, "usuarios");
-        addDoc(userCollection, {
+        const userDocRef = doc(userCollection, userUID);
+        setDoc(userDocRef, {
           uid: userUID,
           name: name,
           email: email,
@@ -229,7 +230,6 @@ export const CadastroForm = () => {
             ? setValidConfirm(true)
             : null
         }
-        className=""
       >
         <LogButtonSM type="submit" content="Cadastrar" />
       </div>

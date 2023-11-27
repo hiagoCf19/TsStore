@@ -40,7 +40,11 @@ export const Carrinho = () => {
         <div className="w-full flex justify-center flex-col ">
           <div className="flex justify-center sm:pt-16  sm:h-[50vh] h-[85vh]  sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row ">
             {cheio ? <CarrinhoComItem /> : <CarrinhoVazio />}
-            {cheio ? <ResumoComItem /> : <ResumoVazio />}
+            {cheio ? (
+              <ResumoComItem rotaDoContinue="/endereco-para-entrega" />
+            ) : (
+              <ResumoVazio />
+            )}
           </div>
           <div className={`${cheio ? "" : "hidden"} `}>
             <h1 className="text-center flex justify-center  text-xl uppercase tracking-[5px] text-semibold py-8 ">

@@ -17,14 +17,14 @@ export const RadioStyled = styled.div`
     border-radius: 100%;
     cursor: pointer;
 
-    box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px,
-      inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
+    box-shadow: #725cff 0 1px 4px, inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
+    background-color: #00000061;
     background-color: hsla(0, 0%, 0%, 0.2);
     background-image: radial-gradient(
-      hsla(260, 100%, 85%, 1) 0%,
-      hsla(260, 100%, 65%, 1) 5%,
+      hsla(260, 100%, 85%, 1) 10%,
+      hsla(260, 100%, 65%, 1) 15%,
       hsla(260, 100%, 55%, 0.3) 38%,
-      hsla(260, 100%, 25%, 0) 70%
+      hsla(260, 100%, 25%, 0) 60%
     );
 
     background-repeat: no-repeat;

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { ContentProps } from "./BotaoStyled";
 
-const StyledButtonSm = styled.div`
+export const StyledButtonSm = styled.div`
   --green: #875cff;
+
   width: max-content;
   font-size: 15px;
   padding: 0.5em 1.4em;

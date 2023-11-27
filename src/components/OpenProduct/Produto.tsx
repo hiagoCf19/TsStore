@@ -20,6 +20,7 @@ export const Linha = styled.div`
   background-color: var(--roxo);
 `;
 export const ProdutoExibido = ({
+  id,
   nome,
   price,
   descricao,
@@ -33,14 +34,53 @@ export const ProdutoExibido = ({
   category,
   destiny,
 }: ProdutosInterface) => {
-  const { car, adicionarItemAoCarrinho } = useContext(CarCtx);
+  const { adicionarItemAoCarrinho } = useContext(CarCtx);
   const { mudaCor, selectedTamanho }: any = useContext(MudaCorCtx);
+
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const MesmaCategoria = produtos.filter((produtos) => {
     const semelhantes =
       produtos.destiny === destiny || produtos.category === category;
     return semelhantes;
   });
+  {
+    /*
+
+const enviarItemAoBanco = async () => {
+  if (userLogado) {
+    const userUID = sessionStorage.getItem("userUid");
+
+    // Verifica se o UID do usuário está disponível
+    if (userUID) {
+      const userDocRef = doc(db, "usuarios", userUID);
+
+      // Obtém o documento atual para verificar se ele existe
+      const docSnapshot = await getDoc(userDocRef);
+
+      // Verifica se o documento do usuário já existe
+      if (docSnapshot.exists()) {
+        try {
+          // Atualiza o documento do usuário com os itens do carrinho
+          await updateDoc(userDocRef, {
+            carrinho: car,
+          });
+          console.log("Carrinho atualizado no documento do usuário");
+        } catch (error) {
+          console.error("Erro ao atualizar carrinho:", error);
+        }
+      } else {
+        console.error("Documento do usuário não encontrado");
+      }
+    } else {
+      console.log("ID do usuário não disponível");
+    }
+  } else {
+    console.log("Usuário não está logado");
+  }
+   };
+*/
+  }
+
   return (
     <BackGrad>
       <div className="flex flex-col gap-4">
@@ -153,30 +193,26 @@ export const ProdutoExibido = ({
                 <Tamanho />
               </div>
               {/* Botão */}
+
               <div
                 onClick={() => {
-                  console.log(car);
+                  adicionarItemAoCarrinho(
+                    id,
+                    category,
+                    nome,
+                    price,
+                    image,
+                    PorcentagemDeDesconto,
+                    finalPrice,
+                    mudaCor,
+                    selectedTamanho,
+                    quantidade
+                  );
+                  //enviarItemAoBanco;
                 }}
+                className="mx-8 sm:mx-10"
               >
-                <div
-                  onClick={() => {
-                    adicionarItemAoCarrinho(
-                      category,
-                      nome,
-                      price,
-                      image,
-                      PorcentagemDeDesconto,
-                      finalPrice,
-                      mudaCor,
-                      selectedTamanho,
-                      quantidade
-                    );
-                    console.log(car);
-                  }}
-                  className="mx-8 sm:mx-10"
-                >
-                  <LogButton type="button" content="Adicionar" />
-                </div>
+                <LogButton type="button" content="Adicionar" />
               </div>
             </div>
           </div>
