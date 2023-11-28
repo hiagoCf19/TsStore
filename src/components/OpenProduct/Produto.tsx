@@ -84,8 +84,8 @@ const enviarItemAoBanco = async () => {
   return (
     <BackGrad>
       <div className="flex flex-col gap-4">
-        {/* header Mobile */}
-        <div className="fixed bg-transp2 w-full z-50 ">
+        {/* header  */}
+        <div className="fixed bg-transp w-full z-50 ">
           <Header
             line={""}
             props={

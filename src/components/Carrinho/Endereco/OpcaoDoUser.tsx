@@ -62,7 +62,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
         Escolha a forma de entrega
       </h1>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col pt-7 sm:pt-0 gap-5">
         {bases.map((type: any, i: number) => (
           <Fragment key={i}>
             <div className="flex items-center gap-3">
@@ -78,10 +78,12 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
                 />
               </Radio>
               <div className="flex flex-col gap-1 w-full">
-                <h1 className="font-bold text-xl">{type.title}</h1>
-                <span className="text-[#a7a7a7]">{type.span}</span>
+                <h1 className="font-bold sm:text-xl">{type.title}</h1>
+                <span className="text-[#a7a7a7] text-[14px] sm:text-base">
+                  {type.span}
+                </span>
               </div>
-              <span className="flex justify-end  text-roxo font-medium w-full">
+              <span className="flex justify-end  text-roxo font-medium sm:w-full text-[12px] sm:text-base ">
                 {type.custo}
               </span>
             </div>

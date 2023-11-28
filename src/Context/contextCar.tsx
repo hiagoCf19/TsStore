@@ -19,7 +19,8 @@ export function CarrinhoProvider({ children }: Children) {
     finalPrice: ProdutosInterface,
     cor: string,
     tamanho: string,
-    quantidade: ProdutosInterface
+    quantidade: ProdutosInterface,
+    saveAdress: boolean
   ) => {
     const ItemCarrinho = {
       id,
@@ -32,6 +33,7 @@ export function CarrinhoProvider({ children }: Children) {
       cor,
       tamanho,
       quantidade,
+      saveAdress,
     };
     setCar([...car, ItemCarrinho]);
   };

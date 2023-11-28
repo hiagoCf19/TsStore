@@ -13,7 +13,7 @@ export const Endereco = () => {
         <Header
           line={""}
           props={
-            <div className="sm:bg-background px-2 sm:h-10 flex items-center justify-between w-full">
+            <div className=" px-2 sm:h-10 flex items-center justify-between w-full">
               <img
                 src="Assets/tsStore.svg"
                 alt="logo"

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 
 import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export const FormEndereco = () => {
   const { enderecoDoUsuario, setEnderecoDoUsuario } = useContext(UserCtx);
@@ -38,6 +39,7 @@ export const FormEndereco = () => {
 
   const [validForm, setValidForm] = useState<boolean>(false);
 
+  const [saveData, setSaveData] = useState<boolean>(false);
   const mudaTipoDeEndereco = (type: any) => {
     setTypeAdrs(type);
   };
@@ -46,7 +48,7 @@ export const FormEndereco = () => {
   }, [enderecoDoUsuario]);
 
   return (
-    <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10 ">
+    <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
       <h1 className="uppercase tracking-wide font-semibold sm:flex  sm:text-[18px] sm:mb-4 text-[16px]">
         Endereço de entrega
       </h1>
@@ -64,6 +66,7 @@ export const FormEndereco = () => {
             cidade: cidade,
             complemento: complemento,
             contato: contato,
+            saveAdress: saveData,
           });
           setValidForm(
             sobrenomeValido &&
@@ -86,7 +89,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Nome</Label>
             <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira seu nome"
               value={nome}
@@ -99,7 +102,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Sobrenome</Label>
             <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira seu nome"
               value={sobrenome}
@@ -117,7 +120,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>CEP</Label>
             <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira seu CEP"
               value={CEP}
@@ -131,7 +134,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Rua</Label>
             <Input
-              className="bg-transp border-[1px] border-dashed border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-dashed border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira seu endereço"
               value={rua}
@@ -148,7 +151,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Bairro</Label>
             <Input
-              className="bg-transp border-[1px] border-dashed border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-dashed border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira seu bairro"
               value={bairro}
@@ -162,7 +165,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Cidade</Label>
             <Input
-              className="bg-transp border-[1px] border-dashed border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-dashed border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="Insira sua cidade"
               value={cidade}
@@ -178,7 +181,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Telefone de contato</Label>
             <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder=" (XX) X XXXXXXXX"
               value={contato}
@@ -192,7 +195,7 @@ export const FormEndereco = () => {
           <div className="flex flex-col gap-2">
             <Label>Complemento</Label>
             <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md  w-[15.5rem] sm:w-[18.75rem] italic rounded"
+              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
               type="text"
               placeholder="informe um complemento"
               value={complemento}
@@ -235,15 +238,27 @@ export const FormEndereco = () => {
               </div>
             ))}
           </div>
+          {/* salvar endereço */}
+          <div className="flex gap-4 ml-2 pt-5">
+            <Checkbox
+              className="border-solid border-roxo w-5 h-5"
+              onClick={() => {
+                setSaveData(saveData === false ? true : false);
+              }}
+              checked={saveData === true}
+            />
+            Salvar o endereço para compras futuras
+          </div>
         </div>
-
-        <StyledButtonSm>
-          <input
-            type="submit"
-            className="px-4 py-1 uppercase tracking-widest font-bold cursor-pointer "
-            value={"Salvar"}
-          />
-        </StyledButtonSm>
+        <div className="flex justify-center sm:justify-end">
+          <StyledButtonSm>
+            <input
+              type="submit"
+              className="px-4 py-1 uppercase tracking-widest font-bold cursor-pointer "
+              value={"Salvar"}
+            />
+          </StyledButtonSm>
+        </div>
       </form>
     </div>
   );
