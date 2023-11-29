@@ -79,7 +79,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
               </Radio>
               <div className="flex flex-col gap-1 w-full">
                 <h1 className="font-bold sm:text-xl">{type.title}</h1>
-                <span className="text-[#a7a7a7] text-[14px] sm:text-base">
+                <span className="text-[#a7a7a7] text-[14px] sm:text-base ">
                   {type.span}
                 </span>
               </div>

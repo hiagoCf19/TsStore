@@ -50,7 +50,12 @@ export const ResumoComItem = ({ rotaDoContinue }: PropsRoute) => {
           </span>
         </div>
       </div>
-      <Link to={rotaDoContinue} className="flex justify-center py-5">
+      <Link
+        to={rotaDoContinue}
+        className={`${
+          rotaDoContinue.length === 0 ? "hidden" : ""
+        } flex justify-center py-5`}
+      >
         <LogButton content="Continuar " type="button" />
       </Link>
     </div>

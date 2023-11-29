@@ -14,30 +14,20 @@ export const FormEndereco = () => {
   const { nomeDoUsuario } = useContext(UserCtx);
   const [nome, setNome] = useState(nomeDoUsuario);
   const [sobrenome, setSobrenome] = useState<string>("");
-  const [sobrenomeValido, setSobrenomeValido] = useState<boolean>(false);
 
   const [CEP, setCEP] = useState<string>("");
   const [CEPValido, setCEPValido] = useState<boolean>(false);
+  const [CEPerror, setCEPerror] = useState<boolean>(false);
 
   const [rua, setRua] = useState<string>("");
-  const [ruaValida, setRuaValida] = useState<boolean>(false);
-
   const [bairro, setBairro] = useState<string>("");
-  const [bairroValido, setBairroValido] = useState<boolean>(false);
-
   const [cidade, setCidade] = useState<string>("");
-  const [cidadeValida, setCidadeValida] = useState<boolean>(false);
-
+  const [uf, setUf] = useState<string>("");
   const [complemento, setComplemento] = useState<string>("");
-  const [complementoValido, setComplementoValido] = useState<boolean>(true);
-
+  const [numero, setNumero] = useState<string>("");
   const tipoDeEndereco: string[] = ["Casa", "Trabalho"];
   const [typeAdrs, setTypeAdrs] = useState<string>(tipoDeEndereco[0]);
-
   const [contato, setContato] = useState<string>("");
-  const [contatoValido, setContatoValido] = useState<boolean>(false);
-
-  const [validForm, setValidForm] = useState<boolean>(false);
 
   const [saveData, setSaveData] = useState<boolean>(false);
   const mudaTipoDeEndereco = (type: any) => {
@@ -46,7 +36,38 @@ export const FormEndereco = () => {
   useEffect(() => {
     console.log(enderecoDoUsuario);
   }, [enderecoDoUsuario]);
+  useEffect(() => {
+    if (CEP.length >= 8) {
+      buscaCep();
+    }
+  }, [CEP]);
+  const buscaCep = () => {
+    const cepRefat = CEP.replace(/\D/g, "");
 
+    fetch(`https://viacep.com.br/ws/${cepRefat}/json/`)
+      .then((response) => response.json())
+      .then((result) => {
+        setCEPValido(true);
+        setRua(result.logradouro);
+        setBairro(result.bairro);
+        setCidade(result.localidade);
+        setUf(result.uf);
+        console.log(result);
+      })
+      .catch((error) => {
+        setCEPerror(true);
+
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    SalvaDados();
+  }, [enderecoDoUsuario]);
+  const SalvaDados = () => {
+    const parseString = JSON.stringify(enderecoDoUsuario);
+    sessionStorage.setItem("Endereco", parseString);
+  };
+  console.log(CEPValido);
   return (
     <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
       <h1 className="uppercase tracking-wide font-semibold sm:flex  sm:text-[18px] sm:mb-4 text-[16px]">
@@ -68,19 +89,8 @@ export const FormEndereco = () => {
             contato: contato,
             saveAdress: saveData,
           });
-          setValidForm(
-            sobrenomeValido &&
-              CEPValido &&
-              ruaValida &&
-              complementoValido &&
-              bairroValido &&
-              cidadeValida &&
-              contatoValido
-              ? true
-              : false
-          );
+
           console.log(enderecoDoUsuario);
-          console.log(validForm);
         }}
       >
         {/* BLOCO NOME/SOBRENOME */}
@@ -96,6 +106,7 @@ export const FormEndereco = () => {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setNome(e.target.value)
               }
+              required
             />
           </div>
           {/* SOBRENOME */}
@@ -108,8 +119,8 @@ export const FormEndereco = () => {
               value={sobrenome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setSobrenome(e.target.value);
-                setSobrenomeValido(sobrenome.length >= 1 ? true : false);
               }}
+              required
             />
           </div>
         </div>
@@ -117,18 +128,23 @@ export const FormEndereco = () => {
         {/* CEP & RUA  */}
         <div className="flex flex-col sm:flex-row sm:gap-8 gap-4 ">
           {/* CEP */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 relative">
             <Label>CEP</Label>
-            <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
-              type="text"
-              placeholder="Insira seu CEP"
-              value={CEP}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setCEP(e.target.value);
-                setCEPValido(CEP.length >= 1 ? true : false);
-              }}
-            />
+            <div className="w-full relative flex items-center gap-2">
+              <Input
+                className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded w-full "
+                type="text"
+                placeholder="busque seu CEP"
+                value={CEP}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setCEP(e.target.value);
+                }}
+                required
+              />
+            </div>
+            {CEPerror ? (
+              <span className={` text-[#FF3333] `}>CEP inválido</span>
+            ) : null}
           </div>
           {/*Rua */}
           <div className="flex flex-col gap-2">
@@ -140,10 +156,37 @@ export const FormEndereco = () => {
               value={rua}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setRua(e.target.value);
-                setRuaValida(rua.length >= 1 ? true : false);
               }}
+              required
             />
           </div>
+        </div>
+        {/* numero */}
+        <div className="flex flex-col gap-2">
+          <Label>Numero</Label>
+          <Input
+            className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
+            type="text"
+            placeholder="informe o número de sua residência"
+            value={numero}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setNumero(e.target.value);
+            }}
+            required
+          />
+        </div>
+        {/* COMPLEMENTO */}
+        <div className="flex flex-col gap-2">
+          <Label>Complemento (se necessário)</Label>
+          <Input
+            className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
+            type="text"
+            placeholder="Ex: ap-100"
+            value={complemento}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setComplemento(e.target.value);
+            }}
+          />
         </div>
         {/* BLOCO CIDADE/BAIRRO */}
         <div className="flex flex-col sm:flex-row sm:gap-8 gap-4  ">
@@ -157,23 +200,38 @@ export const FormEndereco = () => {
               value={bairro}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setBairro(e.target.value);
-                setBairroValido(bairro.length >= 1 ? true : false);
               }}
+              required
             />
           </div>
           {/* CIDADE */}
-          <div className="flex flex-col gap-2">
-            <Label>Cidade</Label>
-            <Input
-              className="bg-transp border-[1px] border-dashed border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
-              type="text"
-              placeholder="Insira sua cidade"
-              value={cidade}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setCidade(e.target.value);
-                setCidadeValida(cidade.length >= 1 ? true : false);
-              }}
-            />
+          <div className=" flex gap-3">
+            <div className="flex flex-col gap-2 w-[80%]">
+              <Label>Cidade</Label>
+              <Input
+                className="bg-transp border-[1px] border-dashed border-roxo shadow-md  sm:w-[18.75rem] italic rounded"
+                type="text"
+                placeholder="Insira sua cidade"
+                value={cidade}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setCidade(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-2 w-[20%]">
+              <Label>UF</Label>
+              <Input
+                className="bg-transp border-[1px] border-dashed border-roxo shadow-md  sm:w-[18.75rem] italic rounded"
+                type="text"
+                placeholder="ex: MG"
+                value={uf}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  setUf(e.target.value);
+                }}
+                required
+              />
+            </div>
           </div>
         </div>
         {/* TELEFONE & COMPLEMENTO */}
@@ -187,21 +245,6 @@ export const FormEndereco = () => {
               value={contato}
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setContato(e.target.value);
-                setContatoValido(contato.length >= 1 ? true : false);
-              }}
-            />
-          </div>
-          {/* COMPLEMENTO */}
-          <div className="flex flex-col gap-2">
-            <Label>Complemento</Label>
-            <Input
-              className="bg-transp border-[1px] border-solid border-roxo shadow-md   sm:w-[18.75rem] italic rounded"
-              type="text"
-              placeholder="informe um complemento"
-              value={complemento}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setComplemento(e.target.value);
-                setComplementoValido(complemento.length >= 1 ? true : false);
               }}
             />
           </div>
@@ -220,17 +263,6 @@ export const FormEndereco = () => {
                     checked={typeAdrs === type}
                     onChange={() => {
                       mudaTipoDeEndereco(type);
-                      setValidForm(
-                        sobrenomeValido &&
-                          CEPValido &&
-                          ruaValida &&
-                          complementoValido &&
-                          bairroValido &&
-                          cidadeValida &&
-                          contatoValido
-                          ? true
-                          : false
-                      );
                     }}
                   />
                 </RadioStyled>
@@ -247,7 +279,7 @@ export const FormEndereco = () => {
               }}
               checked={saveData === true}
             />
-            Salvar o endereço para compras futuras
+            Guardar dados para compras futuras
           </div>
         </div>
         <div className="flex justify-center sm:justify-end">
