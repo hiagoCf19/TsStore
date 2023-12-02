@@ -1,5 +1,5 @@
 import { Ticket } from "lucide-react";
-import { LogButton } from "../styledElements/Logbutton";
+import { LogButton } from "../../styledElements/Logbutton";
 import CarCtx from "@/Context/contextCar";
 import { useContext } from "react";
 import { ProdutosInterface } from "@/Context/contextProdutos";

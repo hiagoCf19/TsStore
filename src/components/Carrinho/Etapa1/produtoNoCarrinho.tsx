@@ -1,7 +1,7 @@
 import { ProdutosInterface } from "@/Context/contextProdutos";
 import { Minus, Plus } from "lucide-react";
 import { useContext, useState } from "react";
-import { Excluir } from "../styledElements/delete";
+import { Excluir } from "../../styledElements/delete";
 import CarCtx from "@/Context/contextCar";
 
 export const ProdutoNoCarrinho = () => {

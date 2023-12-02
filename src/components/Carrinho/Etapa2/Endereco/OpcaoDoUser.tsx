@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
-const Radio = styled.div`
+export const RadioVertical = styled.div`
   .input {
     appearance: none;
     /* remove default */
@@ -66,7 +66,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
         {bases.map((type: any, i: number) => (
           <Fragment key={i}>
             <div className="flex items-center gap-3">
-              <Radio>
+              <RadioVertical>
                 <input
                   type="radio"
                   className="input"
@@ -76,7 +76,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
                     TipoDeEntrega(type.title);
                   }}
                 />
-              </Radio>
+              </RadioVertical>
               <div className="flex flex-col gap-1 w-full">
                 <h1 className="font-bold sm:text-xl">{type.title}</h1>
                 <span className="text-[#a7a7a7] text-[14px] sm:text-base ">

@@ -144,7 +144,6 @@ export const Header = ({ props, line }: PropsHeader) => {
                   {topico.title}
                 </Link>
               ))}
-              Categorias
             </div>
           </nav>
         </div>

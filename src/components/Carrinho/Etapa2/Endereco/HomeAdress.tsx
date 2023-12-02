@@ -2,7 +2,7 @@ import { BackGrad } from "@/Styles/Background";
 import { Footer } from "@/components/Footer/Footer";
 import { Header } from "@/components/Header/Header";
 
-import { ResumoComItem } from "../resumoComItem";
+import { ResumoComItem } from "../../Etapa1/resumoComItem";
 import { DeliveryOption } from "./OpcaoDoUser";
 import { useContext, useEffect, useState } from "react";
 import UserCtx from "@/Context/UserCOntext";
@@ -24,7 +24,9 @@ export const VisualizaEnd = () => {
   const bases = [
     {
       title: "Entrega via correios",
-      span: "Cadastre um endereço  para receber seu pedido",
+      span: !enderecoExiste
+        ? "Cadastre um endereço  para receber seu pedido"
+        : `Enviar para ${enderecoDoUsuario.rua} ${enderecoDoUsuario.numero}, ${enderecoDoUsuario.bairro}. ${enderecoDoUsuario.cidade}-${enderecoDoUsuario.uf} `,
       custo: "5 a 10 dias úteis",
     },
     {
@@ -55,29 +57,28 @@ export const VisualizaEnd = () => {
         />
       </div>
       <div className="h-[50px] w-full bg-transp"></div>
-      {!enderecoExiste ? (
-        <div className="w-full flex justify-center flex-col ">
-          <div className="flex justify-center sm:pt-16  sm:h-[50vh]   sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row  py-5">
-            <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
-              <DeliveryOption
-                typeEntrega={typeEntrega}
-                bases={bases}
-                TipoDeEntrega={TipoDeEntrega}
-              />
-            </div>
 
-            <ResumoComItem
-              rotaDoContinue={
-                typeEntrega === "Entrega via correios"
-                  ? "/cadastre-seu-endereco"
-                  : "/metodos-de-pagamento"
-              }
+      <div className="w-full flex justify-center flex-col ">
+        <div className="flex justify-center sm:pt-16  sm:h-[50vh]   sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row  py-5">
+          <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
+            <DeliveryOption
+              typeEntrega={typeEntrega}
+              bases={bases}
+              TipoDeEntrega={TipoDeEntrega}
             />
           </div>
+
+          <ResumoComItem
+            rotaDoContinue={
+              typeEntrega === "Entrega via correios"
+                ? enderecoExiste
+                  ? "/metodos-de-pagamento"
+                  : "/cadastre-seu-endereco"
+                : "/metodos-de-pagamento"
+            }
+          />
         </div>
-      ) : (
-        <p>Endereco nao existe</p>
-      )}
+      </div>
 
       <div className="absolute bottom-0 w-full">
         <Footer />

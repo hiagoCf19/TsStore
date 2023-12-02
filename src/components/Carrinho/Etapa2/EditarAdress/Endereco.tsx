@@ -4,7 +4,7 @@ import { Header } from "../../../Header/Header";
 import { Footer } from "../../../Footer/Footer";
 import { FormEndereco } from "./FormEndereco";
 
-import { ResumoComItem } from "../../resumoComItem";
+import { ResumoComItem } from "../../Etapa1/resumoComItem";
 
 export const Endereco = () => {
   return (

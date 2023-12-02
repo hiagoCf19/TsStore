@@ -13,7 +13,7 @@ export const Preview = () => {
       id="Ofertas-do-mes"
     >
       <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:mb-5 sm:text-[24px]">
-        Ofertas
+        Ofertas do dia
       </h1>
       <div className="flex gap-4 sm:gap-3 overflow-hidden overflow-x-scroll sm:overflow-x-hidden sm:flex">
         {produtos.slice(1, 11).map((produto: ProdutosInterface, i: number) => (

@@ -1,6 +1,6 @@
 import { FaShoppingCart } from "react-icons/fa";
 
-import { BotaoStyled } from "../styledElements/BotaoStyled";
+import { BotaoStyled } from "../../styledElements/BotaoStyled";
 import { Link } from "react-router-dom";
 export const CarrinhoVazio = () => {
   return (

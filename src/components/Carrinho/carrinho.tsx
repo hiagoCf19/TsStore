@@ -1,15 +1,15 @@
 import { BackGrad } from "@/Styles/Background";
 import { Header } from "../Header/Header";
 import { Link } from "react-router-dom";
-import { ResumoComItem } from "./resumoComItem";
+import { ResumoComItem } from "./Etapa1/resumoComItem";
 import { CardProd } from "../styledElements/Card";
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
 import { useContext, useState } from "react";
 import CarCtx from "@/Context/contextCar";
 import { Footer } from "../Footer/Footer";
-import { CarrinhoVazio } from "./carrinhoVazio";
-import { CarrinhoComItem } from "./carrinhoComItem";
-import { ResumoVazio } from "./ResumoVazio";
+import { CarrinhoVazio } from "./Etapa1/carrinhoVazio";
+import { CarrinhoComItem } from "./Etapa1/carrinhoComItem";
+import { ResumoVazio } from "./Etapa1/ResumoVazio";
 
 export const Carrinho = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);

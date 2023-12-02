@@ -4,35 +4,33 @@ import React, { useContext } from "react";
 import Erro404 from "./components/ERROR/Error404";
 import ProdutoCtx, { ProdutosInterface } from "./Context/contextProdutos";
 import MudaCorCtx from "./Context/VariacaoContext";
-import { AllOferts } from "./components/Ofertas/AllOferts";
+
 import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/OpenProduct/Produto";
 import { ResetCSS } from "./Styles/Reset";
 
 import { LoginCpn } from "./components/Login&cadastro/Login";
-import { OpenPopulares } from "./components/Populares/OpenPopulares";
+
 import { ResetPassword } from "./components/Login&cadastro/resetPassword";
 import { Carrinho } from "./components/Carrinho/carrinho";
 import { Trocas } from "./components/trocas/Trocas";
 
-import { VisualizaEnd } from "./components/Carrinho/Endereco/HomeAdress";
-import { Endereco } from "./components/Carrinho/Endereco/EditarAdress/Endereco";
+import { VisualizaEnd } from "./components/Carrinho/Etapa2/Endereco/HomeAdress";
+import { Endereco } from "./components/Carrinho/Etapa2/EditarAdress/Endereco";
 import { HomePay } from "./components/Carrinho/pagamento/homePay";
+import { LayoutGenerico } from "./components/Ofertas/GenericExib";
 
 export const category: string[] = [];
 export const navRoutes = [
   {
-    component: <App />,
     link: "/",
     title: "Home",
   },
   {
-    component: <AllOferts />,
     link: "/todas-as-nossas-ofertas",
     title: "Promoções",
   },
   {
-    component: <OpenPopulares />,
     link: "/todos-os-populares-do-momento",
     title: "Populares",
   },
@@ -41,6 +39,9 @@ export const navRoutes = [
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const { mudaCor }: any = useContext(MudaCorCtx);
+  const ofertas = produtos.filter((oft) => {
+    return oft.PorcentagemDeDesconto > 1;
+  });
 
   for (let i = 0; i < produtos.length; i++) {
     const categoria = produtos[i].category;
@@ -86,11 +87,21 @@ const RoutesApp = () => {
           </React.Fragment>
         ))}
 
-        {navRoutes.map((route) => (
-          <React.Fragment key={route.title}>
-            <Route path={route.link} element={route.component} />
-          </React.Fragment>
-        ))}
+        <Route
+          path="/todas-as-nossas-ofertas"
+          element={
+            <LayoutGenerico
+              title={"Confira nossas ofertas"}
+              diferenciador={ofertas}
+            />
+          }
+        />
+        <Route
+          path="/todos-os-populares-do-momento"
+          element={
+            <LayoutGenerico title="Populares" diferenciador={produtos} />
+          }
+        />
         {category.map((route, i) => (
           <Route
             path={`/${route.replace(/\s+/g, "-").toLowerCase()}`}
