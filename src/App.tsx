@@ -35,7 +35,7 @@ function App() {
         <CoHeader />
       </div>
       <div className="sm:h-[9vh] h-[8vh] w-full mb-4"></div>
-      <div className="flex flex-col gap-10 sm:gap-20 justify-center items-center">
+      <div className="flex flex-col gap-10 sm:gap-20 sm:justify-center items-center">
         <Banner />
         <Preview />
         <CategoriasMob />

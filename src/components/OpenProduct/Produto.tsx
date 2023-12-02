@@ -219,12 +219,12 @@ const enviarItemAoBanco = async () => {
         </div>
       </div>
       <div
-        className={`mx-2 py-5 flex flex-col sm:justify-center gap-5 ${
+        className={` mx-5 py-5 flex flex-col sm:justify-center gap-5 ${
           MesmaCategoria.length < 5 ? "sm:mx-[200px]" : ""
         } `}
       >
-        <TitleGeneric title={"Compras relacioadas"} />
-        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-2 sm:justify-center ">
+        <TitleGeneric title={"Compras relacionadas"} />
+        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-1 justify-center ">
           {MesmaCategoria.map((produto: ProdutosInterface, i: number) => (
             <CardProd item={produto} i={i} key={i} />
           ))}
