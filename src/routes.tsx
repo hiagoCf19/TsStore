@@ -117,6 +117,15 @@ const RoutesApp = () => {
         <Route path="/endereco-para-entrega" element={<VisualizaEnd />} />
         <Route path="/cadastre-seu-endereco" element={<Endereco />} />
         <Route path="/metodos-de-pagamento" element={<HomePay />} />
+        <Route
+          path="/produtos-com-frete-gratis"
+          element={
+            <LayoutGenerico
+              title="Aproveite o frete Gratis"
+              diferenciador={produtos}
+            />
+          }
+        />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

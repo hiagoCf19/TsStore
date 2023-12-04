@@ -12,7 +12,7 @@ export const CarrinhoComItem = () => {
         <span className="sm:text-[16px] text-[14px] font-normal">
           Aproveite o frete grátis em produtos selecionados.{" "}
           <Link
-            to={"/produtos/produtos-com-frete-gratis"}
+            to={"/produtos-com-frete-gratis"}
             className="text-roxo hover:underline"
           >
             Ver produtos com frete gratis

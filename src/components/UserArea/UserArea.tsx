@@ -49,7 +49,7 @@ export const UserArea = () => {
                 <h1 className="text-lg font-semibold">{nomeDoUsuario}</h1>
                 <Link
                   to={`/${nomeDoUsuario.toLowerCase()}-perfil`}
-                  className="text-sm mt-[-3px] flex items-center gap-1 text-[#a7a7a7] hover:underline cursor-pointer"
+                  className="text-sm mt-[-3px] flex items-center gap-1 text-[#a7a7a7] hover:underline cursor-pointer "
                 >
                   Meu perfil
                   <ChevronRight size={16} />

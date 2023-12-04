@@ -4,6 +4,7 @@ import { Header } from "../Header/Header";
 import { category } from "@/routes";
 import { ContentCategory } from "./OpenCategoryContent";
 import { BackGrad } from "@/Styles/Background";
+import { Footer } from "../Footer/Footer";
 
 interface PropsCategory {
   propsCategory: string;
@@ -36,27 +37,31 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
       ? 9
       : ""
   );
-
+  const [animation, setAnimation] = useState(false);
+  setTimeout(() => {
+    setAnimation(false);
+  }, 1000);
+  console.log(animation);
   return (
     <BackGrad>
-      <Header
-        props={
-          <Link to={"/"}>
-            <div className="sm:bg-background px-2 sm:h-10 flex items-center justify-between w-full">
+      <div className="fixed bg-transp2 w-full z-50">
+        <Header
+          line={""}
+          props={
+            <div className=" px-2 sm:h-10 flex items-center justify-between w-full">
               <img
                 src="Assets/tsStore.svg"
                 alt="logo"
                 className=" w-[90px] sm:w-[110px] "
               />
             </div>
-          </Link>
-        }
-        line={<div className="h-[1px] w-full bg-roxo"></div>}
-      />
-
-      <section className="flex gap-4 sm:mx-[100px] sm:mt-10 flex-col sm:flex-row ">
+          }
+        />
+      </div>
+      <div className="sm:h-[9vh] h-[8vh] w-full mb-4"></div>
+      <section className="flex gap-4 sm:mx-[100px] sm:mt-10 flex-col sm:flex-row pb-4 ">
         {/* BOTÕES ESTILIZADOS QUE EXIBEM EM QUAL CATEGORIA O USUARIO ESTÁ*/}
-        <aside className="border-none sm:border-r sm:border-solid sm:border-roxo sm:p-3 flex sm:flex-col text-[18px] sm:ml-[-20px] gap-4 text-[#a7a7a7d7] flex-wrap justify-center sm:justify-start sm:h-[80vh]">
+        <aside className="border-none sm:border-r sm:border-solid sm:border-roxo sm:p-3 flex sm:flex-col text-[18px] sm:ml-[-20px] sm:gap-4 gap-6 text-[#a7a7a7d7] flex-wrap justify-center sm:justify-start sm:h-[80vh]">
           {category.map((AllCategory, i) => (
             <Fragment key={i}>
               {/* AO CLICAR AQUI O USUARIO SERÁ DIRECIONADO PARA A ROTA CORRESPONDENTE.*/}
@@ -70,6 +75,7 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
                 }`}
                 onClick={() => {
                   setAtivo(i);
+                  setAnimation(true);
                 }}
               >
                 {AllCategory}
@@ -79,9 +85,12 @@ export const AllCategorys = ({ propsCategory }: PropsCategory) => {
         </aside>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col sm:w-full "></div>
-          <ContentCategory props={propsCategory} />
+          <ContentCategory props={propsCategory} animation={animation} />
         </div>
       </section>
+      <div className="sm:absolute bottom-0 w-full">
+        <Footer />
+      </div>
     </BackGrad>
   );
 };

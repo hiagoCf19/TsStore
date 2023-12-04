@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const CardSty = styled.div`
   position: relative;
-  width: 180px;
+  width: 200px;
   height: 300px;
   border-radius: 8px;
   z-index: 49;
@@ -19,7 +19,7 @@ export const CardSty = styled.div`
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 170px;
+    width: 190px;
     height: 290px;
     z-index: 2;
     background: #030114;

@@ -10,7 +10,7 @@ import { Footer } from "../Footer/Footer";
 import { CarrinhoVazio } from "./Etapa1/carrinhoVazio";
 import { CarrinhoComItem } from "./Etapa1/carrinhoComItem";
 import { ResumoVazio } from "./Etapa1/ResumoVazio";
-
+import "animate.css";
 export const Carrinho = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const { car } = useContext(CarCtx);
@@ -20,8 +20,8 @@ export const Carrinho = () => {
   });
 
   return (
-    <>
-      <BackGrad>
+    <BackGrad>
+      <section className="animate__animated animate__fadeIn">
         <div className="fixed bg-transp w-full z-50">
           <Header
             line={""}
@@ -63,11 +63,10 @@ export const Carrinho = () => {
             </Link>
           </div>
         </div>
-
-        <div className={`${cheio ? "" : "absolute bottom-0 w-full"}`}>
-          <Footer />
-        </div>
-      </BackGrad>
-    </>
+      </section>
+      <div className={`${cheio ? "" : "absolute bottom-0 w-full"}`}>
+        <Footer />
+      </div>
+    </BackGrad>
   );
 };

@@ -5,6 +5,7 @@ import { MdPix } from "react-icons/md";
 import { RadioVertical } from "../Etapa2/Endereco/OpcaoDoUser";
 import { FaCreditCard } from "react-icons/fa";
 import { BsCreditCard2BackFill } from "react-icons/bs";
+import { StyledButtonSm } from "@/components/styledElements/BotaoSMstyled";
 
 export const FormasDePagamento = () => {
   const payForm = [
@@ -40,7 +41,7 @@ export const FormasDePagamento = () => {
       <h1 className="uppercase tracking-wide font-semibold  sm:text-[18px] sm:mb-4 text-[16px] p-4 py-2 sm:hidden">
         Formas de pagamento
       </h1>
-      <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
+      <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 sm:pb-10  ">
         <h1 className="uppercase tracking-wide font-semibold  sm:text-[18px] sm:mb-4 text-[16px] p-4 py-2 hidden sm:block">
           Formas de pagamento
         </h1>
@@ -73,6 +74,9 @@ export const FormasDePagamento = () => {
             </li>
           ))}
         </ul>
+        <div className="flex justify-end py-8  cursor-pointer">
+          <StyledButtonSm>Finalizar</StyledButtonSm>
+        </div>
       </div>
     </Fragment>
   );

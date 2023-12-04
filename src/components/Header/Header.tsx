@@ -25,11 +25,13 @@ import UserCtx from "@/Context/UserCOntext";
 import { UserArea } from "../UserArea/UserArea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+import CarCtx from "@/Context/contextCar";
 interface PropsHeader {
   props: ReactNode;
   line: ReactNode;
 }
 export const Header = ({ props, line }: PropsHeader) => {
+  const { car } = useContext(CarCtx);
   const { userLogado, setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario } = useContext(UserCtx);
 
@@ -48,7 +50,19 @@ export const Header = ({ props, line }: PropsHeader) => {
           <div className="flex  sm:justify-normal items-center h-[3.625rem] px-4 bg-transparent w-full justify-between ">
             {props}
             {/* NAV MOBILE */}
-            <nav className="sm:hidden  mx-4">
+            <nav className="sm:hidden  mx-4 flex items-center gap-4">
+              <Link to={`/meu-carrinho`} className="">
+                <div className=" p-1 relative rounded-lg">
+                  <ShoppingBag size={25} color="#FFF" />
+                  {car.length < 1 ? (
+                    ""
+                  ) : (
+                    <span className="absolute bottom-5 left-6 bg-roxo p-1 rounded-full w-5 h-5 flex items-center justify-center text-[14px] font-bold ">
+                      {car.length}
+                    </span>
+                  )}
+                </div>
+              </Link>
               <Sheet>
                 <SheetTrigger>
                   <MenuIcon color="#875cff" size={30} />
@@ -147,16 +161,27 @@ export const Header = ({ props, line }: PropsHeader) => {
             </div>
           </nav>
         </div>
-        {userLogado ? (
-          <div className="hidden sm:block">
-            <UserArea />
-          </div>
-        ) : (
-          <Entradas />
-        )}
+        <div className="flex items-center gap-5">
+          <Link to={`/meu-carrinho`} className="relative hidden sm:block">
+            <ShoppingBag size={30} />
+            {car.length < 1 ? (
+              ""
+            ) : (
+              <span className="absolute bottom-4 left-4 bg-roxo p-1 rounded-full w-5 h-5 flex items-center justify-center text-[14px] font-bold ">
+                {car.length}
+              </span>
+            )}
+          </Link>
+          {userLogado ? (
+            <div className="hidden sm:block">
+              <UserArea />
+            </div>
+          ) : (
+            <Entradas />
+          )}
+        </div>
       </header>
       <div className="sm:hidden">{line}</div>
-
       <div className="h-[30px] w-full sm:hidden mb-7"></div>
     </React.Fragment>
   );
