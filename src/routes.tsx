@@ -19,6 +19,7 @@ import { VisualizaEnd } from "./components/Carrinho/Etapa2/Endereco/HomeAdress";
 import { Endereco } from "./components/Carrinho/Etapa2/EditarAdress/Endereco";
 import { HomePay } from "./components/Carrinho/pagamento/homePay";
 import { LayoutGenerico } from "./components/Ofertas/GenericExib";
+import { Cupons } from "./components/Cupons/Home";
 
 export const category: string[] = [];
 export const navRoutes = [
@@ -126,6 +127,7 @@ const RoutesApp = () => {
             />
           }
         />
+        <Route path="/cupons-de-desconto" element={<Cupons />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

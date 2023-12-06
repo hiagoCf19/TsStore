@@ -16,10 +16,16 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import { Linha } from "../OpenProduct/Produto";
+import ControlLog from "@/Context/loginControl";
 
 export const UserArea = () => {
   const { nomeDoUsuario } = useContext(UserCtx);
   const [openArea, setOpenArea] = useState<boolean>(false);
+  const { setUserLogado } = useContext(ControlLog);
+  const deslog = () => {
+    setUserLogado(false);
+    sessionStorage.clear();
+  };
   return (
     <>
       <Popover>
@@ -73,7 +79,10 @@ export const UserArea = () => {
               <Ticket />
               Cupons
             </Link>
-            <p className="flex items-center gap-3">
+            <p
+              className="flex items-center gap-3 cursor-pointer"
+              onClick={deslog}
+            >
               {" "}
               <LogOut /> Sair{" "}
             </p>
