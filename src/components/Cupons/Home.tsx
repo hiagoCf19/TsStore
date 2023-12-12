@@ -4,7 +4,11 @@ import { Footer } from "../Footer/Footer";
 import { CuponABA } from "./cuponABA";
 
 import { GiAmpleDress } from "react-icons/gi";
+import { FaHatCowboy } from "react-icons/fa";
+
 import React from "react";
+
+import { category } from "@/routes";
 
 export interface Allcupons {
   icon: React.ReactElement;
@@ -15,8 +19,8 @@ export interface Allcupons {
 export const Cupons = () => {
   const AllCupons: Allcupons[] = [
     {
-      icon: <GiAmpleDress />,
-      category: "Roupas Femininas",
+      icon: <FaHatCowboy />,
+      category: category[0],
       text: "5% off em roupas femininas",
       prazo: "permanente",
     },

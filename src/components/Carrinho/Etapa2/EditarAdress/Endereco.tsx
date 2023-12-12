@@ -5,8 +5,10 @@ import { Footer } from "../../../Footer/Footer";
 import { FormEndereco } from "./FormEndereco";
 
 import { ResumoComItem } from "../../Etapa1/resumoComItem";
+import { useState } from "react";
 
 export const Endereco = () => {
+  const [next, setNext] = useState<boolean>(false);
   return (
     <BackGrad>
       <div className="fixed bg-transp w-full z-50">
@@ -26,8 +28,10 @@ export const Endereco = () => {
       <div className="h-[50px] w-full"></div>
       <div className="w-full flex justify-center flex-col ">
         <div className="flex justify-center sm:pt-16  sm:h-[50vh]   sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row  py-5">
-          <FormEndereco />
-          <ResumoComItem rotaDoContinue="" />
+          <FormEndereco next={next} setNext={setNext} />
+          <ResumoComItem
+            rotaDoContinue={next ? "/endereco-para-entrega" : ""}
+          />
         </div>
       </div>
 
