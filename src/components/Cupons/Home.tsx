@@ -2,8 +2,6 @@ import { BackGrad } from "@/Styles/Background";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
 import { CuponABA } from "./cuponABA";
-
-import { GiAmpleDress } from "react-icons/gi";
 import { FaHatCowboy } from "react-icons/fa";
 
 import React from "react";
