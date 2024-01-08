@@ -178,8 +178,6 @@ export const ProdutoNoCarrinho = () => {
           </div>
         </div>
       ))}
-
-      {/* PRODUTO 2 */}
     </div>
   );
 };

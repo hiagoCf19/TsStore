@@ -1,5 +1,5 @@
 import ProdutoCtx, { ProdutosInterface } from "@/Context/contextProdutos";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Colors } from "./Color";
 import styled from "styled-components";
 import { Tamanho } from "./tamanho";
@@ -10,8 +10,10 @@ import MudaCorCtx from "@/Context/VariacaoContext";
 import { LogButton } from "../styledElements/Logbutton";
 import { Footer } from "../Footer/Footer";
 import { CardProd } from "../styledElements/Card";
-import { Verified } from "lucide-react";
+
 import "animate.css";
+import { Toaster, toast } from "sonner";
+import { Button } from "../ui/button";
 
 export const Linha = styled.div`
   width: max;
@@ -35,16 +37,14 @@ export const ProdutoExibido = ({
 }: ProdutosInterface) => {
   const { adicionarItemAoCarrinho } = useContext(CarCtx);
   const { mudaCor, selectedTamanho }: any = useContext(MudaCorCtx);
-  const [addMsg, setAddMsg] = useState(false);
+
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const MesmaCategoria = produtos.filter((produtos) => {
     const semelhantes =
       produtos.destiny === destiny || produtos.category === category;
     return semelhantes;
   });
-  setTimeout(() => {
-    setAddMsg(false);
-  }, 2000);
+
   return (
     <BackGrad>
       <section className="animate__animated animate__fadeIn">
@@ -173,23 +173,23 @@ export const ProdutoExibido = ({
                       selectedTamanho,
                       quantidade
                     );
-                    setAddMsg(true);
                   }}
                   className="mx-8 sm:mx-10"
                 >
-                  <LogButton type="button" content="Adicionar" />
+                  <Toaster />
+                  <Button
+                    onClick={() =>
+                      toast(`Item adicionado ao carrinho`, {
+                        description: ` ${quantidade} ${nome}`,
+                      })
+                    }
+                  >
+                    <LogButton type="button" content="Adicionar" />
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
-          {addMsg ? (
-            <div className="fixed top-[12%] left-[29%] sm:left-[50%] bg-transp2 p-4 z-[999] rounded-lg flex items-center gap-2 text-[20px] font-bold text-roxo animate__animated animate__fadeOutUp">
-              Item Adicionado
-              <Verified />
-            </div>
-          ) : (
-            ""
-          )}
         </div>
         <div
           className={`py-5 flex flex-col sm:justify-center gap-5 w-full ${

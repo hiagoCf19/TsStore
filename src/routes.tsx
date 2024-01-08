@@ -13,13 +13,11 @@ import { LoginCpn } from "./components/Login&cadastro/Login";
 
 import { ResetPassword } from "./components/Login&cadastro/resetPassword";
 import { Carrinho } from "./components/Carrinho/carrinho";
-import { Trocas } from "./components/trocas/Trocas";
 
 import { VisualizaEnd } from "./components/Carrinho/Etapa2/Endereco/HomeAdress";
 import { Endereco } from "./components/Carrinho/Etapa2/EditarAdress/Endereco";
 import { HomePay } from "./components/Carrinho/pagamento/homePay";
 import { LayoutGenerico } from "./components/Ofertas/GenericExib";
-import { Cupons } from "./components/Cupons/Home";
 
 export const category: string[] = [];
 export const navRoutes = [
@@ -114,7 +112,7 @@ const RoutesApp = () => {
         <Route path="/login" element={<LoginCpn />} />
         <Route path="/login/recuperar-acesso" element={<ResetPassword />} />
         <Route path="/meu-carrinho" element={<Carrinho />} />
-        <Route path="/minhas-trocas" element={<Trocas />} />
+
         <Route path="/endereco-para-entrega" element={<VisualizaEnd />} />
         <Route path="/cadastre-seu-endereco" element={<Endereco />} />
         <Route path="/metodos-de-pagamento" element={<HomePay />} />
@@ -127,7 +125,7 @@ const RoutesApp = () => {
             />
           }
         />
-        <Route path="/cupons-de-desconto" element={<Cupons />} />
+
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

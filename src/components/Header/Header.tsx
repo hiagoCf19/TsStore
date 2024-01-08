@@ -14,9 +14,7 @@ import {
   Home,
   LogOut,
   MenuIcon,
-  Repeat,
   ShoppingBag,
-  Ticket,
   User,
 } from "lucide-react";
 import { Entradas } from "./Entrada";
@@ -26,10 +24,12 @@ import { UserArea } from "../UserArea/UserArea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import CarCtx from "@/Context/contextCar";
+
 interface PropsHeader {
   props: ReactNode;
   line: ReactNode;
 }
+
 export const Header = ({ props, line }: PropsHeader) => {
   const { car } = useContext(CarCtx);
   const { userLogado, setUserLogado } = useContext(ControlLog);
@@ -120,20 +120,7 @@ export const Header = ({ props, line }: PropsHeader) => {
                         >
                           <ShoppingBag /> Meu carrinho{" "}
                         </Link>
-                        <Link
-                          to={"/minhas-trocas"}
-                          className="flex items-center gap-3"
-                        >
-                          <Repeat />
-                          Minhas trocas
-                        </Link>
-                        <Link
-                          to={"/cupons-de-desconto"}
-                          className="flex items-center gap-3"
-                        >
-                          <Ticket />
-                          Cupons
-                        </Link>
+
                         <p className="flex items-center gap-3">
                           {" "}
                           <LogOut /> Sair{" "}
@@ -161,6 +148,7 @@ export const Header = ({ props, line }: PropsHeader) => {
             </div>
           </nav>
         </div>
+
         <div className="flex items-center gap-5">
           <Link to={`/meu-carrinho`} className="relative hidden sm:block">
             <ShoppingBag size={30} />

@@ -82,7 +82,7 @@ export const FormEndereco = ({ next, setNext }: Next) => {
         {next ? "Endereço cadastrado com sucesso!" : "Endereço de entrega"}
       </h1>
       {next ? (
-        <div className=" p-4 rounded-lg flex items-center gap-2 text-[20px] font-bold text-roxo justify-center ">
+        <div className=" p-4 rounded-lg sm:flex items-center gap-2 text-[20px] font-bold text-roxo justify-center ">
           Clique em{" "}
           <Link
             to={"/endereco-para-entrega"}

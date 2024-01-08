@@ -5,14 +5,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  ChevronDown,
-  ChevronRight,
-  LogOut,
-  Repeat,
-  ShoppingBag,
-  Ticket,
-} from "lucide-react";
+import { ChevronDown, ChevronRight, LogOut, ShoppingBag } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import { Linha } from "../OpenProduct/Produto";
@@ -68,17 +61,7 @@ export const UserArea = () => {
             <Link to={"/meu-carrinho"} className="flex items-center gap-3">
               <ShoppingBag /> Meu carrinho{" "}
             </Link>
-            <Link to={"/minhas-trocas"} className="flex items-center gap-3">
-              <Repeat />
-              Minhas trocas
-            </Link>
-            <Link
-              to={"/cupons-de-desconto"}
-              className="flex items-center gap-3"
-            >
-              <Ticket />
-              Cupons
-            </Link>
+
             <p
               className="flex items-center gap-3 cursor-pointer"
               onClick={deslog}
