@@ -19,7 +19,8 @@ TsStore é uma aplicação de loja online construída utilizando TypeScript e Re
 - **TypeScript:** Garante um código mais robusto e legível.
 
 - **React:** Facilita o desenvolvimento de interfaces dinâmicas e responsivas.
-  **Tailwind** Proporciona uma esperiencia de estilização mais prática .
+
+- **Tailwind** Proporciona uma esperiencia de estilização mais prática .
 
 ## Como Executar o Projeto:
 
