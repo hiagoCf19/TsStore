@@ -17,7 +17,7 @@ export const Bombando: React.FC = () => {
         <TitleGeneric title="Mais populares" />
       </div>
 
-      <div className="flex flex-col  gap-8 overflow-hidden  ">
+      <div className="flex flex-col  gap-0 overflow-hidden  ">
         <div className=" flex justify-center sm:justify-normal sm:flex-row w-full flex-wrap sm:gap-2  gap-2 z-0 sm:flex-nowrap">
           {produtos
             .slice(1, 8)

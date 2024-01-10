@@ -23,7 +23,7 @@ export const HomePay = () => {
           />
         </div>
         <div className="h-[50px] w-full"></div>
-        <div className="w-full flex justify-center flex-col ">
+        <div className="w-full flex justify-center flex-col  ">
           <div className="flex justify-center sm:pt-16  sm:h-[50vh]   sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col   py-5">
             <div className="flex sm:flex-row flex-col w-full justify-center sm:gap-5 gap-3">
               <FormasDePagamento />
@@ -33,7 +33,7 @@ export const HomePay = () => {
         </div>
       </section>
 
-      <div className="absolute bottom-0 w-full">
+      <div className="sm:absolute bottom-0 w-full">
         <Footer />
       </div>
     </BackGrad>
