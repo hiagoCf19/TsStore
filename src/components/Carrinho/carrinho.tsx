@@ -64,7 +64,7 @@ export const Carrinho = () => {
           </div>
         </div>
       </section>
-      <div className={`${cheio ? "" : "absolute bottom-0 w-full"}`}>
+      <div className={`${cheio ? "" : "sm:absolute fixed bottom-0 w-full"}`}>
         <Footer />
       </div>
     </BackGrad>

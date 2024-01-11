@@ -84,7 +84,7 @@ export const VisualizaEnd = () => {
         </div>
       </section>
 
-      <div className="absolute bottom-0 w-full">
+      <div className="sm:absolute fixed bottom-0 w-full">
         <Footer />
       </div>
     </BackGrad>

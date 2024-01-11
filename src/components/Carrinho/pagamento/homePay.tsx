@@ -1,5 +1,5 @@
 import { BackGrad } from "@/Styles/Background";
-import { Footer } from "@/components/Footer/Footer";
+
 import { Header } from "@/components/Header/Header";
 import { ResumoComItem } from "../Etapa1/resumoComItem";
 import { FormasDePagamento } from "./FormasDePagamento";
@@ -7,7 +7,7 @@ import { FormasDePagamento } from "./FormasDePagamento";
 export const HomePay = () => {
   return (
     <BackGrad>
-      <section className="animate__animated animate__fadeIn">
+      <div className="animate__animated animate__fadeIn">
         <div className="fixed bg-transp w-full z-50">
           <Header
             line={""}
@@ -31,9 +31,6 @@ export const HomePay = () => {
             </div>
           </div>
         </div>
-      </section>
-      <div className="absolute bottom-0 w-full">
-        <Footer />
       </div>
     </BackGrad>
   );
