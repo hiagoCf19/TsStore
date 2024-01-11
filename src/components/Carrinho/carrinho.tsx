@@ -50,7 +50,7 @@ export const Carrinho = () => {
             <h1 className="text-center flex justify-center  text-xl uppercase tracking-[5px] text-semibold py-8 ">
               Ofertas do dia
             </h1>
-            <div className=" flex flex-wrap sm:flex-nowrap justify-center overflow-hidden  gap-2 ">
+            <div className=" flex flex-wrap sm:flex-nowrap justify-center overflow-hidden  ">
               {recomendado.slice(0, 7).map((recomendado, i) => (
                 <CardProd item={recomendado} i={i} key={i} />
               ))}

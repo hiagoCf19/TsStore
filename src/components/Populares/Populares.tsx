@@ -18,7 +18,7 @@ export const Bombando: React.FC = () => {
       </div>
 
       <div className="flex flex-col  gap-0 overflow-hidden  ">
-        <div className=" flex justify-center sm:justify-normal sm:flex-row w-full flex-wrap sm:gap-2  gap-2 z-0 sm:flex-nowrap">
+        <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-1 justify-center ">
           {produtos
             .slice(1, 8)
             .sort(() => Math.random() - 0.5)

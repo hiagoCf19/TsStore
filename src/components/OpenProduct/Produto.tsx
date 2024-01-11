@@ -174,7 +174,7 @@ export const ProdutoExibido = ({
                       quantidade
                     );
                   }}
-                  className="mx-8 sm:mx-10"
+                  className="flex  justify-center sm:justify-normal"
                 >
                   <Toaster />
                   <Button

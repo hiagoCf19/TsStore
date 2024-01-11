@@ -74,7 +74,10 @@ export const FormasDePagamento = () => {
             </li>
           ))}
         </ul>
-        <div className="flex justify-end py-8  cursor-pointer">
+        <div
+          className="flex justify-end py-8  cursor-pointer"
+          onClick={() => alert("Fim do projeto!")}
+        >
           <StyledButtonSm>Finalizar</StyledButtonSm>
         </div>
       </div>

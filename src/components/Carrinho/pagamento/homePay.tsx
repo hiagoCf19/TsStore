@@ -32,8 +32,7 @@ export const HomePay = () => {
           </div>
         </div>
       </section>
-
-      <div className="sm:absolute bottom-0 w-full">
+      <div className="absolute bottom-0 w-full">
         <Footer />
       </div>
     </BackGrad>

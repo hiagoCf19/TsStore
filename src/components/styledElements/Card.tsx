@@ -6,8 +6,8 @@ import styled from "styled-components";
 
 export const CardSty = styled.div`
   position: relative;
-  width: 180px;
-  height: 280px;
+  width: 21vh;
+  height: 17.5rem;
   border-radius: 8px;
   z-index: 49;
   overflow: hidden;
@@ -19,8 +19,8 @@ export const CardSty = styled.div`
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 170px;
-    height: 270px;
+    width: 20vh;
+    height: 16.87rem;
     z-index: 2;
     background: #030114;
     backdrop-filter: blur(24px);
