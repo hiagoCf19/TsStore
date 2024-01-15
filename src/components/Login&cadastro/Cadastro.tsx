@@ -71,7 +71,9 @@ export const CadastroForm = () => {
   if (user) {
     return (
       <div>
-        <p>Seja bem vindo {name}</p>
+        <p className="text-xl">
+          Seja bem vindo {name}. Feche esta aba para realizar o login
+        </p>
       </div>
     );
   }

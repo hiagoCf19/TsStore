@@ -72,7 +72,7 @@ export const ProdutoExibido = ({
                 <img
                   src={image}
                   alt={nome}
-                  className=" sm:rounded-[8px] max-h-[20.125rem] w-full sm:max-h-[500px] hidden sm:block"
+                  className=" sm:rounded-[8px] max-h-[20.125rem] float-right sm:max-h-[500px] hidden sm:block"
                 />
               </div>
 
@@ -192,7 +192,7 @@ export const ProdutoExibido = ({
           </div>
         </div>
         <div
-          className={`py-5 flex flex-col sm:justify-center gap-5 w-full ${
+          className={`py-2 flex flex-col sm:justify-center gap-5${
             MesmaCategoria.length < 5 ? "sm:mx-[200px]" : ""
           } `}
         >
