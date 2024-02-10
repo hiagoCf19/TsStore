@@ -34,7 +34,10 @@ export const Header = ({ props, line }: PropsHeader) => {
   const { car } = useContext(CarCtx);
   const { userLogado, setUserLogado } = useContext(ControlLog);
   const { nomeDoUsuario } = useContext(UserCtx);
-
+  const deslog = () => {
+    setUserLogado(false);
+    sessionStorage.clear();
+  };
   nomeDoUsuario != null
     ? sessionStorage.setItem("userName", nomeDoUsuario)
     : null;
@@ -121,7 +124,7 @@ export const Header = ({ props, line }: PropsHeader) => {
                           <ShoppingBag /> Meu carrinho{" "}
                         </Link>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 cursor-pointer" onClick={deslog}>
                           {" "}
                           <LogOut /> Sair{" "}
                         </div>
