@@ -43,16 +43,7 @@ export const CadastroForm = () => {
           uid: userUID,
           name: name,
           email: email,
-        }).then(() => {
-          console.info(
-            "usuario cadastrado no firestore com o uid",
-            userUID,
-            "e nome",
-            name,
-            "."
-          );
-        });
-      })
+        })
       .catch((erro) => {
         console.log("erro ao criar o usuario:", erro.message);
       });
