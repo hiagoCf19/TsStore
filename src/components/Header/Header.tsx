@@ -40,7 +40,7 @@ export const Header = ({ props, line }: PropsHeader) => {
     : null;
   useEffect(() => {
     if (nomeDoUsuario != null) {
-      setUserLogado(true);
+      setUserLogado(true)
     }
   }, [nomeDoUsuario]);
   return (
@@ -121,10 +121,10 @@ export const Header = ({ props, line }: PropsHeader) => {
                           <ShoppingBag /> Meu carrinho{" "}
                         </Link>
 
-                        <p className="flex items-center gap-3">
+                        <div className="flex items-center gap-3">
                           {" "}
                           <LogOut /> Sair{" "}
-                        </p>
+                        </div>
                       </div>
                     </SheetDescription>
                   </SheetHeader>

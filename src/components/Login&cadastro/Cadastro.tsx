@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 import { Input } from "../ui/input";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -22,16 +22,17 @@ export const CadastroForm = () => {
   const [confirmPass, setConfirm] = useState<string>("");
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const [userUID, setUserUID] = useState(user?.user.uid);
+  const [, setUserUID] = useState(user?.user.uid);
 
   {
-    /* mostrando UID no console quando existir */
-  }
+    /* mostrando UID no console quando existir 
   userUID !== undefined ? console.info("UID está:", userUID) : null;
+  */
+  }
   {
     /* AUTENTICANDO USUARIO NO FIREBASE VIA LOG E SENHA E GUARDANDO SEUS DADOS NO FIRESTORE */
   }
-  function cadastro(e: any) {
+  function cadastro(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password)
       .then((userCRED) => {
@@ -43,13 +44,13 @@ export const CadastroForm = () => {
           uid: userUID,
           name: name,
           email: email,
-        }).then(()=>{
-console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
-})
-      .catch((erro) => {
-        console.log("erro ao criar o usuario:", erro.message);
-      });
+        })
+          .catch((erro) => {
+            alert(`erro ao criar o usuario: ${erro.message}`);
+          });
+      })
   }
+
   {
     /* SEMPRE QUE UM CADASTRO FOR BEM SUCEDIDO O ESTADO DE UID SERÁ ATUALIZADO, OU SEJA, SERÁ O UID DO USUARIO QUE ACABOU DE SE CADASTRAR */
   }
@@ -74,13 +75,13 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
     /* O QUE ACONTECE ENQUANTO SE VERIFICA SE O CADASTRO PODE SER REALIZADO */
   }
   if (loading) {
-    console.info("Verificando dados");
+    null
   }
   {
     /* O QUE ACONTECE EM CASO DE ERRO */
   }
   if (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 
   return (
@@ -114,12 +115,11 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
         <Input
           placeholder="informe seu e-mail"
           type="text"
-          className={` bg-transp border-[1px] border-solid ${
-            error?.message === "Firebase: Error (auth/missing-email)." ||
+          className={` bg-transp border-[1px] border-solid ${error?.message === "Firebase: Error (auth/missing-email)." ||
             error?.message === "Firebase: Error (auth/email-already-in-use)."
-              ? "border-[#D80032]"
-              : "border-roxo"
-          } shadow-md  w-[15.5rem] sm:w-[18.75rem] italic`}
+            ? "border-[#D80032]"
+            : "border-roxo"
+            } shadow-md  w-[15.5rem] sm:w-[18.75rem] italic`}
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -130,12 +130,12 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
         ) : (
           <span className="text-[#D80032]">
             {error?.message === "Firebase: Error (auth/missing-email)." ||
-            error.message === "Firebase: Error (auth/invalid-email)."
+              error.message === "Firebase: Error (auth/invalid-email)."
               ? "Insira um e-mail vido"
               : error?.message ===
                 "Firebase: Error (auth/email-already-in-use)."
-              ? "E-mail já cadastrado"
-              : ""}
+                ? "E-mail já cadastrado"
+                : ""}
           </span>
         )}
       </div>
@@ -148,9 +148,8 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
           <Input
             placeholder="Defina uma senha"
             type={visiblePassword ? "text" : "password"}
-            className={` bg-transp border-[1px] border-solid border-roxo shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic ${
-              msgPass ? "border-[#D80032]" : "border-roxo"
-            }`}
+            className={` bg-transp border-[1px] border-solid border-roxo shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic ${msgPass ? "border-[#D80032]" : "border-roxo"
+              }`}
             value={password}
             onChange={(e) => {
               setPassWord(e.target.value);
@@ -180,8 +179,8 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
               ? "Insira uma senha"
               : error?.message ===
                 "Firebase: Password should be at least 6 characters (auth/weak-password)."
-              ? "A senha precisa ter mais de 6 digitos"
-              : ""}
+                ? "A senha precisa ter mais de 6 digitos"
+                : ""}
           </span>
         )}
       </div>
@@ -193,9 +192,8 @@ console.info(`Usuario cadastrado com o uid: ${userUID} e nome: ${name}`)
           <Input
             placeholder="Confirme sua senha"
             type={visibleConfirm ? "text" : "password"}
-            className={` bg-transp border-[1px] border-solid  shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic  ${
-              msgPass ? "border-[#D80032]" : "border-roxo"
-            }
+            className={` bg-transp border-[1px] border-solid  shadow-md pr-10  w-[15.5rem] sm:w-[18.75rem] italic  ${msgPass ? "border-[#D80032]" : "border-roxo"
+              }
             `}
             value={confirmPass}
             onChange={(e) => {
