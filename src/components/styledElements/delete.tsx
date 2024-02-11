@@ -60,7 +60,10 @@ const StyDel = styled.button`
     transition-duration: 0.3s;
   }
 `;
-export const Excluir = ({ remov }: any) => {
+interface propsExcluir {
+  remov: () => void
+}
+export const Excluir = ({ remov }: propsExcluir) => {
   return (
     <StyDel onClick={remov}>
       <svg className="delete-svgIcon" viewBox="0 0 448 512">

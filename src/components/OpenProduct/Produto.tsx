@@ -10,7 +10,6 @@ import MudaCorCtx from "@/Context/VariacaoContext";
 import { LogButton } from "../styledElements/Logbutton";
 import { Footer } from "../Footer/Footer";
 import { CardProd } from "../styledElements/Card";
-
 import "animate.css";
 import { Toaster, toast } from "sonner";
 import { Button } from "../ui/button";
@@ -36,7 +35,7 @@ export const ProdutoExibido = ({
   destiny,
 }: ProdutosInterface) => {
   const { adicionarItemAoCarrinho } = useContext(CarCtx);
-  const { mudaCor, selectedTamanho }: any = useContext(MudaCorCtx);
+  const { mudaCor, selectedTamanho } = useContext(MudaCorCtx);
 
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
   const MesmaCategoria = produtos.filter((produtos) => {
@@ -96,17 +95,15 @@ export const ProdutoExibido = ({
                   </p>
                   <div className="flex gap-1">
                     <p
-                      className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex ${
-                        PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                      }`}
+                      className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex ${PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
                     >
                       <i className="text-[10px]">R$</i>
                       {price.toFixed(2).replace(".", ",")}
                     </p>
                     <div
-                      className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
-                        PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                      }`}
+                      className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                        }`}
                     >
                       <span className="text-[10px]">
                         -{PorcentagemDeDesconto}%{" "}
@@ -145,14 +142,13 @@ export const ProdutoExibido = ({
                 </div>
                 {/* TAMANHOS */}
                 <div
-                  className={`${
-                    category === "Tênis" ||
-                    category === "Eletrônicos" ||
-                    category === "Acessorios" ||
-                    category === "Perfume"
+                  className={`${category === "Tênis" ||
+                      category === "Eletrônicos" ||
+                      category === "Acessorios" ||
+                      category === "Perfume"
                       ? "hidden"
                       : ""
-                  }  font-bold sm:text-xl flex flex-col gap-3`}
+                    }  font-bold sm:text-xl flex flex-col gap-3`}
                 >
                   <p>Tamanhos:</p>
                   <Tamanho />
@@ -192,9 +188,8 @@ export const ProdutoExibido = ({
           </div>
         </div>
         <div
-          className={`py-2 flex flex-col sm:justify-center gap-5${
-            MesmaCategoria.length < 5 ? "sm:mx-[200px]" : ""
-          } `}
+          className={`py-2 flex flex-col sm:justify-center gap-5${MesmaCategoria.length < 5 ? "sm:mx-[200px]" : ""
+            } `}
         >
           <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:text-[24px] sm:mb-4 text-[18px] mx-5">
             Compras relacionadas

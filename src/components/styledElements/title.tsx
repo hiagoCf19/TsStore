@@ -4,7 +4,7 @@ interface TitleProps {
 
 export const TitleGeneric = ({ title }: TitleProps) => {
   return (
-    <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:text-[24px] sm:mb-4 text-[18px]">
+    <h1 className=" px-2 uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:mb-5 sm:text-[24px]">
       {title}
     </h1>
   );

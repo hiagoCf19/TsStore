@@ -32,10 +32,10 @@ export const FormasDePagamento = () => {
   ];
 
   const [SelectForma, setSelectForma] = useState(payForm[0].forma);
-  const mudarForma = (form: any) => {
+  const mudarForma = (form: string) => {
     setSelectForma(form);
   };
-  console.log(SelectForma);
+
   return (
     <Fragment>
       <h1 className="uppercase tracking-wide font-semibold  sm:text-[18px] sm:mb-4 text-[16px] p-4 py-2 sm:hidden">

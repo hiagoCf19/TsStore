@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
+import { basesType } from "./HomeAdress";
 export const RadioVertical = styled.div`
   .input {
     appearance: none;
@@ -52,7 +53,12 @@ export const RadioVertical = styled.div`
     background-position: 0 -24px;
   }
 `;
-export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
+interface propsDeliveryOption {
+  typeEntrega: string,
+  bases: basesType[]
+  tipoDeEntrega: (type: string) => void;
+}
+export const DeliveryOption = ({ typeEntrega, bases, tipoDeEntrega }: propsDeliveryOption) => {
   return (
     <div>
       <h1
@@ -63,7 +69,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
       </h1>
 
       <div className="flex flex-col pt-7 sm:pt-0 gap-5">
-        {bases.map((type: any, i: number) => (
+        {bases.map((type: basesType, i: number) => (
           <Fragment key={i}>
             <div className="flex items-center gap-3">
               <RadioVertical>
@@ -72,9 +78,7 @@ export const DeliveryOption = ({ typeEntrega, bases, TipoDeEntrega }: any) => {
                   className="input"
                   id={type.title}
                   checked={typeEntrega === type.title}
-                  onChange={() => {
-                    TipoDeEntrega(type.title);
-                  }}
+                  onChange={() => tipoDeEntrega(type.title)}
                 />
               </RadioVertical>
               <div className="flex flex-col gap-1 w-full">

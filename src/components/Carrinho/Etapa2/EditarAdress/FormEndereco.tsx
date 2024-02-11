@@ -38,7 +38,7 @@ export const FormEndereco = ({ next, setNext }: Next) => {
 
   const [saveData, setSaveData] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const mudaTipoDeEndereco = (type: any) => {
+  const mudaTipoDeEndereco = (type: string) => {
     setTypeAdrs(type);
   };
 
@@ -46,6 +46,7 @@ export const FormEndereco = ({ next, setNext }: Next) => {
     if (CEP.length >= 8) {
       buscaCep();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [CEP]);
   const buscaCep = () => {
     const cepRefat = CEP.replace(/\D/g, "");
@@ -67,6 +68,7 @@ export const FormEndereco = ({ next, setNext }: Next) => {
   };
   useEffect(() => {
     SalvaDados();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enderecoDoUsuario]);
   const SalvaDados = () => {
     const parseString = JSON.stringify(enderecoDoUsuario);

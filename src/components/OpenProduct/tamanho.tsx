@@ -64,7 +64,7 @@ export const RadioStyled = styled.div`
   }
 `;
 export const Tamanho = () => {
-  const { tamanhos, selectedTamanho, setSelectedTamanho }: any =
+  const { tamanhos, selectedTamanho, setSelectedTamanho } =
     useContext(MudaCorCtx);
 
   const handleTamanhoChange = (tamanho: string) => {

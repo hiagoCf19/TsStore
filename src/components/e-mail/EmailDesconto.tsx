@@ -1,12 +1,7 @@
-import { useContext } from "react";
 import { BotaoStyled } from "../styledElements/BotaoStyled";
-
 import { Link } from "react-router-dom";
-import ControlLog from "@/Context/loginControl";
 
 export const Cadastre = () => {
-  const { userLogado } = useContext(ControlLog);
-  console.log(userLogado);
   return (
     <section
       className={` mx-5 sm:mx-[6.25rem] sm:flex sm:justify-center bg-transp2 `}

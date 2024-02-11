@@ -10,7 +10,7 @@ export const ProdutoNoCarrinho = () => {
 
   const novosItensExibidos = [...itensExibidos];
   const novoCarrinho = [...car];
-  const AttDados = (i: number, newQtd: any) => {
+  const AttDados = (i: number, newQtd: number) => {
     const { price, PorcentagemDeDesconto } = novosItensExibidos[i];
     const novaQuant = newQtd;
 
@@ -64,9 +64,9 @@ export const ProdutoNoCarrinho = () => {
                 <span className="text-[#a7a7a7c8] text-sm">
                   {produto.cor} {""}
                   {produto.category === "Tênis" ||
-                  produto.category === "Eletrônicos" ||
-                  produto.category === "Acessorios" ||
-                  produto.category === "Perfume" ? (
+                    produto.category === "Eletrônicos" ||
+                    produto.category === "Acessorios" ||
+                    produto.category === "Perfume" ? (
                     ""
                   ) : (
                     <i>({produto.tamanho})</i>
@@ -78,9 +78,9 @@ export const ProdutoNoCarrinho = () => {
               >
                 <span className=" hidden sm:block ">
                   {produto.category === "Tênis" ||
-                  produto.category === "Eletrônicos" ||
-                  produto.category === "Acessorios" ||
-                  produto.category === "Perfume" ? (
+                    produto.category === "Eletrônicos" ||
+                    produto.category === "Acessorios" ||
+                    produto.category === "Perfume" ? (
                     ""
                   ) : (
                     <span> Tamanho: {produto.tamanho} </span>
@@ -160,9 +160,8 @@ export const ProdutoNoCarrinho = () => {
 
           <div className="flex items-center flex-col justify-center gap-1 ">
             <div
-              className={`${
-                produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-              } flex gap-1 justify-end w-full`}
+              className={`${produto.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                } flex gap-1 justify-end w-full`}
             >
               <span className="text-[10px] text-roxo">
                 {" "}

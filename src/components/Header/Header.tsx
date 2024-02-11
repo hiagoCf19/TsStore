@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { navRoutes } from "@/routes";
+
 import {
   Sheet,
   SheetContent,
@@ -24,6 +24,7 @@ import { UserArea } from "../UserArea/UserArea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import CarCtx from "@/Context/contextCar";
+import { navRoutes } from "@/mocks/routes";
 
 interface PropsHeader {
   props: ReactNode;
@@ -45,6 +46,7 @@ export const Header = ({ props, line }: PropsHeader) => {
     if (nomeDoUsuario != null) {
       setUserLogado(true)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nomeDoUsuario]);
   return (
     <React.Fragment>

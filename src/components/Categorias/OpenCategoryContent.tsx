@@ -4,7 +4,7 @@ import { CardProd } from "../styledElements/Card";
 
 interface PropsCategory {
   props: string;
-  animation: any;
+  animation: boolean;
 }
 export const ContentCategory = ({ props, animation }: PropsCategory) => {
   const produtos = useContext(ProdutoCtx);
@@ -16,12 +16,12 @@ export const ContentCategory = ({ props, animation }: PropsCategory) => {
   return (
     <>
       <div
-        className={`flex justify-center sm:flex-row w-full flex-wrap sm:gap-3  z-0 ${
-          animation ? "animate__animated animate__fadeIn" : ""
-        } `}
+        className={` grid grid-cols-2 sm:grid-cols-7 w-full z-0 ${animation ? "animate__animated animate__fadeIn" : ""
+          } `}
       >
         {conjuntos.map((produto: ProdutosInterface, i: number) => (
           <CardProd item={produto} i={i} key={i} />
+
         ))}
       </div>
     </>

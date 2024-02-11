@@ -17,7 +17,7 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
 
   useEffect(() => {
     mudaCor === "Not" ? setMudaCor(primeiraCor) : null;
-  }, []); //esse array vazio serve para garantir que esse useefect só será executado uma vez quando a página for recarregada
+  }, [mudaCor, primeiraCor, setMudaCor]); //esse array vazio serve para garantir que esse useefect só será executado uma vez quando a página for recarregada
 
   return (
     <RadioStyled>
@@ -34,9 +34,8 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
           <Label>{primeiraCor}</Label>
         </div>
         <div
-          className={`flex items-center ${
-            segundaCor === undefined ? "hidden" : null
-          }`}
+          className={`flex items-center ${segundaCor === undefined ? "hidden" : null
+            }`}
         >
           <input
             type="radio"
@@ -49,9 +48,8 @@ export const Colors = ({ primeiraCor, segundaCor, terceiraCor }: Props) => {
           <Label>{segundaCor}</Label>
         </div>
         <div
-          className={`flex items-center ${
-            terceiraCor === undefined ? "hidden" : null
-          }`}
+          className={`flex items-center ${terceiraCor === undefined ? "hidden" : null
+            }`}
         >
           <input
             type="radio"

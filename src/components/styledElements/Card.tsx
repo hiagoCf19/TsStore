@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const CardSty = styled.div`
   position: relative;
-  width: 21vh;
+  width: 100%;
   height: 17.5rem;
   border-radius: 8px;
   z-index: 49;
@@ -15,11 +15,13 @@ export const CardSty = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+
   .bg {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 20vh;
+    width: 95%;
     height: 16.87rem;
     z-index: 2;
     background: #030114;
@@ -27,6 +29,7 @@ export const CardSty = styled.div`
     border-radius: 8px;
     overflow: hidden;
     outline: 2px solid #030111;
+    
   }
 
   .blob {
@@ -74,7 +77,7 @@ interface Propscard {
 }
 //       slice par 1 e 2 mostram de qual a qual item será exibido, é definido no componente populares, pai deste
 export const CardProd = ({ item, i }: Propscard) => {
-  const { setMudaCor }: any = useContext(MudaCorCtx);
+  const { setMudaCor } = useContext(MudaCorCtx);
   return (
     <React.Fragment key={i}>
       {item.image === "" ? (
@@ -83,7 +86,7 @@ export const CardProd = ({ item, i }: Propscard) => {
         <Link
           to={`/${item.nome.replace(/\s+/g, "-").toLowerCase()}`}
           onClick={() => setMudaCor(item.primeiraCor)}
-          className=""
+
         >
           <CardSty>
             <div className="blob"></div>
@@ -103,17 +106,15 @@ export const CardProd = ({ item, i }: Propscard) => {
                       : "Preço indisponível"}
                   </p>
                   <p
-                    className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${
-                      item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                    }`}
+                    className={` text-[10px]  truncate line-through text-[#a7a7a7b1] flex  ${item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                      }`}
                   >
                     <i className="text-[10px]">R$</i>
                     {item.price.toFixed(2).replace(".", ",")}
                   </p>
                   <div
-                    className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${
-                      item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
-                    }`}
+                    className={` w-8 h-4 border border-solid border-roxo rounded-md flex justify-center items-center text-roxo  ${item.PorcentagemDeDesconto <= 0 ? "hidden" : ""
+                      }`}
                   >
                     <span className="text-[10px]">
                       -{item.PorcentagemDeDesconto}%{" "}

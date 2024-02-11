@@ -74,7 +74,7 @@ interface propsInputLogin {
   type: string;
   children: ReactNode;
   value: string;
-  onch: any;
+  onch: React.ChangeEventHandler<HTMLInputElement>;
 }
 export const InputLogin = ({
   placeholder,

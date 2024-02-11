@@ -7,6 +7,11 @@ import { DeliveryOption } from "./OpcaoDoUser";
 import { useContext, useEffect, useState } from "react";
 import UserCtx from "@/Context/UserCOntext";
 import "animate.css";
+export interface basesType {
+  title: string,
+  span: string,
+  custo: string
+}
 export const VisualizaEnd = () => {
   const { enderecoDoUsuario, setEnderecoDoUsuario } = useContext(UserCtx);
   const [enderecoExiste, setEnderecoExiste] = useState(false);
@@ -19,11 +24,12 @@ export const VisualizaEnd = () => {
       const enderecoRecuperado = JSON.parse(dadosArmazenados);
       setEnderecoDoUsuario(enderecoRecuperado);
       setEnderecoExiste(
+        // eslint-disable-next-line no-prototype-builtins
         enderecoRecuperado.hasOwnProperty("CEP") ? true : false
       );
     }
   }, [setEnderecoDoUsuario]);
-  const bases = [
+  const bases: basesType[] = [
     {
       title: "Entrega via correios",
       span: !enderecoExiste
@@ -38,7 +44,7 @@ export const VisualizaEnd = () => {
     },
   ];
   const [typeEntrega, settypeEntrega] = useState<string>(bases[0].title);
-  const TipoDeEntrega = (type: any) => {
+  const tipoDeEntrega = (type: string) => {
     settypeEntrega(type);
   };
   console.log(enderecoExiste);
@@ -67,7 +73,7 @@ export const VisualizaEnd = () => {
               <DeliveryOption
                 typeEntrega={typeEntrega}
                 bases={bases}
-                TipoDeEntrega={TipoDeEntrega}
+                tipoDeEntrega={tipoDeEntrega}
               />
             </div>
 

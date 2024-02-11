@@ -7,7 +7,7 @@ import MudaCorCtx from "./Context/VariacaoContext";
 
 import { AllCategorys } from "./components/Categorias/OpenCategory";
 import { ProdutoExibido } from "./components/OpenProduct/Produto";
-import { ResetCSS } from "./Styles/Reset";
+import { Classes } from "./Styles/Classes";
 
 import { LoginCpn } from "./components/Login&cadastro/Login";
 
@@ -19,25 +19,15 @@ import { Endereco } from "./components/Carrinho/Etapa2/EditarAdress/Endereco";
 import { HomePay } from "./components/Carrinho/pagamento/homePay";
 import { LayoutGenerico } from "./components/Ofertas/GenericExib";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const category: string[] = [];
-export const navRoutes = [
-  {
-    link: "/",
-    title: "Home",
-  },
-  {
-    link: "/todas-as-nossas-ofertas",
-    title: "Promoções",
-  },
-  {
-    link: "/todos-os-populares-do-momento",
-    title: "Populares",
-  },
-];
+
+
+
 
 const RoutesApp = () => {
   const produtos = useContext<ProdutosInterface[]>(ProdutoCtx);
-  const { mudaCor }: any = useContext(MudaCorCtx);
+  const { mudaCor } = useContext(MudaCorCtx);
   const ofertas = produtos.filter((oft) => {
     return oft.PorcentagemDeDesconto > 1;
   });
@@ -48,7 +38,7 @@ const RoutesApp = () => {
   }
   return (
     <BrowserRouter>
-      <ResetCSS />
+      <Classes />
       <Routes>
         <Route path="/" element={<App />} />
 
@@ -71,15 +61,14 @@ const RoutesApp = () => {
                   finalPrice={item.finalPrice}
                   quantidade={item.quantidade}
                   destiny={item.destiny}
-                  image={`${
-                    mudaCor === item.primeiraCor
-                      ? item.image
-                      : mudaCor === item.segundaCor
+                  image={`${mudaCor === item.primeiraCor
+                    ? item.image
+                    : mudaCor === item.segundaCor
                       ? item.imageTwo
                       : mudaCor === item.terceiraCor
-                      ? item.imageThree
-                      : ""
-                  }`}
+                        ? item.imageThree
+                        : ""
+                    }`}
                 />
               }
             />
