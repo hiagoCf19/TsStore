@@ -33,12 +33,11 @@ function App() {
         />
         <CoHeader />
       </div>
-      <div className="sm:h-[9vh] h-[8vh] w-full mb-4"></div>
+      <div className="sm:h-[9vh] h-[7vh] w-full sm:mb-4"></div>
       <div className="flex flex-col gap-10 sm:gap-20 sm:justify-center items-center">
         <Banner />
         <CategoriasMob />
         <Preview route={"/todas-as-nossas-ofertas"} title="Ofertas do dia" />
-
         <Preview route={'/todos-os-populares-do-momento'} title="Produtos populares" />
         <Facilidades />
         {userLogado ? null : <Cadastre />}

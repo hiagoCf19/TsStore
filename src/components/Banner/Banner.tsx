@@ -12,7 +12,7 @@ export const Banner = () => {
   }, 4000);
   return (
     <React.Fragment>
-      <div className=" mt-[-35px] sm:mt-0 abs sm:mb-[-40px]">
+      <div >
         {/* BANNERS NO DESKTOP */}
         <img
           src={
