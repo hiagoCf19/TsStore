@@ -143,11 +143,11 @@ export const ProdutoExibido = ({
                 {/* TAMANHOS */}
                 <div
                   className={`${category === "Tênis" ||
-                      category === "Eletrônicos" ||
-                      category === "Acessorios" ||
-                      category === "Perfume"
-                      ? "hidden"
-                      : ""
+                    category === "Eletrônicos" ||
+                    category === "Acessorios" ||
+                    category === "Perfume"
+                    ? "hidden"
+                    : ""
                     }  font-bold sm:text-xl flex flex-col gap-3`}
                 >
                   <p>Tamanhos:</p>
@@ -194,8 +194,8 @@ export const ProdutoExibido = ({
           <h1 className=" uppercase -tracking-tighter font-semibold sm:flex sm:justify-center sm:text-[24px] sm:mb-4 text-[18px] mx-5">
             Compras relacionadas
           </h1>
-          <div className="flex flex-wrap sm:flex-nowrap overflow-hidden  gap-1 justify-center ">
-            {MesmaCategoria.map((produto: ProdutosInterface, i: number) => (
+          <div className="grid grid-cols-2 sm:grid-cols-6 sm:mx-80">
+            {MesmaCategoria.slice(0, 6).map((produto: ProdutosInterface, i: number) => (
               <CardProd item={produto} i={i} key={i} />
             ))}
           </div>

@@ -2,7 +2,7 @@ export const ResumoVazio = () => {
   return (
     <>
       <div
-        className={` sm:w-[25%] bg-transp overflow-w-hidden overflow-y-scroll rounded-lg h-min  `}
+        className={` sm:w-[25%] bg-transp overflow-hidden rounded-lg h-min  `}
       >
         <h1 className="p-4 text-lg font-semibold border-b border-solid border-roxo hidden sm:block">
           Resumo do pedido

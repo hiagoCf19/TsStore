@@ -6,7 +6,7 @@ export const CategoriasMob = () => {
   return (
     <section className=" flex flex-col relative overflow-auto sm:hidden w-[95%]">
       <TitleGeneric title="Categorias" />
-      <div className="flex gap-4  overflow-hidden overflow-x-scroll  pt-3 py-3">
+      <div className="flex gap-4  overflow-hidden  pt-3 py-3">
         {/* RENDERIZA UM BOTAO COM ROTAS PARA CADA ITEM DO ARRAY CATEGTORY, QUE ESTÁ NO COMPONENTE ROTAS NO MOBILE */}
         {category.map((categoria, i) => (
           <Link
