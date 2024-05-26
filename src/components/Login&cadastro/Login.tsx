@@ -38,18 +38,6 @@ export const Container = styled.div`
     animation-name: move-down1;
     -webkit-animation-name: move-down1;
   }
-
-  @keyframes move-up6 {
-    to {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes move-down1 {
-    to {
-      transform: translateY(10px);
-    }
-  }
 `;
 {
   /* IMPORTAÇÕES */
@@ -185,22 +173,21 @@ export const LoginCpn = () => {
                       </Link>
                       {/* TRATAMENTO DE ERROS RELACIONADOS AO LOGIN */}
                       <span
-                        className={`text-[#D80032] sm:w-[300px] ${
-                          error ? "" : "hidden"
-                        } `}
+                        className={`text-[#D80032] sm:w-[300px] ${error ? "" : "hidden"
+                          } `}
                       >
                         {error?.message ===
-                        "Firebase: Error (auth/invalid-email)."
+                          "Firebase: Error (auth/invalid-email)."
                           ? "Email inváido"
                           : error?.message ===
-                              "Firebase: Error (auth/missing-password)." ||
+                            "Firebase: Error (auth/missing-password)." ||
                             error?.message ===
-                              "Firebase: Error (auth/invalid-login-credentials)."
-                          ? "Usuário ou senha Inválidos"
-                          : error?.message ===
-                            "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
-                          ? "Acesso bloqueado. Tente novamente mais tarde ou restaure sua senha "
-                          : error?.message}
+                            "Firebase: Error (auth/invalid-login-credentials)."
+                            ? "Usuário ou senha Inválidos"
+                            : error?.message ===
+                              "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+                              ? "Acesso bloqueado. Tente novamente mais tarde ou restaure sua senha "
+                              : error?.message}
                       </span>
                     </div>
                     {/* ÁREA DE LOGIN E CADASTRO*/}
