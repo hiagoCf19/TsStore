@@ -41,7 +41,7 @@ export const FormasDePagamento = () => {
       <h1 className="uppercase tracking-wide font-semibold  sm:text-[18px] sm:mb-4 text-[16px] p-4 py-2 sm:hidden">
         Formas de pagamento
       </h1>
-      <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 sm:pb-10  ">
+      <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 sm:pb-10 [&::-webkit-scrollbar]:hidden ">
         <h1 className="uppercase tracking-wide font-semibold  sm:text-[18px] sm:mb-4 text-[16px] p-4 py-2 hidden sm:block">
           Formas de pagamento
         </h1>

@@ -5,7 +5,7 @@ import { RiReplay30Fill } from "react-icons/ri";
 import { TitleGeneric } from "../styledElements/title";
 export const Facilidades: React.FC = () => {
   return (
-    <section className="bg-primary">
+    <section className="bg-primary py-4">
       <div className="flex flex-col gap-8 sm:gap-0">
         <div className="mx-5">
           <TitleGeneric title="Conheça todas as nossas facilidades" />

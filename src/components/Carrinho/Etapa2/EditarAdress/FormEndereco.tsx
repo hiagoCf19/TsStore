@@ -77,9 +77,9 @@ export const FormEndereco = ({ next, setNext }: Next) => {
   setTimeout(() => {
     loading ? setLoading(false) : null;
   }, 3000);
-  console.log(loading);
+
   return (
-    <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
+    <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10 [&::-webkit-scrollbar]:hidden ">
       <h1 className="uppercase tracking-wide font-semibold sm:flex  sm:text-[18px] sm:mb-4 text-[16px]">
         {next ? "Endereço cadastrado com sucesso!" : "Endereço de entrega"}
       </h1>

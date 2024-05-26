@@ -47,7 +47,6 @@ export const VisualizaEnd = () => {
   const tipoDeEntrega = (type: string) => {
     settypeEntrega(type);
   };
-  console.log(enderecoExiste);
   return (
     <BackGrad>
       <section className="animate__animated animate__fadeIn">
@@ -69,7 +68,7 @@ export const VisualizaEnd = () => {
 
         <div className="w-full flex justify-center flex-col aanimate__animated animate__fadeInt ">
           <div className="flex justify-center sm:pt-16  sm:h-[50vh]   sm:gap-5 gap-3 sm:mx-5 mx-2 flex-col sm:flex-row  py-5">
-            <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10  ">
+            <div className="sm:w-[40%] sm:h-max  bg-transp rounded-md overflow-hidden overflow-y-scroll p-4 pb-10 [&::-webkit-scrollbar]:hidden  ">
               <DeliveryOption
                 typeEntrega={typeEntrega}
                 bases={bases}

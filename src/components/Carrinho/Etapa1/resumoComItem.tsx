@@ -22,7 +22,7 @@ export const ResumoComItem = ({ rotaDoContinue }: PropsRoute) => {
 
   return (
     <div
-      className={` sm:w-[25%] bg-transp overflow-w-hidden overflow-y-scroll rounded-lg h-min  `}
+      className={` sm:w-[25%] bg-transp overflow-w-hidden overflow-y-scroll rounded-lg h-min [&::-webkit-scrollbar]:hidden  `}
     >
       <h1 className="p-4 text-lg font-semibold border-b border-solid border-roxo hidden sm:block">
         Resumo do pedido
@@ -52,9 +52,8 @@ export const ResumoComItem = ({ rotaDoContinue }: PropsRoute) => {
       </div>
       <Link
         to={rotaDoContinue}
-        className={`${
-          rotaDoContinue.length === 0 ? "hidden" : ""
-        } flex justify-center py-5`}
+        className={`${rotaDoContinue.length === 0 ? "hidden" : ""
+          } flex justify-center py-5`}
       >
         <LogButton content="Continuar " type="button" />
       </Link>

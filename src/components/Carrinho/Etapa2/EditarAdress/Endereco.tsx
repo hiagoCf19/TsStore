@@ -1,7 +1,5 @@
 import { BackGrad } from "@/Styles/Background";
 import { Header } from "../../../Header/Header";
-
-import { Footer } from "../../../Footer/Footer";
 import { FormEndereco } from "./FormEndereco";
 
 import { ResumoComItem } from "../../Etapa1/resumoComItem";
@@ -35,9 +33,7 @@ export const Endereco = () => {
         </div>
       </div>
 
-      <div className="sm:absolute bottom-0 w-full">
-        <Footer />
-      </div>
+
     </BackGrad>
   );
 };

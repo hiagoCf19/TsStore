@@ -40,7 +40,7 @@ export const LayoutGenerico = ({ title, diferenciador }: PropsAll) => {
             >
               <img src="Assets/tsStore.svg" alt="logo" className="w-20 " />
             </aside>
-            <div className="  sm:h-[75vh] sm:bg-transp rounded-md grid w-full grid-cols-2 sm:grid-cols-5 sm:overflow-y-scroll">
+            <div className="sm:h-[75vh] sm:bg-transp rounded-md grid w-full grid-cols-2 sm:grid-cols-5 sm:overflow-y-scroll [&::-webkit-scrollbar]:hidden">
               {diferenciador.map((pdt: ProdutosInterface, i: number) => (
                 <CardProd item={pdt} i={i} key={i} />
               ))}

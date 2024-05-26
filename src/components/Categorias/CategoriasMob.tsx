@@ -4,7 +4,7 @@ import { TitleGeneric } from "../styledElements/title";
 
 export const CategoriasMob = () => {
   return (
-    <section className=" flex flex-col relative overflow-auto sm:hidden w-[95%]">
+    <section className=" flex flex-col relative overflow-auto sm:hidden w-[95%] [&::-webkit-scrollbar]:hidden">
       <TitleGeneric title="Categorias" />
       <div className="flex gap-4  overflow-w-scroll  pt-3 py-3">
         {/* RENDERIZA UM BOTAO COM ROTAS PARA CADA ITEM DO ARRAY CATEGTORY, QUE ESTÁ NO COMPONENTE ROTAS NO MOBILE */}

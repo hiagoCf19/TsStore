@@ -39,7 +39,7 @@ export const ProdutoNoCarrinho = () => {
   };
 
   return (
-    <div className="border-b border-solid border-roxo h-[67%] overflow-hidden overflow-y-scroll">
+    <div className="border-b border-solid border-roxo h-[67%] overflow-hidden overflow-y-scroll [&::-webkit-scrollbar]:hidden">
       {/* PRODUTO 1 */}
       {novosItensExibidos.map((produto: ProdutosInterface, i: number) => (
         <div
